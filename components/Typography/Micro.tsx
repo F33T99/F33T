@@ -11,8 +11,12 @@ export const Micro = styled.p`
   line-height: 1.3em;
   color: ${colors.white};
   max-width: 400px;
+  &.tac {
+    text-align: center;
+  }
   &.uppercase {
     text-transform: uppercase;
+    letter-spacing: 0.03em;
   }
   ${breakpoint.monitor} {
     font-size: 18px;

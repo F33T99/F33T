@@ -17,6 +17,9 @@ export const Mini = styled.p`
   &.uppercase {
     text-transform: uppercase;
   }
+  &.tac {
+    text-align: center;
+  }
   ${breakpoint.monitor} {
     font-size: 21px;
   }
@@ -25,15 +28,6 @@ export const Mini = styled.p`
   }
   ${breakpoint.smallPhone} {
     font-size: 12px;
-  }
-  &.navlink {
-    ${breakpoint.tabletPortrait} {
-      font-size: 40px;
-      text-transform: uppercase;
-    }
-    ${breakpoint.smallPhone} {
-      font-size: 24px;
-    }
   }
   ${addColorClasses()}
 `;

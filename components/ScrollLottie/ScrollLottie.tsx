@@ -25,7 +25,7 @@ const ScrollLottie = ({
       dryScrollYProgress.current.progress,
       playInInterval
     );
-    const totalFrames = lottie.totalFrames;
+    const totalFrames = lottie?.totalFrames;
     if (timmedProgress >= 0 && timmedProgress <= 1) {
       const frame = Math.floor(totalFrames * timmedProgress);
       lottie?.goToAndStop(frame, true);

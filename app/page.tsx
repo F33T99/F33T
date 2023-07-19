@@ -4,7 +4,7 @@ import ProductBanner from "../components/ProductBanner/ProductBanner";
 import ScrollAnimation from "../components/ScrollAnimation/ScrollAnimation";
 import Elevator from "../components/Elevator/Elevator";
 import VariantsHeaderContainer from "../containers/VariantsHeader/VariantsHeaderContainer";
-import { StyledHomepage } from "./(client)/StyledHomepage";
+import { StickyWrapper, StyledHomepage } from "./(client)/StyledHomepage";
 
 const page = ({}) => {
   return (

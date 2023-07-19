@@ -17,6 +17,7 @@ interface ScrollAnimationProps {
   offset?: number[];
   disableIntersectionObserver?: boolean;
   animate?: (currentPos: number, totalDistance: number) => any;
+  className?: string;
 }
 
 type ScrollYProgress = {
@@ -36,6 +37,7 @@ const ScrollAnimation = ({
   offset = [0, 0],
   disableIntersectionObserver = false,
   animate,
+  className,
 }: ScrollAnimationProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const animationElRef = useRef<HTMLDivElement>(null);
@@ -116,7 +118,7 @@ const ScrollAnimation = ({
   return (
     <ScrollAnimationContext.Provider
       value={{ animationElRef, scrollYProgress, dryScrollYProgress }}>
-      <StyledScrollAnimation ref={containerRef}>
+      <StyledScrollAnimation ref={containerRef} className={className}>
         {children}
       </StyledScrollAnimation>
     </ScrollAnimationContext.Provider>

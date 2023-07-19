@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
 export const StyledElevatorHole = styled.div`
-  height: 300vh;
+  height: 200vh;
   position: relative;
 `;

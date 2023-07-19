@@ -2,6 +2,7 @@
 
 import Link from "../Link/Link";
 import Logo from "../Logo/Logo";
+import { Micro } from "../Typography/Micro";
 import { Mini } from "../Typography/Mini";
 import { NavLinks, StyledNavbar } from "./Styles/StyledNavbar";
 
@@ -38,11 +39,11 @@ const Navbar = ({}: NavbarProps) => {
       </Link>
       <NavLinks>
         {navConfig.map(({ pageName, url }) => (
-          <Mini className='uppercase' key={url}>
+          <Micro className='uppercase' key={url}>
             <Link href={"/"} className='no-underline'>
               {pageName}
             </Link>
-          </Mini>
+          </Micro>
         ))}
       </NavLinks>
     </StyledNavbar>

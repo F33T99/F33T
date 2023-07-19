@@ -1,9 +1,9 @@
 "use client";
 
-import React, { ReactNode, createContext, useContext, useRef } from "react";
-import { StyledElevatorHole } from "./Styles/StyledElevatorHole";
-import { MotionValue, useScroll, useTransform } from "framer-motion";
+import { MotionValue } from "framer-motion";
+import React, { ReactNode, createContext, useRef } from "react";
 import { useIntersectionObserver } from "../../hooks/useIntersectionObserver";
+import { StyledElevatorHole } from "./Styles/StyledElevatorHole";
 
 interface ElevatorHoleProps {
   children: ReactNode;

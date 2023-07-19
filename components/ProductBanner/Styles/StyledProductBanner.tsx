@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { spaces } from "../../../consts/spaces";
+import { motion } from "framer-motion";
 
 export const StyledProductBanner = styled.div`
   height: 100vh;
@@ -40,9 +41,26 @@ export const InsoleDescription = styled.div`
 export const InsoleBenefits = styled.div`
   grid-area: benefits;
   align-self: end;
+  display: grid;
+  row-gap: ${spaces.m}px;
+`;
+
+export const Benefits = styled(motion.div)`
+  display: flex;
+  column-gap: ${spaces.l}px;
+  overflow: hidden;
+`;
+
+export const Benefit = styled(motion.div)`
+  display: grid;
+  row-gap: ${spaces.xs}px;
 `;
 
 export const InsoleCTA = styled.div`
   grid-area: cta;
   align-self: end;
+`;
+
+export const Price = styled.div`
+  overflow: hidden;
 `;

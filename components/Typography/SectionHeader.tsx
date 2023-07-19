@@ -1,6 +1,6 @@
 "use client";
 
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { colors } from "../../consts/colors";
 import { addColorClasses } from "../../helpers/addColorClasses";
 import { breakpoint } from "../../consts/breakpoints";
@@ -29,5 +29,16 @@ export const SectionHeader = styled.h2`
   ${breakpoint.smallPhone} {
     font-size: 30px;
   }
-  ${addColorClasses()}
+  ${addColorClasses(
+    (color, colorKey) => `
+      &.outline-${colorKey} {
+        text-shadow: -1px -1px 0 ${color}, 
+                     1px -1px 0 ${color},
+                     -1px 1px 0 ${color}, 
+                     1px 1px 0 ${color};
+        color: black;
+      }
+    `,
+    true
+  )}
 `;

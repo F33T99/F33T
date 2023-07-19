@@ -17,8 +17,9 @@ const StyledElevator = styled.div`
 
 const ElevatorCabin = styled.div`
   height: 100vh;
-  width: 100%;
-  position: absolute;
+  width: 100vw;
+  position: sticky;
+  top: 0;
 `;
 
 const ElevatorBody = ({ children }: ProductElevatorHoleProps) => {
@@ -36,12 +37,7 @@ const ElevatorBody = ({ children }: ProductElevatorHoleProps) => {
 
 const Elevator = ({ children }) => {
   return (
-    <ScrollAnimation
-      offset={[1, 1]}
-      disableIntersectionObserver
-      animate={(currentPos, totalDistance) => ({
-        top: `${(currentPos / (totalDistance + window.innerHeight)) * 100}%`,
-      })}>
+    <ScrollAnimation offset={[1, 1]} disableIntersectionObserver>
       <ElevatorBody>{children}</ElevatorBody>
     </ScrollAnimation>
   );
