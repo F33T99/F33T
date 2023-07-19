@@ -12,7 +12,7 @@ export const SectionHeader = styled.h2`
   /* Section header should not be on two rows */
   line-height: 1.2em;
   text-transform: uppercase;
-  color: ${colors.black};
+  color: ${colors.white};
   margin-left: -0.3rem;
   ${breakpoint.monitor} {
     font-size: 100px;

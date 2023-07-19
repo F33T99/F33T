@@ -29,7 +29,7 @@ export const StyledLink = styled.a`
       border-radius: 99999px;
       &:hover {
         background-color: ${colors.yellow400};
-        color: ${colors.black};
+        color: ${colors.white};
         &[target] {
           svg {
             fill: ${colors.black};

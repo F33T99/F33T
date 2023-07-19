@@ -9,7 +9,7 @@ export const Mini = styled.p`
   font-size: 18px;
   letter-spacing: 0em;
   line-height: 1.3em;
-  color: ${colors.black};
+  color: ${colors.white};
   max-width: 400px;
   &.break-lines {
     white-space: pre-line;

@@ -2,6 +2,7 @@ export const colors = {
   beige400: "#ECDED4",
   beige500: "#BEADA2",
   red400: "#FD0000",
+  red300: "#FF1C1C",
   green400: "#2F6C33",
   violet400: "#C030FF",
   yellow400: "#FFCF00",

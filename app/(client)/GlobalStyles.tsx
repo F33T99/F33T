@@ -2,7 +2,6 @@
 
 import { createGlobalStyle } from "styled-components";
 import { colors } from "../../consts/colors";
-import { spaces } from "../../consts/spaces";
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -14,7 +13,6 @@ export const GlobalStyles = createGlobalStyle`
   }
   body {
     background-color: ${colors.black};
-    padding: 0 ${spaces.l}px;
   }
   @font-face {
     font-family: 'Matter';

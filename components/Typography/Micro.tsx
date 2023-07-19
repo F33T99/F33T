@@ -9,7 +9,7 @@ export const Micro = styled.p`
   font-size: 14px;
   letter-spacing: 0em;
   line-height: 1.3em;
-  color: ${colors.black};
+  color: ${colors.white};
   max-width: 400px;
   &.uppercase {
     text-transform: uppercase;

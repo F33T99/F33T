@@ -10,7 +10,7 @@ export const Medium = styled.p`
   font-size: 30px;
   letter-spacing: -0.01em;
   line-height: 1.2em;
-  color: ${colors.black};
+  color: ${colors.white};
   max-width: 700px;
   &.max-width {
     max-width: unset;

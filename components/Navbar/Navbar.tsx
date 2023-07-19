@@ -38,7 +38,7 @@ const Navbar = ({}: NavbarProps) => {
       </Link>
       <NavLinks>
         {navConfig.map(({ pageName, url }) => (
-          <Mini className='white uppercase' key={url}>
+          <Mini className='uppercase' key={url}>
             <Link href={"/"} className='no-underline'>
               {pageName}
             </Link>
