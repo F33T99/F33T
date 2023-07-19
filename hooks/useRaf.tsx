@@ -17,6 +17,10 @@ export function useRaf(containerRef, _raf) {
 
   useEffect(() => {
     function raf() {
+      if (!isIntersecting.current) {
+        rafId.current = requestAnimationFrame(raf);
+        return;
+      }
       _raf();
       rafId.current = requestAnimationFrame(raf);
     }

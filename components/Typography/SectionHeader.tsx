@@ -4,13 +4,12 @@ import styled from "styled-components";
 import { colors } from "../../consts/colors";
 import { addColorClasses } from "../../helpers/addColorClasses";
 import { breakpoint } from "../../consts/breakpoints";
-import { PostPostContainer } from "../../pageStyles/postPageStyles";
 
 export const SectionHeader = styled.h2`
   font-size: 90px;
   letter-spacing: -0.03em;
   /* Section header should not be on two rows */
-  line-height: 1.2em;
+  line-height: 1em;
   text-transform: uppercase;
   color: ${colors.white};
   margin-left: -0.3rem;
@@ -29,20 +28,6 @@ export const SectionHeader = styled.h2`
   }
   ${breakpoint.smallPhone} {
     font-size: 30px;
-  }
-  ${PostPostContainer} & {
-    ${breakpoint.smallNotebook} {
-      font-size: 60px;
-    }
-    ${breakpoint.tabletPortrait} {
-      font-size: 45px;
-    }
-    ${breakpoint.phone} {
-      font-size: 26px;
-    }
-    ${breakpoint.smallPhone} {
-      font-size: 21px;
-    }
   }
   ${addColorClasses()}
 `;

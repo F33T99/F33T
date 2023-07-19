@@ -14,6 +14,9 @@ export const Large = styled.p`
   &.max-width {
     max-width: unset;
   }
+  &.uppercase {
+    text-transform: uppercase;
+  }
   ${breakpoint.monitor} {
     font-size: 60px;
     max-width: 1000px;

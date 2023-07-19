@@ -14,6 +14,7 @@
   "dependencies": {
     "@dotlottie/react-player": "^1.1.0",
     "@lottiefiles/lottie-interactivity": "^1.6.2",
+    "auto-writer": "^1.1.2",
     "framer-motion": "^10.12.22",
     "next": "^13.4.10",
     "react": "^18.2.0",

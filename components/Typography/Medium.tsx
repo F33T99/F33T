@@ -7,7 +7,7 @@ import { breakpoint } from "../../consts/breakpoints";
 import { spaces } from "../../consts/spaces";
 
 export const Medium = styled.p`
-  font-size: 30px;
+  font-size: 26px;
   letter-spacing: -0.01em;
   line-height: 1.2em;
   color: ${colors.white};
@@ -33,7 +33,7 @@ export const Medium = styled.p`
     font-size: 35px;
   }
   ${breakpoint.smallNotebook} {
-    font-size: 26px;
+    font-size: 24px;
     max-width: 500px;
   }
   ${breakpoint.tabletLandscape} {
