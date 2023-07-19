@@ -17,6 +17,7 @@ const page = ({}) => {
       <Elevator>
         <ProductBanner />
       </Elevator>
+      <div style={{ height: "200vh" }} />
     </StyledHomepage>
   );
 };

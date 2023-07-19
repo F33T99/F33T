@@ -26,7 +26,7 @@ const ScrollLottie = ({
       playInInterval
     );
     const totalFrames = lottie?.totalFrames;
-    if (timmedProgress >= 0 && timmedProgress <= 1) {
+    if (timmedProgress >= 0 && timmedProgress < 1) {
       const frame = Math.floor(totalFrames * timmedProgress);
       lottie?.goToAndStop(frame, true);
       onFrameChange({ frame, totalFrames });
