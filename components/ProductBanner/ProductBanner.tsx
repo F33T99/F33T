@@ -1,17 +1,24 @@
 "use client";
 
-import { useContext } from "react";
-import { ScrollAnimationContext } from "../ScrollAnimation/ScrollAnimation";
-import { StyledProductBanner } from "./Styles/StyledProductBanner";
+import ScrollLottie from "../ScrollLottie/ScrollLottie";
+import {
+  LottieWrapper,
+  StyledProductBanner,
+} from "./Styles/StyledProductBanner";
 
 interface ProductBannerProps {}
 
 const ProductBanner = ({}: ProductBannerProps) => {
-  const {
-    animationElRef,
-    scrollYProgress: { currentPos, totalDistance, progress },
-  } = useContext(ScrollAnimationContext);
-  return <StyledProductBanner>{progress}</StyledProductBanner>;
+  return (
+    <StyledProductBanner>
+      <LottieWrapper>
+        <ScrollLottie
+          src={"/lottie/insole-scroll.lottie"}
+          playInInterval={[0.47, 0.53]}
+        />
+      </LottieWrapper>
+    </StyledProductBanner>
+  );
 };
 
 export default ProductBanner;

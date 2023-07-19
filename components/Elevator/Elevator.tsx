@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ReactNode, useContext } from "react";
+import { ReactNode, useContext } from "react";
 import styled from "styled-components";
 import ScrollAnimation, {
   ScrollAnimationContext,
@@ -28,20 +28,20 @@ const ElevatorBody = ({ children }: ProductElevatorHoleProps) => {
   } = useContext(ScrollAnimationContext);
 
   return (
-    <StyledElevator ref={animationElRef}>
-      <ElevatorCabin
-        style={{
-          top: `${(currentPos / (totalDistance + window.innerHeight)) * 100}%`,
-        }}>
-        {children}
-      </ElevatorCabin>
+    <StyledElevator>
+      <ElevatorCabin ref={animationElRef}>{children}</ElevatorCabin>
     </StyledElevator>
   );
 };
 
 const Elevator = ({ children }) => {
   return (
-    <ScrollAnimation offset={[1, 1]} disableIntersectionObserver>
+    <ScrollAnimation
+      offset={[1, 1]}
+      disableIntersectionObserver
+      animate={(currentPos, totalDistance) => ({
+        top: `${(currentPos / (totalDistance + window.innerHeight)) * 100}%`,
+      })}>
       <ElevatorBody>{children}</ElevatorBody>
     </ScrollAnimation>
   );

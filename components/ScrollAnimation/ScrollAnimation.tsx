@@ -2,6 +2,7 @@
 
 import {
   LegacyRef,
+  MutableRefObject,
   ReactNode,
   createContext,
   useEffect,
@@ -15,25 +16,35 @@ interface ScrollAnimationProps {
   children: ReactNode;
   offset?: number[];
   disableIntersectionObserver?: boolean;
+  animate?: (currentPos: number, totalDistance: number) => any;
 }
+
+type ScrollYProgress = {
+  progress: number;
+  totalDistance: number;
+  currentPos: number;
+};
 
 export const ScrollAnimationContext = createContext<{
   animationElRef: LegacyRef<HTMLDivElement>;
-  scrollYProgress: {
-    progress: number;
-    totalDistance: number;
-    currentPos: number;
-  };
+  scrollYProgress: ScrollYProgress;
+  dryScrollYProgress: MutableRefObject<ScrollYProgress>;
 }>(null);
 
 const ScrollAnimation = ({
   children,
   offset = [0, 0],
   disableIntersectionObserver = false,
+  animate,
 }: ScrollAnimationProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const animationElRef = useRef<HTMLDivElement>(null);
   const isIntersecting = useRef<boolean>(false);
+  const dryScrollYProgress = useRef<ScrollYProgress>({
+    currentPos: 0,
+    progress: 0,
+    totalDistance: 0,
+  });
   const [scrollYProgress, setScrollYProgress] = useState({
     progress: 0,
     totalDistance: 0,
@@ -61,10 +72,10 @@ const ScrollAnimation = ({
       }
 
       const scrollY = window.scrollY;
-      const animElHeight = animationElRef.current.clientHeight;
+      const animElHeight = containerRef.current.clientHeight;
       const viewportHeight = window.innerHeight;
 
-      const animElOffsetFromTop = animationElRef.current.offsetTop;
+      const animElOffsetFromTop = containerRef.current.offsetTop;
       const animElOffsetFromBottom = animElOffsetFromTop + animElHeight;
 
       const topBound = viewportHeight * offset[0];
@@ -83,8 +94,15 @@ const ScrollAnimation = ({
         rafId.current = requestAnimationFrame(raf);
         return;
       }
+      const payload = { progress, currentPos, totalDistance };
 
-      setScrollYProgress({ progress, currentPos, totalDistance });
+      if (animate) {
+        const style = animate(currentPos, totalDistance);
+        Object.assign(animationElRef.current.style, style);
+      } else {
+        setScrollYProgress(payload);
+      }
+      dryScrollYProgress.current = payload;
 
       rafId.current = requestAnimationFrame(raf);
     }
@@ -97,7 +115,7 @@ const ScrollAnimation = ({
 
   return (
     <ScrollAnimationContext.Provider
-      value={{ animationElRef, scrollYProgress }}>
+      value={{ animationElRef, scrollYProgress, dryScrollYProgress }}>
       <StyledScrollAnimation ref={containerRef}>
         {children}
       </StyledScrollAnimation>
