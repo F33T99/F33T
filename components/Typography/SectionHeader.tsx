@@ -8,11 +8,13 @@ import { breakpoint } from "../../consts/breakpoints";
 export const SectionHeader = styled.h2`
   font-size: 90px;
   letter-spacing: -0.03em;
-  /* Section header should not be on two rows */
   line-height: 1em;
   text-transform: uppercase;
   color: ${colors.white};
   margin-left: -0.3rem;
+  &.max-width {
+    max-width: 1200px;
+  }
   ${breakpoint.monitor} {
     font-size: 100px;
   }

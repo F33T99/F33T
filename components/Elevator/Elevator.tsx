@@ -11,7 +11,7 @@ interface ProductElevatorHoleProps {
 }
 
 const StyledElevator = styled.div`
-  height: 300vh;
+  height: 200vh;
   position: relative;
 `;
 

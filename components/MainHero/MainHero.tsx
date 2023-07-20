@@ -2,6 +2,7 @@
 
 import Button from "../Button/Button";
 import { PageHeader } from "../Typography/PageHeader";
+import Video from "../Video/Video";
 import {
   HeroContent,
   HeroVideo,
@@ -18,13 +19,9 @@ const MainHero = ({}: MainHeroProps) => {
         </PageHeader>
         <Button>Zjistit více</Button>
       </HeroContent>
-      <HeroVideo
-        loop
-        autoPlay
-        playsInline
-        muted
-        src='/videos/hero-loop-horizontal.mp4'
-      />
+      <HeroVideo>
+        <Video src={"/videos/hero-loop-horizontal.mp4"} />
+      </HeroVideo>
     </StyledMainHero>
   );
 };

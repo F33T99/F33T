@@ -12,7 +12,10 @@ export const Medium = styled.p`
   line-height: 1.2em;
   color: ${colors.white};
   max-width: 700px;
-  &.max-width {
+  &.wide {
+    max-width: 1000px;
+  }
+  &.no-max-width {
     max-width: unset;
   }
   &.indent {
@@ -28,6 +31,7 @@ export const Medium = styled.p`
   }
   &.uppercase {
     text-transform: uppercase;
+    line-height: 1.3em;
   }
   ${breakpoint.monitor} {
     font-size: 35px;

@@ -11,7 +11,10 @@ export const Large = styled.p`
   line-height: 1.3em;
   color: ${colors.white};
   max-width: 800px;
-  &.max-width {
+  &.indent {
+    text-indent: 4em;
+  }
+  &.no-max-width {
     max-width: unset;
   }
   &.uppercase {

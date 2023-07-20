@@ -5,7 +5,7 @@ export const StyledMainHero = styled.div`
   position: relative;
 `;
 
-export const HeroVideo = styled.video`
+export const HeroVideo = styled.div`
   width: 100%;
   position: absolute;
   top: 0;

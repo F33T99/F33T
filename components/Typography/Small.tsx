@@ -15,7 +15,7 @@ export const Small = styled.p`
   &.indent {
     text-indent: 4em;
   }
-  &.max-width {
+  &.no-max-width {
     max-width: unset;
   }
   &.two-columns {
