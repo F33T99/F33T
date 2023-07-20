@@ -13,6 +13,11 @@ export const Nano = styled.p`
   max-width: 400px;
   &.uppercase {
     text-transform: uppercase;
+    letter-spacing: 0.03em;
+    line-height: 1.5em;
+  }
+  &.tar {
+    text-align: right;
   }
   ${breakpoint.monitor} {
     font-size: 16px;

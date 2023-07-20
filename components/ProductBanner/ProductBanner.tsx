@@ -131,7 +131,7 @@ const ProductBanner = ({}: ProductBannerProps) => {
 
       <LottieWrapper>
         <ScrollLottie
-          src={"/lottie/insole-scroll-3.lottie"}
+          src={"/lottie/insole-scroll-4.lottie"}
           playInInterval={[0, 1]}
           onFrameChange={(frame) => {
             const isPastHalf = frame.frame / frame.totalFrames > 0.5;

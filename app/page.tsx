@@ -1,4 +1,5 @@
 import Elevator from "../components/Elevator/Elevator";
+import Footer from "../components/Footer/Footer";
 import MainHero from "../components/MainHero/MainHero";
 import Navbar from "../components/Navbar/Navbar";
 import PlayButton from "../components/PlayButton/PlayButton";
@@ -176,6 +177,7 @@ const page = ({}) => {
         </References>
       </ReferencesSection>
       <AboutSectionContainer />
+      <Footer />
     </StyledHomepage>
   );
 };

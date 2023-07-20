@@ -6,7 +6,9 @@ import { spaces } from "../../../consts/spaces";
 
 export const StyledLink = styled.a`
   &,
-  a {
+  a,
+  a:link,
+  a:visited {
     font-size: inherit;
     font-weight: inherit;
     letter-spacing: inherit;
