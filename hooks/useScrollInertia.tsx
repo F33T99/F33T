@@ -19,7 +19,7 @@ export function useScrollInertia(ref) {
   });
 
   const handleWheel = (e: WheelEvent) => {
-    speed.current += e.deltaY * 0.8;
+    speed.current += e.deltaY * 0.4;
   };
 
   React.useEffect(() => {
