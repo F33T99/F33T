@@ -243,56 +243,56 @@ export const FlexIcon2 = () => {
           transform='translate(1910.183 8560.184)'
           fill='none'
           stroke='#fff'
-          stroke-miterlimit='10'
-          stroke-width='0.5'
+          strokeMiterlimit='10'
+          strokeWidth='0.5'
         />
         <line
           y2='9.999'
           transform='translate(1925.877 8570.878)'
           fill='none'
           stroke='#fff'
-          stroke-miterlimit='10'
-          stroke-width='0.5'
+          strokeMiterlimit='10'
+          strokeWidth='0.5'
         />
         <line
           x2='9.999'
           transform='translate(1920.877 8575.877)'
           fill='none'
           stroke='#fff'
-          stroke-miterlimit='10'
-          stroke-width='0.5'
+          strokeMiterlimit='10'
+          strokeWidth='0.5'
         />
         <line
           x2='8.365'
           transform='translate(1937.389 8575.877)'
           fill='none'
           stroke='#fff'
-          stroke-miterlimit='10'
-          stroke-width='0.5'
+          strokeMiterlimit='10'
+          strokeWidth='0.5'
         />
         <line
           x2='8.365'
           transform='translate(1906 8575.877)'
           fill='none'
           stroke='#fff'
-          stroke-miterlimit='10'
-          stroke-width='0.5'
+          strokeMiterlimit='10'
+          strokeWidth='0.5'
         />
         <line
           y2='8.365'
           transform='translate(1925.877 8587.39)'
           fill='none'
           stroke='#fff'
-          stroke-miterlimit='10'
-          stroke-width='0.5'
+          strokeMiterlimit='10'
+          strokeWidth='0.5'
         />
         <line
           y2='8.365'
           transform='translate(1925.877 8556)'
           fill='none'
           stroke='#fff'
-          stroke-miterlimit='10'
-          stroke-width='0.5'
+          strokeMiterlimit='10'
+          strokeWidth='0.5'
         />
       </g>
     </StyledFlexIcon2>

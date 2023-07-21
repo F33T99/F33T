@@ -1,13 +1,13 @@
 import Elevator from "../components/Elevator/Elevator";
 import Footer from "../components/Footer/Footer";
 import MainHero from "../components/MainHero/MainHero";
-import Navbar from "../components/Navbar/Navbar";
 import PlayButton from "../components/PlayButton/PlayButton";
 import ProductBanner from "../components/ProductBanner/ProductBanner";
 import ScrollAnimation from "../components/ScrollAnimation/ScrollAnimation";
 import { Medium } from "../components/Typography/Medium";
 import { Micro } from "../components/Typography/Micro";
 import { SectionHeader } from "../components/Typography/SectionHeader";
+import Video from "../components/Video/Video";
 import { colors } from "../consts/colors";
 import AboutSectionContainer from "../containers/AboutSection/AboutSectionContainer";
 import VariantsHeaderContainer from "../containers/VariantsHeader/VariantsHeaderContainer";
@@ -31,7 +31,6 @@ import {
 const page = ({}) => {
   return (
     <StyledHomepage>
-      <Navbar />
       <MainHero />
       <ScrollAnimation offset={[0.9, 0.1]}>
         <VariantsHeaderContainer />
@@ -68,10 +67,7 @@ const page = ({}) => {
             </TechnologyBenefit>
           </TechnologyBenefits>
           <TechnologyLoop>
-            <img
-              src={"/images/technology-loop.jpg"}
-              style={{ width: "100%" }}
-            />
+            <Video src={"/videos/explainer-loop.mp4"} />
             <TechnologyPlayButton>
               <PlayButton />
             </TechnologyPlayButton>

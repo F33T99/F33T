@@ -1,3 +1,4 @@
+import Navbar from "../components/Navbar/Navbar";
 import StyledComponentsRegistry from "../lib/registry";
 import { GlobalStyles } from "./(client)/GlobalStyles";
 
@@ -32,6 +33,7 @@ export default async function RootLayout({
       <StyledComponentsRegistry>
         <body>
           <GlobalStyles />
+          <Navbar />
           {children}
         </body>
       </StyledComponentsRegistry>

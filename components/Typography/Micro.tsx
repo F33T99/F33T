@@ -6,9 +6,9 @@ import { addColorClasses } from "../../helpers/addColorClasses";
 import { breakpoint } from "../../consts/breakpoints";
 
 export const Micro = styled.p`
-  font-size: 14px;
-  letter-spacing: 0em;
-  line-height: 1.3em;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  line-height: 1.6em;
   color: ${colors.white};
   max-width: 400px;
   &.tac {

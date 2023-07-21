@@ -1,10 +1,8 @@
 "use client";
 
 import styled from "styled-components";
-import { spaces } from "../../consts/spaces";
 import { colors } from "../../consts/colors";
-import Image from "next/image";
-import { motion } from "framer-motion";
+import { spaces } from "../../consts/spaces";
 
 export const StyledHomepage = styled.main``;
 
@@ -40,7 +38,7 @@ export const TechnologyLoop = styled.div`
 
 export const TechnologyPlayButton = styled.div`
   position: absolute;
-  width: 300px;
+  width: 200px;
   top: 0;
   left: 0;
 `;

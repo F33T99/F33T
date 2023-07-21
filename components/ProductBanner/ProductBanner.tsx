@@ -133,6 +133,7 @@ const ProductBanner = ({}: ProductBannerProps) => {
         <ScrollLottie
           src={"/lottie/insole-scroll-4.lottie"}
           playInInterval={[0, 1]}
+          setFrameBounds={(totalFrames) => [3, totalFrames - 10]}
           onFrameChange={(frame) => {
             const isPastHalf = frame.frame / frame.totalFrames > 0.5;
             const nextState = isPastHalf ? "basic" : "active";
