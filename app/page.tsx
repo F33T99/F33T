@@ -1,4 +1,3 @@
-import getClient from "../apollo/client";
 import Elevator from "../components/Elevator/Elevator";
 import Footer from "../components/Footer/Footer";
 import MainHero from "../components/MainHero/MainHero";
@@ -12,12 +11,6 @@ import Video from "../components/Video/Video";
 import { colors } from "../consts/colors";
 import AboutSectionContainer from "../containers/AboutSection/AboutSectionContainer";
 import VariantsHeaderContainer from "../containers/VariantsHeader/VariantsHeaderContainer";
-import { GET_PRODUCTS } from "../gql/GetProducts";
-import { QueryRoot } from "../gql/types";
-import {
-  getPrivateTokenHeaders,
-  getStorefrontApiUrl,
-} from "../shopify/shopifyClient";
 import {
   Reference,
   ReferenceHorLine,
@@ -36,21 +29,25 @@ import {
 } from "./(client)/StyledHomepage";
 
 const page = async () => {
-  const client = getClient();
+  // const client = getClient();
 
-  const data = await client.query<QueryRoot>({
-    query: GET_PRODUCTS,
-    variables: {
-      first: 99,
-      transformImage: {
-        maxWidth: 1920,
-        maxHeight: 1080,
-        preferredContentType: "WEBP",
-      },
-    },
-  });
-
-  console.log(data.data.products);
+  // const {
+  //   data: { products },
+  // } = await client.query<QueryRoot>({
+  //   query: GET_PRODUCTS,
+  //   variables: {
+  //     first: 99,
+  //     transformImage: {
+  //       maxWidth: 1920,
+  //       maxHeight: 1080,
+  //       preferredContentType: "WEBP",
+  //     },
+  //     identifiers: {
+  //       namespace: "custom",
+  //       key: "benefits",
+  //     },
+  //   },
+  // });
 
   return (
     <StyledHomepage>
