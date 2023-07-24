@@ -1,5 +1,3 @@
-import { LocaleCode, i18n } from "../i18n-config";
-
 export function formatDate(date: string, withTime: boolean = true) {
   const event = new Date(date);
   const timeOpts = withTime
@@ -19,7 +17,7 @@ export function formatDate(date: string, withTime: boolean = true) {
   });
 }
 
-export const getMonthName = (monthNumber, lang: LocaleCode = "en-GB") => {
+export const getMonthName = (monthNumber, lang: string = "en-GB") => {
   const date = new Date();
   date.setMonth(monthNumber);
 
