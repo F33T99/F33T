@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
-    "build": "next",
+    "build": "next build",
     "start": "next start",
     "codegen": "graphql-codegen --require dotenv/config --config ./codegen.ts dotenv_config_path=./.env"
   },
