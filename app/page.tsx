@@ -1,3 +1,4 @@
+import Dialog from "../components/Dialog/Dialog";
 import Elevator from "../components/Elevator/Elevator";
 import Footer from "../components/Footer/Footer";
 import MainHero from "../components/MainHero/MainHero";
@@ -27,6 +28,7 @@ import {
   TechnologyLoop,
   TechnologyPlayButton,
 } from "./(client)/StyledHomepage";
+import TechnologyLoopContainer from "./(client)/TechnologyLoopContainer";
 
 const page = async () => {
   // const client = getClient();
@@ -86,12 +88,7 @@ const page = async () => {
               </Micro>
             </TechnologyBenefit>
           </TechnologyBenefits>
-          <TechnologyLoop>
-            <Video src={"/videos/explainer-loop.mp4"} />
-            <TechnologyPlayButton>
-              <PlayButton />
-            </TechnologyPlayButton>
-          </TechnologyLoop>
+          <TechnologyLoopContainer />
           <TechnologyBenefits className='_2'>
             <TechnologyBenefit>
               <Micro className='uppercase'>Aktivní stříbro</Micro>
