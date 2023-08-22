@@ -14,6 +14,16 @@ export const GET_PRODUCTS = gql`
           tags
           description
           totalInventory
+          priceRange {
+            maxVariantPrice {
+              currencyCode
+              amount
+            }
+            minVariantPrice {
+              amount
+              currencyCode
+            }
+          }
           variants(first: $first) {
             nodes {
               weight

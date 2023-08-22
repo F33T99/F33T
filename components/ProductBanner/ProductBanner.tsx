@@ -1,9 +1,13 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { ProductPriceRange } from "../../gql/types";
+import { formatPrice } from "../../helpers/formatPrice";
 import Button from "../Button/Button";
 import ScrollLottie from "../ScrollLottie/ScrollLottie";
 import { Large } from "../Typography/Large";
+import { Micro } from "../Typography/Micro";
 import { Mini } from "../Typography/Mini";
 import { SectionHeader } from "../Typography/SectionHeader";
 import { Small } from "../Typography/Small";
@@ -19,35 +23,18 @@ import {
   ProductContent,
   StyledProductBanner,
 } from "./Styles/StyledProductBanner";
-import { Micro } from "../Typography/Micro";
-import { AnimatePresence, motion } from "framer-motion";
-import { formatPrice } from "../../helpers/formatPrice";
 
-interface ProductBannerProps {}
+interface ProductBannerProps {
+  data: {
+    benefits: string[];
+    type: string;
+    slug: string;
+    perex: string;
+    price: ProductPriceRange;
+  }[];
+}
 
-const data = [
-  {
-    benefits: [
-      "Odměkčená pata",
-      "Tvaruje ploché chodidlo",
-      "Redukce nárazu",
-      "Antibakteriální",
-    ],
-    type: "Active",
-    perex:
-      "Vložka typu ACTIVE je určena pro denní nošení a sport. chrání před rázy při chůzi, běhu a dopadech. Vložky korespondují s ergonomií chodidla. Povrchová pletená textilie s přidaným stříbrem snižuje množení bakterií, čímž přímo zabraňuje zápachu.",
-    price: { amount: 1990, currency: "CZK" },
-  },
-  {
-    benefits: ["Antibakteriální", "Celoplošně odměkčená", "Udržitelnost"],
-    type: "Basic",
-    perex:
-      "Vložka typu BASIC je určena zejména pro denní nošení převážně v pracovním prostředí kde je člověk neustále na nohách. Díky unikátní polyuretanové pěně, která chrání kostru před nárazy při chůzi a díky svým vlastnostem zajišťuje konzistentní komfort po celou dobu nošení.",
-    price: { amount: 990, currency: "CZK" },
-  },
-];
-
-const ProductBanner = ({}: ProductBannerProps) => {
+const ProductBanner = ({ data }: ProductBannerProps) => {
   const [activeInsoleType, setActiveInsoleType] = useState("active");
   const descriptionRef = useRef<HTMLDivElement>(null);
   const insoleCurrIndex = activeInsoleType === "active" ? 0 : 1;
@@ -117,11 +104,16 @@ const ProductBanner = ({}: ProductBannerProps) => {
           <Price>
             <AnimatePresence mode={"wait"}>
               <motion.div
-                key={data[insoleCurrIndex].price.amount}
+                key={data[insoleCurrIndex].price.minVariantPrice.amount}
                 initial={{ y: "100%" }}
                 animate={{ y: "0%" }}
                 exit={{ y: "100%" }}>
-                <Large>{formatPrice(data[insoleCurrIndex].price.amount)}</Large>
+                <Large>
+                  od{" "}
+                  {formatPrice(
+                    data[insoleCurrIndex].price.minVariantPrice.amount
+                  )}
+                </Large>
               </motion.div>
             </AnimatePresence>
           </Price>

@@ -1,17 +1,17 @@
-import Dialog from "../components/Dialog/Dialog";
+import getClient from "../apollo/client";
 import Elevator from "../components/Elevator/Elevator";
 import Footer from "../components/Footer/Footer";
 import MainHero from "../components/MainHero/MainHero";
-import PlayButton from "../components/PlayButton/PlayButton";
 import ProductBanner from "../components/ProductBanner/ProductBanner";
 import ScrollAnimation from "../components/ScrollAnimation/ScrollAnimation";
 import { Medium } from "../components/Typography/Medium";
 import { Micro } from "../components/Typography/Micro";
 import { SectionHeader } from "../components/Typography/SectionHeader";
-import Video from "../components/Video/Video";
 import { colors } from "../consts/colors";
 import AboutSectionContainer from "../containers/AboutSection/AboutSectionContainer";
 import VariantsHeaderContainer from "../containers/VariantsHeader/VariantsHeaderContainer";
+import { GET_PRODUCTS } from "../gql/GetProducts";
+import { QueryRoot } from "../gql/types";
 import {
   Reference,
   ReferenceHorLine,
@@ -25,31 +25,29 @@ import {
   TechnologyBenefits,
   TechnologyContent,
   TechnologyHeader,
-  TechnologyLoop,
-  TechnologyPlayButton,
 } from "./(client)/StyledHomepage";
 import TechnologyLoopContainer from "./(client)/TechnologyLoopContainer";
 
 const page = async () => {
-  // const client = getClient();
+  const client = getClient();
 
-  // const {
-  //   data: { products },
-  // } = await client.query<QueryRoot>({
-  //   query: GET_PRODUCTS,
-  //   variables: {
-  //     first: 99,
-  //     transformImage: {
-  //       maxWidth: 1920,
-  //       maxHeight: 1080,
-  //       preferredContentType: "WEBP",
-  //     },
-  //     identifiers: {
-  //       namespace: "custom",
-  //       key: "benefits",
-  //     },
-  //   },
-  // });
+  const {
+    data: { products },
+  } = await client.query<QueryRoot>({
+    query: GET_PRODUCTS,
+    variables: {
+      first: 99,
+      transformImage: {
+        maxWidth: 1920,
+        maxHeight: 1080,
+        preferredContentType: "WEBP",
+      },
+      identifiers: {
+        namespace: "custom",
+        key: "benefits",
+      },
+    },
+  });
 
   return (
     <StyledHomepage>
@@ -58,7 +56,15 @@ const page = async () => {
         <VariantsHeaderContainer />
       </ScrollAnimation>
       <Elevator>
-        <ProductBanner />
+        <ProductBanner
+          data={products.edges.map(({ node }) => ({
+            perex: node.description,
+            benefits: node.metafields[0]?.value.split("\n"),
+            type: node.title,
+            price: node.priceRange,
+            slug: "",
+          }))}
+        />
       </Elevator>
       <Technology>
         <TechnologyHeader>Technologie</TechnologyHeader>
