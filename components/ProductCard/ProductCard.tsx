@@ -12,6 +12,7 @@ import InsoleSizeVariants from "../InsoleSizeVariants/InsoleSizeVariants";
 import { Mini } from "../Typography/Mini";
 import Button from "../Button/Button";
 import { useState } from "react";
+import Line from "../Line/Line";
 
 interface ProductCardProps extends Partial<Product> {}
 
@@ -41,6 +42,7 @@ const ProductCard = ({
         </div>
         <Button className='big'>zjistit více</Button>
       </ProductCardContent>
+      <Line stroke='red400' />
     </StyledProductCard>
   );
 };
