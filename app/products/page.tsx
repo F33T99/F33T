@@ -5,6 +5,7 @@ import { SectionHeader } from "../../components/Typography/SectionHeader";
 import { Small } from "../../components/Typography/Small";
 import { GET_PRODUCTS } from "../../gql/GetProducts";
 import {
+  GlobalProducts,
   ProductsGrid,
   ProductsPageHero,
   StyledProductPage,
@@ -35,6 +36,7 @@ const page = async ({}: pageProps) => {
 
   return (
     <StyledProductPage data-theme='light'>
+      <GlobalProducts />
       <ProductsPageHero>
         <SectionHeader className='black'>Produkty</SectionHeader>
         <Small className='black uppercase indent'>

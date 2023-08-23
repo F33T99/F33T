@@ -14,7 +14,7 @@ const ThemeProvider = ({ children }: ThemeProviderProps) => {
 
   useEffect(() => {
     const mainEl = document.querySelector("[data-theme]") as HTMLElement;
-    setTheme(mainEl.dataset.theme);
+    setTheme(mainEl?.dataset.theme || "light");
   }, [pathname]);
 
   return (

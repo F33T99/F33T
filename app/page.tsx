@@ -13,6 +13,7 @@ import VariantsHeaderContainer from "../containers/VariantsHeader/VariantsHeader
 import { GET_PRODUCTS } from "../gql/GetProducts";
 import { QueryRoot } from "../gql/types";
 import {
+  GlobalHomepage,
   Reference,
   ReferenceHorLine,
   ReferencePerson,
@@ -51,6 +52,7 @@ const page = async () => {
 
   return (
     <StyledHomepage data-theme='dark'>
+      <GlobalHomepage />
       <MainHero />
       <ScrollAnimation offset={[0.9, 0.1]}>
         <VariantsHeaderContainer />

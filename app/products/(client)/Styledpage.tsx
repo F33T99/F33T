@@ -1,11 +1,16 @@
 "use client";
 
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import { colors } from "../../../consts/colors";
 import { spaces } from "../../../consts/spaces";
 
+export const GlobalProducts = createGlobalStyle`
+  body {
+    background-color: ${colors.gray300};
+  }
+`;
+
 export const StyledProductPage = styled.div`
-  background-color: ${colors.gray300};
   padding: ${spaces.xxxxl}px ${spaces.l}px 0;
 `;
 
