@@ -1,5 +1,6 @@
 "use client";
 
+import { useTheme } from "styled-components";
 import Link from "../Link/Link";
 import Logo from "../Logo/Logo";
 import { Micro } from "../Typography/Micro";
@@ -32,14 +33,19 @@ const navConfig = [
 ];
 
 const Navbar = ({}: NavbarProps) => {
+  const theme = useTheme();
   return (
     <StyledNavbar>
       <Link href={"/"}>
-        <Logo />
+        <Logo fill={theme.type === "light" ? "black" : "white"} />
       </Link>
       <NavLinks>
         {navConfig.map(({ pageName, url }) => (
-          <Micro className='uppercase' key={url}>
+          <Micro
+            className={`uppercase ${
+              theme.type === "light" ? "black" : "white"
+            }`}
+            key={url}>
             <Link href={"/"} className='no-underline'>
               {pageName}
             </Link>

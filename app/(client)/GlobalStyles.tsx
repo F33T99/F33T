@@ -11,9 +11,6 @@ export const GlobalStyles = createGlobalStyle`
     font-family: Matter, Arial, sans-serif;
     font-weight: 400;
   }
-  body {
-    background-color: ${colors.black};
-  }
   @font-face {
     font-family: 'Matter';
     src: url('../fonts/Matter-Medium.ttf') format('truetype');

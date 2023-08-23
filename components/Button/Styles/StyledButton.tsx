@@ -24,6 +24,9 @@ export const StyledButton = styled.button`
   &:hover {
     background-color: ${colors.red300};
   }
+  &.big {
+    font-size: 40px;
+  }
   ${breakpoint.phone} {
   }
 `;

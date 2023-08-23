@@ -2,15 +2,15 @@
 
 import styled from "styled-components";
 import { spaces } from "../../../consts/spaces";
+import { colors } from "../../../consts/colors";
 
 export const StyledFooter = styled.footer`
-  padding: 0 ${spaces.l}px;
+  background-color: ${({ theme }) =>
+    theme.type === "dark" ? colors.black : colors.gray300};
+  padding: ${spaces.l}px;
+  padding-top: ${spaces.xxxxl}px;
   display: grid;
   row-gap: ${spaces.xxxl}px;
-`;
-
-export const StyledFooterLogo = styled.svg`
-  width: 100%;
 `;
 
 export const FooterTop = styled.div`

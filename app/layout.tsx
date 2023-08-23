@@ -1,6 +1,8 @@
+import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
 import StyledComponentsRegistry from "../lib/registry";
 import { GlobalStyles } from "./(client)/GlobalStyles";
+import ThemeProvider from "./(client)/ThemeProvider";
 
 export const metadata = {
   metadataBase: new URL("https://feet.cz"),
@@ -32,9 +34,12 @@ export default async function RootLayout({
     <html lang={"cs"}>
       <StyledComponentsRegistry>
         <body>
-          <GlobalStyles />
-          <Navbar />
-          {children}
+          <ThemeProvider>
+            <GlobalStyles />
+            <Navbar />
+            {children}
+            <Footer />
+          </ThemeProvider>
         </body>
       </StyledComponentsRegistry>
     </html>

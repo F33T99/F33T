@@ -4,7 +4,9 @@ import styled from "styled-components";
 import { colors } from "../../consts/colors";
 import { spaces } from "../../consts/spaces";
 
-export const StyledHomepage = styled.main``;
+export const StyledHomepage = styled.main`
+  background-color: ${colors.black};
+`;
 
 export const StickyWrapper = styled.div`
   position: sticky;

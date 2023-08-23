@@ -14,6 +14,9 @@ export const Large = styled.p`
   &.indent {
     text-indent: 4em;
   }
+  &.tight-lineheight {
+    line-height: 1em;
+  }
   &.no-max-width {
     max-width: unset;
   }

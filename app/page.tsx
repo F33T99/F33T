@@ -50,7 +50,7 @@ const page = async () => {
   });
 
   return (
-    <StyledHomepage>
+    <StyledHomepage data-theme='dark'>
       <MainHero />
       <ScrollAnimation offset={[0.9, 0.1]}>
         <VariantsHeaderContainer />
@@ -196,7 +196,6 @@ const page = async () => {
         </References>
       </ReferencesSection>
       <AboutSectionContainer />
-      <Footer />
     </StyledHomepage>
   );
 };

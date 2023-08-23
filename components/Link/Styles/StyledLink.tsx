@@ -16,6 +16,11 @@ export const StyledLink = styled.a`
     color: inherit;
     text-decoration: underline;
     cursor: pointer;
+    &.black {
+      svg {
+        fill: ${colors.black};
+      }
+    }
     &[target] {
       display: flex;
       align-items: center;

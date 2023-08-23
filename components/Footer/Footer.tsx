@@ -1,8 +1,11 @@
 "use client";
 
+import { useTheme } from "styled-components";
+import Link from "../Link/Link";
 import { Large } from "../Typography/Large";
 import { Nano } from "../Typography/Nano";
-import { FooterLogo } from "./Styles/FooterLogo";
+import { Small } from "../Typography/Small";
+import { FooterLogo } from "./FooterLogo";
 import {
   FooterAddress,
   FooterContacts,
@@ -15,35 +18,37 @@ import {
   FooterTop,
   StyledFooter,
 } from "./Styles/StyledFooter";
-import { Small } from "../Typography/Small";
-import Link from "../Link/Link";
 
 interface FooterProps {}
 
 const Footer = ({}: FooterProps) => {
+  const theme = useTheme();
+  const isThemeLight = theme.type === "light";
+  const fontColor = isThemeLight ? "black" : "white";
+
   return (
     <StyledFooter>
-      <FooterLogo />
+      <FooterLogo fill={"red400"} />
       <FooterTop>
-        <Large className='uppercase'>Every step counts</Large>
+        <Large className={`uppercase ${fontColor}`}>Every step counts</Large>
 
         <FooterNavLinks>
-          <Nano className='uppercase tar'>
+          <Nano className={`uppercase tar ${fontColor}`}>
             <Link className='no-underline' href={"/"}>
               Produkty
             </Link>
           </Nano>
-          <Nano className='uppercase tar'>
+          <Nano className={`uppercase tar ${fontColor}`}>
             <Link className='no-underline' href={"/"}>
               Technologie
             </Link>
           </Nano>
-          <Nano className='uppercase tar'>
+          <Nano className={`uppercase tar ${fontColor}`}>
             <Link className='no-underline' href={"/"}>
               Reference
             </Link>
           </Nano>
-          <Nano className='uppercase tar'>
+          <Nano className={`uppercase tar ${fontColor}`}>
             <Link className='no-underline' href={"/"}>
               Filozofie
             </Link>
@@ -53,12 +58,12 @@ const Footer = ({}: FooterProps) => {
 
       <FooterMiddle>
         <FooterContacts>
-          <Small className='uppercase'>
+          <Small className={`uppercase ${fontColor}`}>
             <Link className='no-underline' href={`mailto: info@f33t.com`}>
               info@f33t.com
             </Link>
           </Small>
-          <Small className='uppercase'>
+          <Small className={`uppercase ${fontColor}`}>
             <Link className='no-underline' href={`tel: +420774987654`}>
               +420 774 987 654
             </Link>
@@ -66,9 +71,9 @@ const Footer = ({}: FooterProps) => {
         </FooterContacts>
 
         <FooterInstagram>
-          <Small className='uppercase'>
+          <Small className={`uppercase ${fontColor}`}>
             <Link
-              className='no-underline'
+              className={`no-underline ${fontColor}`}
               href={"https://www.instagram.com/f33t_official/"}
               target='_blank'>
               ig @f33t
@@ -77,27 +82,27 @@ const Footer = ({}: FooterProps) => {
         </FooterInstagram>
 
         <FooterEshopLinks>
-          <Nano className='uppercase tar'>
+          <Nano className={`uppercase tar ${fontColor}`}>
             <Link className='no-underline' href={"/"}>
               FAQ
             </Link>
           </Nano>
-          <Nano className='uppercase tar'>
+          <Nano className={`uppercase tar ${fontColor}`}>
             <Link className='no-underline' href={"/"}>
               Velkoobchod
             </Link>
           </Nano>
-          <Nano className='uppercase tar'>
+          <Nano className={`uppercase tar ${fontColor}`}>
             <Link className='no-underline' href={"/"}>
               Péče o vložky
             </Link>
           </Nano>
-          <Nano className='uppercase tar'>
+          <Nano className={`uppercase tar ${fontColor}`}>
             <Link className='no-underline' href={"/"}>
               Výměna / Vrácení / Reklamace
             </Link>
           </Nano>
-          <Nano className='uppercase tar'>
+          <Nano className={`uppercase tar ${fontColor}`}>
             <Link className='no-underline' href={"/"}>
               Prodejci
             </Link>
@@ -107,28 +112,30 @@ const Footer = ({}: FooterProps) => {
 
       <FooterEnd>
         <FooterAddress>
-          <Nano className='uppercase'>F33T s.r.o.</Nano>
-          <Nano className='uppercase'>Random náměstí 24, Brno</Nano>
-          <Nano className='uppercase'>IČO 01234567</Nano>
-          <Nano className='uppercase'>DIČ CZ01234567</Nano>
+          <Nano className={`uppercase ${fontColor}`}>F33T s.r.o.</Nano>
+          <Nano className={`uppercase ${fontColor}`}>
+            Random náměstí 24, Brno
+          </Nano>
+          <Nano className={`uppercase ${fontColor}`}>IČO 01234567</Nano>
+          <Nano className={`uppercase ${fontColor}`}>DIČ CZ01234567</Nano>
         </FooterAddress>
 
         <FooterOtherLinks>
-          <Nano className='uppercase'>
+          <Nano className={`uppercase ${fontColor}`}>
             <Link className='no-underline' href={"/"}>
               OBCHODNÍ PODMÍNKY
             </Link>
           </Nano>
-          <Nano className='uppercase'>
-            <Link className='no-underline' href={"/"}>
+          <Nano className={`uppercase ${fontColor}`}>
+            <Link className={`no-underline`} href={"/"}>
               ZÁSADY ZPRACOVÁNÍ OSOBNÍCH ÚDAJŮ
             </Link>
           </Nano>
         </FooterOtherLinks>
 
-        <Nano className='uppercase'>
+        <Nano className={`uppercase ${fontColor}`}>
           <Link
-            className='no-underline'
+            className={`no-underline ${fontColor}`}
             href={"https://steezy.studio/"}
             target='_blank'>
             steezy.studio

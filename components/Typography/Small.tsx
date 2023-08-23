@@ -12,6 +12,9 @@ export const Small = styled.p`
   line-height: 1.4em;
   color: ${colors.white};
   max-width: 600px;
+  &.line-through {
+    text-decoration: line-through;
+  }
   &.indent {
     text-indent: 4em;
   }

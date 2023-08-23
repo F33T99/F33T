@@ -1,5 +1,5 @@
 export const formatPrice = (
-  price: number,
+  price: number | string,
   currency: string = "CZK",
   locale: string = "cs-CZ"
 ) => {
@@ -7,5 +7,5 @@ export const formatPrice = (
     style: "currency",
     currency: currency,
     maximumFractionDigits: 0,
-  }).format(price);
+  }).format(Number(price));
 };
