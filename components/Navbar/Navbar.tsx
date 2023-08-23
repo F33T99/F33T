@@ -12,7 +12,7 @@ interface NavbarProps {}
 const navConfig = [
   {
     pageName: "Produkty",
-    url: "/?s=produkty",
+    url: "/products",
   },
   {
     pageName: "Technologie",
@@ -46,7 +46,7 @@ const Navbar = ({}: NavbarProps) => {
               theme.type === "light" ? "black" : "white"
             }`}
             key={url}>
-            <Link href={"/"} className='no-underline'>
+            <Link href={url} className='no-underline'>
               {pageName}
             </Link>
           </Micro>

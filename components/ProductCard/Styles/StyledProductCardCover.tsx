@@ -6,7 +6,6 @@ export const StyledProductCardCover = styled.div`
   overflow: hidden;
   aspect-ratio: 2;
   width: 100%;
-  max-width: 1300px;
 `;
 
 export const ProductCardCoverImage = styled(Image)`
@@ -18,12 +17,12 @@ export const ProductCardCoverImage = styled(Image)`
 export const StyledTriangle = styled.div`
   position: absolute;
   &.top-left {
-    top: 0;
-    left: 0;
+    top: -50px;
+    left: -50px;
   }
   &.bottom-right {
-    bottom: 0;
-    right: 0;
+    bottom: -50px;
+    right: -50px;
     transform: rotate(180deg);
   }
 `;

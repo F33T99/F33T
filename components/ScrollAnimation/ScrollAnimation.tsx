@@ -74,10 +74,10 @@ const ScrollAnimation = ({
       }
 
       const scrollY = window.scrollY;
-      const animElHeight = containerRef.current.clientHeight;
+      const animElHeight = containerRef.current?.clientHeight;
       const viewportHeight = window.innerHeight;
 
-      const animElOffsetFromTop = containerRef.current.offsetTop;
+      const animElOffsetFromTop = containerRef?.current.offsetTop;
       const animElOffsetFromBottom = animElOffsetFromTop + animElHeight;
 
       const topBound = viewportHeight * offset[0];

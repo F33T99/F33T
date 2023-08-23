@@ -1,18 +1,20 @@
 "use client";
 
 import { Product } from "@shopify/hydrogen-react/storefront-api-types";
+import { useState } from "react";
+import { formatPrice } from "../../helpers/formatPrice";
+import Button from "../Button/Button";
+import InsoleSizeVariants from "../InsoleSizeVariants/InsoleSizeVariants";
+import Line from "../Line/Line";
 import { Large } from "../Typography/Large";
+import { Mini } from "../Typography/Mini";
+import { SectionHeader } from "../Typography/SectionHeader";
 import ProductCardCover from "./ProductCardCover";
 import {
   ProductCardContent,
+  ProductCardHeader,
   StyledProductCard,
 } from "./Styles/StyledProductCard";
-import { formatPrice } from "../../helpers/formatPrice";
-import InsoleSizeVariants from "../InsoleSizeVariants/InsoleSizeVariants";
-import { Mini } from "../Typography/Mini";
-import Button from "../Button/Button";
-import { useState } from "react";
-import Line from "../Line/Line";
 
 interface ProductCardProps extends Partial<Product> {}
 
@@ -21,17 +23,23 @@ const ProductCard = ({
   title,
   priceRange,
   images,
+  handle,
 }: ProductCardProps) => {
   const [hover, setHover] = useState(false);
 
   return (
     <StyledProductCard
+      href={`/product/${handle}`}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}>
-      <ProductCardCover src={images.nodes[0].url} alt={""} hover={hover} />
+      <ProductCardHeader>
+        <SectionHeader className='uppercase black tight-lineheight'>
+          {title}
+        </SectionHeader>
+        <ProductCardCover src={images.nodes[0].url} alt={""} hover={hover} />
+      </ProductCardHeader>
       <ProductCardContent>
         <div>
-          <Large className='uppercase black tight-lineheight'>{title}</Large>
           <Large className='black tight-lineheight'>
             od {formatPrice(priceRange.minVariantPrice.amount)}
           </Large>
@@ -40,9 +48,11 @@ const ProductCard = ({
           <Mini className='black tac'>velikosti skladem</Mini>
           <InsoleSizeVariants variants={variants} disableSelection />
         </div>
-        <Button className='big'>zjistit více</Button>
+        <Button as={"span"} className='big'>
+          zjistit více
+        </Button>
       </ProductCardContent>
-      <Line stroke='red400' />
+      <Line stroke='gray700' />
     </StyledProductCard>
   );
 };

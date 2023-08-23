@@ -15,13 +15,21 @@ const Line = ({ stroke = "white" }: LineProps) => {
   const svgRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
-    const parentElWidth = containerRef.current.parentElement.clientWidth;
+    function handleResize() {
+      const parentElWidth = containerRef.current.parentElement.clientWidth;
 
-    svgRef.current.setAttribute("width", String(parentElWidth));
-    pathRef.current.setAttribute(
-      "d",
-      `M 0 0 L ${diagonalSize} ${diagonalSize} H ${parentElWidth}`
-    );
+      svgRef.current.setAttribute("width", String(parentElWidth));
+      pathRef.current.setAttribute(
+        "d",
+        `M 0 0 L ${diagonalSize} ${diagonalSize} H ${parentElWidth}`
+      );
+    }
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (

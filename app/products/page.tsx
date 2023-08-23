@@ -46,7 +46,7 @@ const page = async ({}: pageProps) => {
       </ProductsPageHero>
       <ProductsGrid>
         {products.edges.map(({ node }) => {
-          const { id, title, variants, priceRange, images } = node;
+          const { id, title, variants, priceRange, images, handle } = node;
           return (
             <ProductCard
               key={id}
@@ -54,6 +54,7 @@ const page = async ({}: pageProps) => {
               variants={variants}
               priceRange={priceRange}
               images={images}
+              handle={handle}
             />
           );
         })}

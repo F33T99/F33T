@@ -49,7 +49,9 @@ const ProductBanner = ({ data }: ProductBannerProps) => {
             speed: 0.5,
           },
           function (res) {
-            ref.current.innerText = res;
+            if (ref.current) {
+              ref.current.innerText = res;
+            }
           }
         );
       };

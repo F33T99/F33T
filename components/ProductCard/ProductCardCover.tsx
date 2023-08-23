@@ -27,8 +27,8 @@ const Triangle = ({ className, hover, direction }: TriangleProps) => {
         xmlns='http://www.w3.org/2000/svg'
         width='206'
         animate={{
-          x: hover ? -30 : 0,
-          y: hover ? -30 : 0,
+          x: hover ? -20 : 0,
+          y: hover ? -20 : 0,
         }}
         transition={{ ease: easing, duration: 0.4 }}
         height='206'

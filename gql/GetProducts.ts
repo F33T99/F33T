@@ -14,6 +14,7 @@ export const GET_PRODUCTS = gql`
           tags
           description
           totalInventory
+          handle
           priceRange {
             maxVariantPrice {
               currencyCode
