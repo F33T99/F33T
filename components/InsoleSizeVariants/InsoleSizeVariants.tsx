@@ -1,3 +1,5 @@
+"use client";
+
 import { ProductVariantConnection } from "@shopify/hydrogen-react/storefront-api-types";
 import { useState } from "react";
 import { Mini } from "../Typography/Mini";
@@ -9,13 +11,16 @@ import {
 interface InsoleSizeVariantsProps {
   variants: ProductVariantConnection;
   disableSelection?: boolean;
+  onChange?: (id: number) => void;
 }
 
 const InsoleSizeVariants = ({
   variants,
   disableSelection = false,
+  onChange = () => null,
 }: InsoleSizeVariantsProps) => {
   const [selected, setSelection] = useState(0);
+
   return (
     <StyledInsoleSizeVariants>
       {variants.nodes.map(({ title, id, quantityAvailable }, i) => {
@@ -33,6 +38,7 @@ const InsoleSizeVariants = ({
             onClick={() => {
               if (disableSelection || !isAvaible) return;
               setSelection(i);
+              onChange(i);
             }}>
             <Mini className={`${isAvaible ? "black" : "gray500 line-through"}`}>
               {title}

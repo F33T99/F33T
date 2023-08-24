@@ -4,7 +4,6 @@ import { useTheme } from "styled-components";
 import Link from "../Link/Link";
 import Logo from "../Logo/Logo";
 import { Micro } from "../Typography/Micro";
-import { Mini } from "../Typography/Mini";
 import { NavLinks, StyledNavbar } from "./Styles/StyledNavbar";
 
 interface NavbarProps {}

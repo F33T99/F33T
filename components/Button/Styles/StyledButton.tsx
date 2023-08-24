@@ -27,6 +27,9 @@ export const StyledButton = styled.button`
   &.big {
     font-size: 40px;
   }
+  &.x-big {
+    font-size: 50px;
+  }
   ${breakpoint.phone} {
   }
 `;

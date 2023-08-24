@@ -27,7 +27,7 @@ export const StyledScrollbar = styled.div`
     left: 0;
     top: 0;
     bottom: 0;
-    right: 0;
+    right: 30px;
     width: auto !important;
     height: auto !important;
     z-index: 0;
@@ -110,9 +110,12 @@ export const StyledScrollbar = styled.div`
   .simplebar-track {
     z-index: 1;
     position: absolute;
-    right: -15px;
+    right: 0;
     bottom: 0;
     pointer-events: none;
+    /* background-color: ${colors.red200}; */
+    background-image: url("/icons/dot-pattern.svg");
+    background-size: 20%;
     overflow: hidden;
   }
   [data-simplebar].simplebar-dragging {
@@ -145,27 +148,47 @@ export const StyledScrollbar = styled.div`
   .simplebar-scrollbar:before {
     position: absolute;
     content: "";
-    background: #000;
-    border-radius: 7px;
+    background: ${colors.red400};
     left: 2px;
     right: 2px;
-    opacity: 0;
-    transition: opacity 0.2s 0.5s linear;
+    opacity: 1;
+    /* transition: opacity 0.2s 0.5s linear; */
   }
   .simplebar-scrollbar.simplebar-visible:before {
-    opacity: 0.5;
+    /* opacity: 0.5; */
     transition-delay: 0s;
     transition-duration: 0s;
   }
   .simplebar-track.simplebar-vertical {
     top: 0;
-    width: 11px;
+    width: 30px;
+    &:before,
+    &:after {
+      content: "";
+      background-image: url("/icons/scrollbar-arrow.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      display: block;
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 30px;
+      background-color: ${colors.red400};
+    }
+    &:after {
+      content: "";
+      top: unset;
+      bottom: 0;
+      transform: rotate(180deg);
+    }
   }
   .simplebar-scrollbar:before {
     top: 2px;
     bottom: 2px;
-    left: 2px;
-    right: 2px;
+    left: 0px;
+    right: 0px;
   }
   .simplebar-track.simplebar-horizontal {
     left: 0;
@@ -207,8 +230,5 @@ export const StyledScrollbar = styled.div`
     overflow-y: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none;
-  }
-  .simplebar-scrollbar::before {
-    background-color: ${colors.gray600};
   }
 `;

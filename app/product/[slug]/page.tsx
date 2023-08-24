@@ -1,17 +1,24 @@
-import React from "react";
+import { QueryRoot } from "@shopify/hydrogen-react/storefront-api-types";
+import getClient from "../../../apollo/client";
+import Scrollbar from "../../../components/Scrollbar/Scrollbar";
+import { Small } from "../../../components/Typography/Small";
+import { GET_PRODUCT } from "../../../gql/GetProduct";
+import AddToCart from "./(client)/AddToCart";
+import ProductName from "./(client)/ProductName";
 import {
+  Benefit,
+  Benefits,
+  BenefitsInner,
   Gallery,
   GalleryImage,
+  GalleryInner,
   GlobalProduct,
   ProductContent,
   ProductInfo,
   StyledProduct,
 } from "./(client)/StyledProduct";
-import getClient from "../../../apollo/client";
-import { GET_PRODUCT } from "../../../gql/GetProduct";
-import console from "console";
+import { Micro } from "../../../components/Typography/Micro";
 import { Mini } from "../../../components/Typography/Mini";
-import { QueryRoot } from "@shopify/hydrogen-react/storefront-api-types";
 
 interface PageProps {
   params: { slug: string };
@@ -44,16 +51,37 @@ const page = async ({ params: { slug } }: PageProps) => {
       <StyledProduct data-theme='light'>
         <ProductContent>
           <Gallery>
-            {product.images.nodes.map(({ url, width, height, altText }) => (
-              <GalleryImage
-                src={url}
-                width={width}
-                height={height}
-                alt={altText}
-              />
-            ))}
+            <Scrollbar style={{ height: "100vh" }}>
+              <GalleryInner>
+                {product.images.nodes.map(({ url, width, height, altText }) => (
+                  <GalleryImage
+                    src={url}
+                    width={width}
+                    height={height}
+                    alt={altText}
+                  />
+                ))}
+              </GalleryInner>
+            </Scrollbar>
           </Gallery>
-          <ProductInfo></ProductInfo>
+          <ProductInfo>
+            <ProductName>{product.title}</ProductName>
+            <Small className='black uppercase indent'>
+              {product.description}
+            </Small>
+            <AddToCart product={product} />
+            <Benefits>
+              <Mini className='black uppercase'>Benefity</Mini>
+              <BenefitsInner>
+                {product.metafields[0]?.value.split("\n").map((benefit, i) => (
+                  <Benefit key={i}>
+                    <Micro className='black uppercase tac'>{i + 1}</Micro>
+                    <Micro className='black uppercase tac'>{benefit}</Micro>
+                  </Benefit>
+                ))}
+              </BenefitsInner>
+            </Benefits>
+          </ProductInfo>
         </ProductContent>
       </StyledProduct>
     </>
