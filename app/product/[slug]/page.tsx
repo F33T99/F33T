@@ -19,6 +19,8 @@ import {
 } from "./(client)/StyledProduct";
 import { Micro } from "../../../components/Typography/Micro";
 import { Mini } from "../../../components/Typography/Mini";
+import { CartCheckoutButton } from "@shopify/hydrogen-react";
+import Button from "../../../components/Button/Button";
 
 interface PageProps {
   params: { slug: string };

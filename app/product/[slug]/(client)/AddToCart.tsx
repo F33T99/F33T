@@ -9,7 +9,11 @@ import { Mini } from "../../../../components/Typography/Mini";
 import { Small } from "../../../../components/Typography/Small";
 import { formatPrice } from "../../../../helpers/formatPrice";
 import { spaces } from "../../../../consts/spaces";
-import { Product } from "@shopify/hydrogen-react/storefront-api-types";
+import {
+  CartLineInput,
+  Product,
+} from "@shopify/hydrogen-react/storefront-api-types";
+import { CartCheckoutButton, useCart } from "@shopify/hydrogen-react";
 
 interface AddToCartProps {
   product: Product;
@@ -32,6 +36,13 @@ export const PriceContainer = styled.div`
 
 const AddToCart = ({ product }: AddToCartProps) => {
   const [i, setI] = useState(0);
+  const { linesAdd, status, lines } = useCart();
+
+  const merchandise: CartLineInput = {
+    merchandiseId: product.variants.nodes[i].id,
+    quantity: 1,
+  };
+
   return (
     <StyledAddToCart>
       <VariantsContainer>
@@ -49,7 +60,13 @@ const AddToCart = ({ product }: AddToCartProps) => {
           </Small>
         </Large>
       </PriceContainer>
-      <Button className='x-big'>{"přidat do košíku"}</Button>
+      <Button
+        onClick={() => {
+          linesAdd([merchandise]);
+        }}
+        className='x-big'>
+        {"přidat do košíku"}
+      </Button>
     </StyledAddToCart>
   );
 };
