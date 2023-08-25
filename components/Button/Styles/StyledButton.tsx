@@ -24,6 +24,10 @@ export const StyledButton = styled.button`
   &:hover {
     background-color: ${colors.red300};
   }
+  &.full-width {
+    display: block;
+    text-align: center;
+  }
   &.big {
     font-size: 40px;
   }

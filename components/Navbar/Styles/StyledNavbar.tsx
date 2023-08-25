@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { spaces } from "../../../consts/spaces";
+import { colors } from "../../../consts/colors";
 
 export const StyledNavbar = styled.nav`
   position: absolute;
@@ -16,4 +17,15 @@ export const StyledNavbar = styled.nav`
 export const NavLinks = styled.div`
   display: flex;
   gap: ${spaces.xl}px;
+  align-items: center;
+`;
+
+export const CartBadge = styled.div`
+  background-color: ${colors.red400};
+  padding: ${spaces.xs}px;
+  border-radius: 99999px;
+  cursor: pointer;
+  &:hover {
+    background-color: ${colors.red300};
+  }
 `;

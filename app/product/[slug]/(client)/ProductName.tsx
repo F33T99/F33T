@@ -21,10 +21,12 @@ const ProductName = ({ children }: ProductNameProps) => {
 
   useEffect(() => {
     const handleResize = () => {
-      const childElBB = ref.current.getBoundingClientRect();
+      ref.current.style.cssText = `font-size: 1px`;
+      const containerElBB = ref.current.getBoundingClientRect();
+
       const paretnElWidth = ref.current.parentElement.clientWidth;
-      const textAspectRatio = childElBB.height / childElBB.width;
-      console.log(paretnElWidth, textAspectRatio);
+      const textAspectRatio = containerElBB.height / containerElBB.width;
+
       ref.current.style.cssText = `font-size: ${
         paretnElWidth * textAspectRatio
       }px`;

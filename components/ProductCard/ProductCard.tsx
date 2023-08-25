@@ -36,7 +36,11 @@ const ProductCard = ({
         <SectionHeader className='uppercase black tight-lineheight'>
           {title}
         </SectionHeader>
-        <ProductCardCover src={images.nodes[0].url} alt={""} hover={hover} />
+        <ProductCardCover
+          src={images.nodes[0].url}
+          alt={images.nodes[0].altText}
+          hover={hover}
+        />
       </ProductCardHeader>
       <ProductCardContent>
         <div>

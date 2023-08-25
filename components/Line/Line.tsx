@@ -6,17 +6,18 @@ import { StyledLine } from "./StyledLine";
 
 interface LineProps {
   stroke?: ColorKeys;
+  diagonalSize?: number;
+  flip?: boolean;
 }
 
-const Line = ({ stroke = "white" }: LineProps) => {
-  const diagonalSize = 25;
+const Line = ({ stroke = "white", diagonalSize = 25, flip }: LineProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const pathRef = useRef<SVGPathElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
     function handleResize() {
-      const parentElWidth = containerRef.current.parentElement.clientWidth;
+      const parentElWidth = containerRef.current.offsetWidth;
 
       svgRef.current.setAttribute("width", String(parentElWidth));
       pathRef.current.setAttribute(
@@ -33,7 +34,7 @@ const Line = ({ stroke = "white" }: LineProps) => {
   }, []);
 
   return (
-    <StyledLine ref={containerRef}>
+    <StyledLine ref={containerRef} className={flip ? "flip" : ""}>
       <svg
         ref={svgRef}
         xmlns='http://www.w3.org/2000/svg'

@@ -10,6 +10,7 @@ import { SectionHeader } from "../components/Typography/SectionHeader";
 import { colors } from "../consts/colors";
 import AboutSectionContainer from "../containers/AboutSection/AboutSectionContainer";
 import VariantsHeaderContainer from "../containers/VariantsHeader/VariantsHeaderContainer";
+import { GET_PRODUCT } from "../gql/GetProduct";
 import { GET_PRODUCTS } from "../gql/GetProducts";
 import { QueryRoot } from "../gql/types";
 import {
@@ -31,24 +32,29 @@ import TechnologyLoopContainer from "./(client)/TechnologyLoopContainer";
 
 const page = async () => {
   const client = getClient();
+  const handles = ["active", "basic"];
 
-  const {
-    data: { products },
-  } = await client.query<QueryRoot>({
-    query: GET_PRODUCTS,
-    variables: {
-      first: 99,
-      transformImage: {
-        maxWidth: 1920,
-        maxHeight: 1080,
-        preferredContentType: "WEBP",
+  const requestsQueue = handles.map((handle) => {
+    return client.query<QueryRoot>({
+      query: GET_PRODUCT,
+      variables: {
+        first: 99,
+        handle: handle,
+        transformImage: {
+          maxWidth: 1920,
+          maxHeight: 1080,
+          preferredContentType: "WEBP",
+        },
+        identifiers: {
+          namespace: "custom",
+          key: "benefits",
+        },
       },
-      identifiers: {
-        namespace: "custom",
-        key: "benefits",
-      },
-    },
+    });
   });
+
+  const [activeRes, basicRes] = await Promise.all(requestsQueue);
+  const products = [activeRes.data.product, basicRes.data.product];
 
   return (
     <StyledHomepage data-theme='dark'>
@@ -59,16 +65,16 @@ const page = async () => {
       </ScrollAnimation>
       <Elevator>
         <ProductBanner
-          data={products.edges.map(({ node }) => ({
+          data={products.map((node) => ({
             perex: node.description,
             benefits: node.metafields[0]?.value.split("\n"),
             type: node.title,
             price: node.priceRange,
-            slug: "",
+            handle: node.handle,
           }))}
         />
       </Elevator>
-      <Technology>
+      <Technology id={"technology"}>
         <TechnologyHeader>Technologie</TechnologyHeader>
         <TechnologyContent>
           <TechnologyBenefits className='_1'>
@@ -123,7 +129,7 @@ const page = async () => {
           </TechnologyBenefits>
         </TechnologyContent>
       </Technology>
-      <ReferencesSection>
+      <ReferencesSection id={"references"}>
         <SectionHeader className='uppercase black max-width'>
           Ideální pro každodenní nošení i sport
         </SectionHeader>

@@ -1,19 +1,19 @@
 "use client";
 
-import React, { useState } from "react";
+import { useCart } from "@shopify/hydrogen-react";
+import {
+  CartLineInput,
+  Product,
+} from "@shopify/hydrogen-react/storefront-api-types";
+import { useState } from "react";
 import styled from "styled-components";
 import Button from "../../../../components/Button/Button";
 import InsoleSizeVariants from "../../../../components/InsoleSizeVariants/InsoleSizeVariants";
 import { Large } from "../../../../components/Typography/Large";
 import { Mini } from "../../../../components/Typography/Mini";
 import { Small } from "../../../../components/Typography/Small";
-import { formatPrice } from "../../../../helpers/formatPrice";
 import { spaces } from "../../../../consts/spaces";
-import {
-  CartLineInput,
-  Product,
-} from "@shopify/hydrogen-react/storefront-api-types";
-import { CartCheckoutButton, useCart } from "@shopify/hydrogen-react";
+import { formatPrice } from "../../../../helpers/formatPrice";
 
 interface AddToCartProps {
   product: Product;
@@ -22,7 +22,7 @@ interface AddToCartProps {
 const StyledAddToCart = styled.div`
   display: grid;
   justify-self: end;
-  row-gap: ${spaces.xl}px;
+  row-gap: ${spaces.l}px;
 `;
 
 export const VariantsContainer = styled.div`

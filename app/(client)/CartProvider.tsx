@@ -4,13 +4,15 @@ import {
   CartProvider as ShopifyCartProvider,
   ShopifyProvider,
 } from "@shopify/hydrogen-react";
-import { ReactNode } from "react";
+import { ReactNode, useContext } from "react";
+import { CartToggleContext } from "../../components/Cart/Cart";
 
 interface CartProviderProps {
   children: ReactNode;
 }
 
 const CartProvider = ({ children }: CartProviderProps) => {
+  const { setShowCart } = useContext(CartToggleContext);
   return (
     <ShopifyProvider
       countryIsoCode='CZ'
@@ -19,11 +21,9 @@ const CartProvider = ({ children }: CartProviderProps) => {
       storefrontApiVersion='2023-04'
       storefrontToken={process.env.NEXT_PUBLIC_API_ACCESS_TOKEN}>
       <ShopifyCartProvider
-        onLineAdd={() => {
-          console.log("line added");
-        }}
+        onLineAdd={() => {}}
         onLineAddComplete={() => {
-          console.log("a line has been added");
+          setShowCart(true);
         }}>
         {children}
       </ShopifyCartProvider>

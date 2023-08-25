@@ -1,4 +1,4 @@
-import Cart from "../components/Cart/Cart";
+import Cart, { CartToggleProvider } from "../components/Cart/Cart";
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
 import StyledComponentsRegistry from "../lib/registry";
@@ -37,13 +37,15 @@ export default async function RootLayout({
       <StyledComponentsRegistry>
         <body>
           <ThemeProvider>
-            <CartProvider>
-              <GlobalStyles />
-              <Navbar />
-              <Cart />
-              {children}
-              <Footer />
-            </CartProvider>
+            <CartToggleProvider>
+              <CartProvider>
+                <GlobalStyles />
+                <Navbar />
+                <Cart />
+                {children}
+                <Footer />
+              </CartProvider>
+            </CartToggleProvider>
           </ThemeProvider>
         </body>
       </StyledComponentsRegistry>

@@ -12,13 +12,12 @@ export const GlobalProduct = createGlobalStyle`
 `;
 
 export const StyledProduct = styled.div`
-  margin-top: 10vh;
+  margin-top: ${spaces.xxxl}px;
 `;
 
 export const Gallery = styled.div`
   position: sticky;
   top: 0vh;
-  overflow: hidden;
   height: 100vh;
 `;
 
@@ -41,10 +40,10 @@ export const ProductContent = styled.div`
 
 export const ProductInfo = styled.div`
   display: grid;
-  row-gap: ${spaces.xxl}px;
+  row-gap: ${spaces.xl}px;
   align-content: start;
   justify-items: start;
-  /* background-color: ${colors.red300}; */
+  padding: 0 ${spaces.l}px;
 `;
 
 export const Benefits = styled.div`

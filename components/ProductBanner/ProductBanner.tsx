@@ -28,9 +28,9 @@ interface ProductBannerProps {
   data: {
     benefits: string[];
     type: string;
-    slug: string;
     perex: string;
     price: ProductPriceRange;
+    handle: string;
   }[];
 }
 
@@ -119,7 +119,9 @@ const ProductBanner = ({ data }: ProductBannerProps) => {
               </motion.div>
             </AnimatePresence>
           </Price>
-          <Button>Přejít na eshop</Button>
+          <Button href={`/product/${data[insoleCurrIndex].handle}`}>
+            Přejít na eshop
+          </Button>
         </InsoleCTA>
       </ProductContent>
 

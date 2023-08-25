@@ -19,7 +19,7 @@ const AboutSectionContainer = ({}: AboutSectionProps) => {
   const ref = useRef<HTMLDivElement>(null);
   useScrollInertia(ref);
   return (
-    <StyledAboutSection ref={ref}>
+    <StyledAboutSection ref={ref} id={"philosophy"}>
       <Large className='uppercase indent no-max-width'>
         Vložky do bot jsou nástroj, který má plnit svoji funkci. A to tak dobře
         že na něj po nasazení úplně zapomeneš. ať už budeš sedět ve škole, v

@@ -1,6 +1,8 @@
 import { QueryRoot } from "@shopify/hydrogen-react/storefront-api-types";
 import getClient from "../../../apollo/client";
 import Scrollbar from "../../../components/Scrollbar/Scrollbar";
+import { Micro } from "../../../components/Typography/Micro";
+import { Mini } from "../../../components/Typography/Mini";
 import { Small } from "../../../components/Typography/Small";
 import { GET_PRODUCT } from "../../../gql/GetProduct";
 import AddToCart from "./(client)/AddToCart";
@@ -17,10 +19,6 @@ import {
   ProductInfo,
   StyledProduct,
 } from "./(client)/StyledProduct";
-import { Micro } from "../../../components/Typography/Micro";
-import { Mini } from "../../../components/Typography/Mini";
-import { CartCheckoutButton } from "@shopify/hydrogen-react";
-import Button from "../../../components/Button/Button";
 
 interface PageProps {
   params: { slug: string };
@@ -53,7 +51,7 @@ const page = async ({ params: { slug } }: PageProps) => {
       <StyledProduct data-theme='light'>
         <ProductContent>
           <Gallery>
-            <Scrollbar style={{ height: "100vh" }}>
+            <Scrollbar>
               <GalleryInner>
                 {product.images.nodes.map(({ url, width, height, altText }) => (
                   <GalleryImage

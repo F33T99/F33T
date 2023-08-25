@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { colors } from "../../../consts/colors";
 // import "simplebar/dist/simplebar.min.css";
 
-export const StyledScrollbar = styled.div`
+export const StyledScrollbar = styled.div<{ neutral: boolean }>`
   [data-simplebar] {
     position: relative;
     flex-direction: column;
@@ -148,14 +148,15 @@ export const StyledScrollbar = styled.div`
   .simplebar-scrollbar:before {
     position: absolute;
     content: "";
-    background: ${colors.red400};
+    background: ${({ neutral }) => (neutral ? colors.gray500 : colors.red400)};
     left: 2px;
     right: 2px;
     opacity: 1;
-    /* transition: opacity 0.2s 0.5s linear; */
+    margin: 30px 0;
+    transition: opacity 0.2s 0.5s linear;
   }
   .simplebar-scrollbar.simplebar-visible:before {
-    /* opacity: 0.5; */
+    opacity: 1;
     transition-delay: 0s;
     transition-duration: 0s;
   }
@@ -175,7 +176,8 @@ export const StyledScrollbar = styled.div`
       left: 0;
       right: 0;
       height: 30px;
-      background-color: ${colors.red400};
+      background-color: ${({ neutral }) =>
+        neutral ? colors.gray500 : colors.red400};
     }
     &:after {
       content: "";
@@ -191,6 +193,7 @@ export const StyledScrollbar = styled.div`
     right: 0px;
   }
   .simplebar-track.simplebar-horizontal {
+    display: none;
     left: 0;
     height: 11px;
   }
