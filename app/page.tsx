@@ -1,6 +1,5 @@
 import getClient from "../apollo/client";
 import Elevator from "../components/Elevator/Elevator";
-import Footer from "../components/Footer/Footer";
 import MainHero from "../components/MainHero/MainHero";
 import ProductBanner from "../components/ProductBanner/ProductBanner";
 import ScrollAnimation from "../components/ScrollAnimation/ScrollAnimation";
@@ -11,7 +10,6 @@ import { colors } from "../consts/colors";
 import AboutSectionContainer from "../containers/AboutSection/AboutSectionContainer";
 import VariantsHeaderContainer from "../containers/VariantsHeader/VariantsHeaderContainer";
 import { GET_PRODUCT } from "../gql/GetProduct";
-import { GET_PRODUCTS } from "../gql/GetProducts";
 import { QueryRoot } from "../gql/types";
 import {
   GlobalHomepage,

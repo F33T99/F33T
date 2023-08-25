@@ -34,22 +34,22 @@ const Footer = ({}: FooterProps) => {
 
         <FooterNavLinks>
           <Nano className={`uppercase tar ${fontColor}`}>
-            <Link className='no-underline' href={"/"}>
+            <Link className='no-underline' href={"/products"}>
               Produkty
             </Link>
           </Nano>
           <Nano className={`uppercase tar ${fontColor}`}>
-            <Link className='no-underline' href={"/"}>
+            <Link className='no-underline' href={"/?s=technology"}>
               Technologie
             </Link>
           </Nano>
           <Nano className={`uppercase tar ${fontColor}`}>
-            <Link className='no-underline' href={"/"}>
+            <Link className='no-underline' href={"/?s=references"}>
               Reference
             </Link>
           </Nano>
           <Nano className={`uppercase tar ${fontColor}`}>
-            <Link className='no-underline' href={"/"}>
+            <Link className='no-underline' href={"/?s=philoshopy"}>
               Filozofie
             </Link>
           </Nano>
