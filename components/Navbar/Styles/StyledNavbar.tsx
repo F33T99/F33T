@@ -18,6 +18,9 @@ export const StyledNavbar = styled(motion.nav)`
     background-color: ${({ theme }) =>
       theme.type === "light" ? colors.gray300 : colors.black};
   }
+  ${breakpoint.monitor} {
+    padding: ${spaces.xl}px;
+  }
 `;
 
 export const NavLinks = styled.div`

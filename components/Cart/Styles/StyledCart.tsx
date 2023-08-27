@@ -4,6 +4,7 @@ import styled, { createGlobalStyle } from "styled-components";
 import { colors } from "../../../consts/colors";
 import { spaces } from "../../../consts/spaces";
 import { motion } from "framer-motion";
+import { breakpoint } from "../../../consts/breakpoints";
 
 export const DisableScroll = createGlobalStyle`
   html {
@@ -32,6 +33,9 @@ export const Drawer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   row-gap: ${spaces.xxl}px;
+  ${breakpoint.monitor} {
+    width: 800px;
+  }
 `;
 
 export const Overlay = styled(motion.div)`

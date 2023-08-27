@@ -21,6 +21,9 @@ export const StickyWrapper = styled.div`
 export const Technology = styled.section`
   padding: 0 ${spaces.l}px;
   margin: ${spaces.xxxxl}px 0;
+  ${breakpoint.monitor} {
+    padding: 0 ${spaces.xl}px;
+  }
 `;
 
 export const TechnologyHeader = styled.h2`
@@ -69,6 +72,9 @@ export const TechnologyBenefits = styled.div`
 export const ReferencesSection = styled.section`
   background-color: ${colors.gray300};
   padding: ${spaces.xxxxl}px ${spaces.l}px;
+  ${breakpoint.monitor} {
+    padding: ${spaces.xxxxl}px ${spaces.xl}px;
+  }
 `;
 
 export const References = styled.div`

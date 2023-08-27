@@ -4,6 +4,7 @@ import styled, { createGlobalStyle } from "styled-components";
 import { colors } from "../../../../consts/colors";
 import Image from "next/image";
 import { spaces } from "../../../../consts/spaces";
+import { breakpoint } from "../../../../consts/breakpoints";
 
 export const GlobalProduct = createGlobalStyle`
   body {
@@ -13,6 +14,9 @@ export const GlobalProduct = createGlobalStyle`
 
 export const StyledProduct = styled.div`
   margin-top: ${spaces.xxxl}px;
+  ${breakpoint.monitor} {
+    margin-top: ${spaces.xxxxl}px;
+  }
 `;
 
 export const Gallery = styled.div`
@@ -44,6 +48,9 @@ export const ProductInfo = styled.div`
   align-content: start;
   justify-items: start;
   padding: 0 ${spaces.l}px;
+  ${breakpoint.monitor} {
+    row-gap: ${spaces.xxl}px;
+  }
 `;
 
 export const Benefits = styled.div`

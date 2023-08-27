@@ -22,6 +22,7 @@ export const Mini = styled.p`
   }
   ${breakpoint.monitor} {
     font-size: 28px;
+    max-width: 550px;
   }
   ${breakpoint.tabletLandscape} {
     font-size: 16px;

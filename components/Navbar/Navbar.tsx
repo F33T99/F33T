@@ -31,8 +31,6 @@ const Navbar = ({}: NavbarProps) => {
   const pathname = usePathname();
   const router = useRouter();
 
-  console.log(scrollPos);
-
   // const [expanded, setExpanded] = useState(false);
 
   const navConfig = [
@@ -71,7 +69,7 @@ const Navbar = ({}: NavbarProps) => {
     <StyledNavbar
       animate={{ y: directionDown ? "-100%" : "0%" }}
       transition={{ ease: easing }}
-      className={scrollPos > 200 ? "with-bg" : ""}>
+      className={scrollPos > 50 ? "with-bg" : ""}>
       <Link href={"/"}>
         <Logo fill={isThemeLight ? "black" : "white"} />
       </Link>
