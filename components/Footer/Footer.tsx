@@ -28,7 +28,7 @@ const Footer = ({}: FooterProps) => {
 
   return (
     <StyledFooter id={"contact"}>
-      <FooterLogo fill={"red400"} />
+      <FooterLogo fill={isThemeLight ? "black" : "red400"} />
       <FooterTop>
         <Large className={`uppercase ${fontColor}`}>Every step counts</Large>
 
