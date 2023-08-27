@@ -1,12 +1,11 @@
 "use client";
 
-import React from "react";
-import styled from "styled-components";
-import PlayButton from "../../components/PlayButton/PlayButton";
-import { TechnologyLoop, TechnologyPlayButton } from "./StyledHomepage";
 import Vimeo from "@u-wave/react-vimeo";
-import Video from "../../components/Video/Video";
+import styled from "styled-components";
 import Dialog from "../../components/Dialog/Dialog";
+import PlayButton from "../../components/PlayButton/PlayButton";
+import Video from "../../components/Video/Video";
+import { TechnologyPlayButton } from "./StyledHomepage";
 
 interface TechnologyLoopContainerProps {}
 
@@ -19,6 +18,10 @@ const VimeoWrapper = styled.div`
 const TriggerWrapper = styled.div`
   position: relative;
   width: 100%;
+`;
+
+export const TechnologyLoop = styled.div`
+  position: relative;
 `;
 
 const TechnologyLoopContainer = ({}: TechnologyLoopContainerProps) => {

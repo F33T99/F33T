@@ -10,6 +10,10 @@ export const StyledLogo = styled.div`
   ${breakpoint.smallNotebook} {
     width: 250px;
   }
+  ${breakpoint.tabletPortrait} {
+    position: relative;
+    z-index: 1;
+  }
   ${breakpoint.monitor} {
     width: 400px;
   }

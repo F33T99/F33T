@@ -25,4 +25,7 @@ export const HeroContent = styled.div`
   ${breakpoint.monitor} {
     row-gap: ${spaces.l}px;
   }
+  ${breakpoint.tabletPortrait} {
+    aspect-ratio: 9/16;
+  }
 `;

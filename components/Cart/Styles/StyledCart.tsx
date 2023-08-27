@@ -1,16 +1,10 @@
 "use client";
 
-import styled, { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 import { colors } from "../../../consts/colors";
 import { spaces } from "../../../consts/spaces";
 import { motion } from "framer-motion";
 import { breakpoint } from "../../../consts/breakpoints";
-
-export const DisableScroll = createGlobalStyle`
-  html {
-    overflow: hidden;
-  }
-`;
 
 export const StyledCart = styled.div`
   position: fixed;

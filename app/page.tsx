@@ -7,7 +7,6 @@ import ScrollAnimation from "../components/ScrollAnimation/ScrollAnimation";
 import { Medium } from "../components/Typography/Medium";
 import { Micro } from "../components/Typography/Micro";
 import { SectionHeader } from "../components/Typography/SectionHeader";
-import { colors } from "../consts/colors";
 import AboutSectionContainer from "../containers/AboutSection/AboutSectionContainer";
 import VariantsHeaderContainer from "../containers/VariantsHeader/VariantsHeaderContainer";
 import { GET_PRODUCT } from "../gql/GetProduct";
@@ -15,9 +14,7 @@ import { QueryRoot } from "../gql/types";
 import {
   GlobalHomepage,
   Reference,
-  ReferenceHorLine,
   ReferencePerson,
-  ReferenceVerLine,
   References,
   ReferencesSection,
   StyledHomepage,
@@ -26,6 +23,7 @@ import {
   TechnologyBenefits,
   TechnologyContent,
   TechnologyHeader,
+  TechnologyLoopWrapper,
 } from "./(client)/StyledHomepage";
 import TechnologyLoopContainer from "./(client)/TechnologyLoopContainer";
 
@@ -101,7 +99,9 @@ const page = async () => {
               </Micro>
             </TechnologyBenefit>
           </TechnologyBenefits>
-          <TechnologyLoopContainer />
+          <TechnologyLoopWrapper>
+            <TechnologyLoopContainer />
+          </TechnologyLoopWrapper>
           <TechnologyBenefits className='_2'>
             <TechnologyBenefit>
               <Micro className='uppercase'>Aktivní stříbro</Micro>

@@ -1,9 +1,9 @@
 "use client";
 
 import styled, { createGlobalStyle } from "styled-components";
+import { breakpoint } from "../../consts/breakpoints";
 import { colors } from "../../consts/colors";
 import { spaces } from "../../consts/spaces";
-import { breakpoint } from "../../consts/breakpoints";
 
 export const GlobalHomepage = createGlobalStyle`
   body {
@@ -38,11 +38,15 @@ export const TechnologyHeader = styled.h2`
   ${breakpoint.tabletLandscape} {
     margin-bottom: ${spaces.xxxl}px 0;
   }
+  ${breakpoint.tabletPortrait} {
+    text-align: left;
+  }
 `;
 
 export const TechnologyContent = styled.div`
   display: grid;
   grid-template-columns: 400px 1fr 400px;
+  grid-template-areas: "_1 loop _2";
   column-gap: ${spaces.xl}px;
   width: 100%;
   align-items: start;
@@ -53,13 +57,15 @@ export const TechnologyContent = styled.div`
     grid-template-columns: 200px 1fr 200px;
     column-gap: ${spaces.l}px;
   }
+  ${breakpoint.tabletPortrait} {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "loop loop" "_1 _2";
+    row-gap: ${spaces.xl}px;
+    column-gap: ${spaces.xl}px;
+  }
   ${breakpoint.monitor} {
     grid-template-columns: 500px 1fr 500px;
   }
-`;
-
-export const TechnologyLoop = styled.div`
-  position: relative;
 `;
 
 export const TechnologyPlayButton = styled.div`
@@ -79,10 +85,18 @@ export const TechnologyBenefits = styled.div`
   row-gap: ${spaces.xl}px;
   &._1 {
     align-self: end;
+    grid-area: _1;
+  }
+  &.2 {
+    grid-area: 2;
   }
   ${breakpoint.tabletLandscape} {
     row-gap: ${spaces.l}px;
   }
+`;
+
+export const TechnologyLoopWrapper = styled.div`
+  grid-area: loop;
 `;
 
 export const ReferencesSection = styled.section`

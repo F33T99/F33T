@@ -76,7 +76,7 @@ const Footer = ({}: FooterProps) => {
               className={`no-underline ${fontColor}`}
               href={"https://www.instagram.com/f33t_official/"}
               target='_blank'>
-              ig @f33t
+              ig @f33t_official
             </Link>
           </Small>
         </FooterInstagram>

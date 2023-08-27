@@ -18,6 +18,13 @@ export const Micro = styled.p`
     text-transform: uppercase;
     letter-spacing: 0.03em;
   }
+  &.navlink {
+    ${breakpoint.tabletPortrait} {
+      font-size: 50px;
+      letter-spacing: -0.02em;
+      max-width: unset;
+    }
+  }
   ${breakpoint.tabletLandscape} {
     font-size: 11px;
   }

@@ -30,12 +30,13 @@ import {
   CartHeader,
   CartItemWrapper,
   CartItems,
-  DisableScroll,
   Drawer,
   Overlay,
   StyledCart,
   TotalPrice,
 } from "./Styles/StyledCart";
+import { DisableScroll } from "../../app/(client)/DisableScroll";
+import Burger from "../Icons/Burger";
 
 interface CartProps {}
 
@@ -77,7 +78,12 @@ const Cart = ({}: CartProps) => {
           transition={{ ease: easing, duration: 0.5 }}>
           <CartHeader>
             <Big className='uppercase black'>Košík</Big>
-            <ModalClose onClick={() => setShowCart(false)} />
+            <Burger
+              onClick={() => setShowCart(false)}
+              isOpen
+              width={80}
+              height={14}
+            />
           </CartHeader>
           <CartContent>
             <Scrollbar neutral autoHide>

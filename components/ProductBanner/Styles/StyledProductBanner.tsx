@@ -23,6 +23,12 @@ export const ProductContent = styled.div`
   height: 100%;
   width: 100%;
   padding: ${spaces.l}px;
+  ${breakpoint.tabletPortrait} {
+    grid-template-areas: "type description" "benefits benefits" "cta .";
+    grid-template-columns: 5fr 6fr;
+    grid-template-rows: 1fr auto auto;
+    row-gap: ${spaces.xl}px;
+  }
 `;
 
 export const InsoleType = styled.div`
@@ -72,11 +78,13 @@ export const Benefit = styled(motion.div)`
 export const InsoleCTA = styled.div`
   grid-area: cta;
   align-self: end;
-  display: grid;
-  row-gap: 0;
+  ${breakpoint.tabletPortrait} {
+  }
   ${breakpoint.monitor} {
     row-gap: ${spaces.m}px;
   }
+  display: grid;
+  row-gap: ${spaces.m}px;
 `;
 
 export const Price = styled.div`
