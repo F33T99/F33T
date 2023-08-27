@@ -38,6 +38,6 @@ export const CartBadge = styled.div`
     background-color: ${colors.red300};
   }
   ${breakpoint.monitor} {
-    padding: ${spaces.m}px;
+    padding: ${spaces.s}px;
   }
 `;

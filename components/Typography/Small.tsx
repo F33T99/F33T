@@ -9,7 +9,7 @@ import { spaces } from "../../consts/spaces";
 export const Small = styled.p`
   font-size: 21px;
   letter-spacing: 0.02em;
-  line-height: 1.4em;
+  line-height: 1.6em;
   color: ${colors.white};
   max-width: 600px;
   &.line-through {
