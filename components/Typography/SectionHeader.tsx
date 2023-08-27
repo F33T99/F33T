@@ -13,6 +13,9 @@ export const SectionHeader = styled.h2`
   color: ${colors.white};
   &.max-width {
     max-width: 1200px;
+    ${breakpoint.tabletLandscape} {
+      max-width: 700px;
+    }
   }
   ${breakpoint.monitor} {
     font-size: 150px;
@@ -21,7 +24,7 @@ export const SectionHeader = styled.h2`
     font-size: 70px;
   }
   ${breakpoint.tabletLandscape} {
-    font-size: 70px;
+    font-size: 60px;
   }
   ${breakpoint.phone} {
     font-size: 40px;

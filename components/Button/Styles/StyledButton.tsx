@@ -43,6 +43,11 @@ export const StyledButton = styled.button`
       font-size: 70px;
     }
   }
+  ${breakpoint.tabletLandscape} {
+    &.x-big {
+      font-size: 40px;
+    }
+  }
 `;
 
 export const ButtonWithIcon = styled.div`

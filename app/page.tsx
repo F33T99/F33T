@@ -1,5 +1,6 @@
 import getClient from "../apollo/client";
 import Elevator from "../components/Elevator/Elevator";
+import Line from "../components/Line/Line";
 import MainHero from "../components/MainHero/MainHero";
 import ProductBanner from "../components/ProductBanner/ProductBanner";
 import ScrollAnimation from "../components/ScrollAnimation/ScrollAnimation";
@@ -144,20 +145,7 @@ const page = async () => {
               úrazů paty. Navíc když si po ježdění sundám boty, vložky jsou
               opravdu stylovka a nesmrdí mi nohy.
             </Medium>
-            <ReferenceHorLine
-              xmlns='http://www.w3.org/2000/svg'
-              width='1748.236'
-              height='31.967'
-              vectorEffect='non-scaling-stroke'
-              viewBox='0 0 1748.236 31.967'>
-              <path
-                d='M-40,5807.268H1668.2l39.727-31.073'
-                transform='translate(40 -5775.8)'
-                fill='none'
-                stroke={colors.gray700}
-                strokeWidth='1'
-              />
-            </ReferenceHorLine>
+            <Line stroke='gray700' />
           </Reference>
           <Reference className='short'>
             <ReferencePerson>
@@ -172,20 +160,7 @@ const page = async () => {
               opravdu stylovka a nesmrdí mi nohy.
             </Medium>
           </Reference>
-          <ReferenceVerLine
-            xmlns='http://www.w3.org/2000/svg'
-            width='31.967'
-            height='478.236'
-            vectorEffect='non-scaling-stroke'
-            viewBox='0 0 31.967 478.236'>
-            <path
-              d='M-40,5776.194H398.2l39.727,31.073'
-              transform='translate(5807.662 40) rotate(90)'
-              fill='none'
-              stroke={colors.gray700}
-              strokeWidth='1'
-            />
-          </ReferenceVerLine>
+          <Line stroke='gray700' vertical style={{ gridArea: "line" }} />
           <Reference className='short_2'>
             <ReferencePerson>
               <Micro className='gray700 uppercase'>Luboš Procházka</Micro>

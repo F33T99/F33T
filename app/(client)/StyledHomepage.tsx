@@ -24,6 +24,9 @@ export const Technology = styled.section`
   ${breakpoint.monitor} {
     padding: 0 ${spaces.xl}px;
   }
+  ${breakpoint.tabletLandscape} {
+    margin: ${spaces.xxxl}px 0;
+  }
 `;
 
 export const TechnologyHeader = styled.h2`
@@ -32,6 +35,9 @@ export const TechnologyHeader = styled.h2`
   text-align: center;
   font-size: 12vw;
   margin-bottom: ${spaces.xxxxl}px;
+  ${breakpoint.tabletLandscape} {
+    margin-bottom: ${spaces.xxxl}px 0;
+  }
 `;
 
 export const TechnologyContent = styled.div`
@@ -42,6 +48,10 @@ export const TechnologyContent = styled.div`
   align-items: start;
   ${breakpoint.smallNotebook} {
     grid-template-columns: 300px 1fr 300px;
+  }
+  ${breakpoint.tabletLandscape} {
+    grid-template-columns: 200px 1fr 200px;
+    column-gap: ${spaces.l}px;
   }
   ${breakpoint.monitor} {
     grid-template-columns: 500px 1fr 500px;
@@ -70,11 +80,17 @@ export const TechnologyBenefits = styled.div`
   &._1 {
     align-self: end;
   }
+  ${breakpoint.tabletLandscape} {
+    row-gap: ${spaces.l}px;
+  }
 `;
 
 export const ReferencesSection = styled.section`
   background-color: ${colors.gray300};
   padding: ${spaces.xxxxl}px ${spaces.l}px;
+  ${breakpoint.tabletLandscape} {
+    padding: ${spaces.xxxl}px ${spaces.l}px;
+  }
   ${breakpoint.monitor} {
     padding: ${spaces.xxxxl}px ${spaces.xl}px;
   }
@@ -88,6 +104,11 @@ export const References = styled.div`
   row-gap: ${spaces.l}px;
   column-gap: ${spaces.xxl}px;
   align-items: center;
+  ${breakpoint.tabletLandscape} {
+    row-gap: ${spaces.xxl}px;
+    margin-top: ${spaces.xxl}px;
+    column-gap: ${spaces.l}px;
+  }
 `;
 
 export const Reference = styled.div`

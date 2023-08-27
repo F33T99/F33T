@@ -3,6 +3,7 @@
 import styled from "styled-components";
 import { spaces } from "../../../consts/spaces";
 import { colors } from "../../../consts/colors";
+import { breakpoint } from "../../../consts/breakpoints";
 
 export const StyledFooter = styled.footer`
   background-color: ${({ theme }) =>
@@ -11,6 +12,9 @@ export const StyledFooter = styled.footer`
   padding-top: ${spaces.xxxxl}px;
   display: grid;
   row-gap: ${spaces.xxxl}px;
+  ${breakpoint.tabletLandscape} {
+    row-gap: ${spaces.xl}px;
+  }
 `;
 
 export const FooterTop = styled.div`
@@ -26,11 +30,18 @@ export const FooterMiddle = styled.div`
 export const FooterEnd = styled.div`
   display: flex;
   justify-content: space-between;
+  ${breakpoint.tabletLandscape} {
+    align-items: flex-end;
+  }
 `;
 
 export const FooterOtherLinks = styled.div`
   display: flex;
   gap: ${spaces.m}px;
+  ${breakpoint.tabletLandscape} {
+    flex-direction: column;
+    row-gap: ${0}px;
+  }
 `;
 
 export const FooterNavLinks = styled.div`
@@ -53,4 +64,8 @@ export const FooterContacts = styled.div`
 export const FooterAddress = styled.div`
   display: flex;
   gap: ${spaces.m}px;
+  ${breakpoint.tabletLandscape} {
+    flex-direction: column;
+    row-gap: ${0}px;
+  }
 `;
