@@ -34,7 +34,14 @@ export const StyledButton = styled.button`
   &.x-big {
     font-size: 50px;
   }
-  ${breakpoint.phone} {
+  ${breakpoint.monitor} {
+    font-size: 50px;
+    &.big {
+      font-size: 60px;
+    }
+    &.x-big {
+      font-size: 70px;
+    }
   }
 `;
 

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { spaces } from "../../../consts/spaces";
 import { motion } from "framer-motion";
+import { breakpoint } from "../../../consts/breakpoints";
 
 export const StyledProductBanner = styled.div`
   height: 100vh;
@@ -29,6 +30,9 @@ export const InsoleType = styled.div`
   display: grid;
   row-gap: ${spaces.m}px;
   align-self: start;
+  ${breakpoint.monitor} {
+    row-gap: ${spaces.l}px;
+  }
 `;
 
 export const InsoleDescription = styled.div`
@@ -36,6 +40,9 @@ export const InsoleDescription = styled.div`
   display: grid;
   row-gap: ${spaces.m}px;
   align-self: start;
+  ${breakpoint.monitor} {
+    row-gap: ${spaces.l}px;
+  }
 `;
 
 export const InsoleBenefits = styled.div`
@@ -43,12 +50,18 @@ export const InsoleBenefits = styled.div`
   align-self: end;
   display: grid;
   row-gap: ${spaces.m}px;
+  ${breakpoint.monitor} {
+    row-gap: ${spaces.l}px;
+  }
 `;
 
 export const Benefits = styled(motion.div)`
   display: flex;
   column-gap: ${spaces.l}px;
   overflow: hidden;
+  ${breakpoint.monitor} {
+    column-gap: ${spaces.xl}px;
+  }
 `;
 
 export const Benefit = styled(motion.div)`
@@ -59,6 +72,11 @@ export const Benefit = styled(motion.div)`
 export const InsoleCTA = styled.div`
   grid-area: cta;
   align-self: end;
+  display: grid;
+  row-gap: 0;
+  ${breakpoint.monitor} {
+    row-gap: ${spaces.m}px;
+  }
 `;
 
 export const Price = styled.div`

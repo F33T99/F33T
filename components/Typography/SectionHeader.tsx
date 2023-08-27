@@ -11,12 +11,11 @@ export const SectionHeader = styled.h2`
   line-height: 1em;
   text-transform: uppercase;
   color: ${colors.white};
-  margin-left: -0.3rem;
   &.max-width {
     max-width: 1200px;
   }
   ${breakpoint.monitor} {
-    font-size: 100px;
+    font-size: 150px;
   }
   ${breakpoint.smallNotebook} {
     font-size: 70px;

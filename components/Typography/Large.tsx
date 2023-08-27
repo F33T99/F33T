@@ -24,7 +24,7 @@ export const Large = styled.p`
     text-transform: uppercase;
   }
   ${breakpoint.monitor} {
-    font-size: 60px;
+    font-size: 70px;
     max-width: 1000px;
   }
   ${breakpoint.smallNotebook} {

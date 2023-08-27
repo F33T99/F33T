@@ -3,6 +3,7 @@
 import styled, { createGlobalStyle } from "styled-components";
 import { colors } from "../../consts/colors";
 import { spaces } from "../../consts/spaces";
+import { breakpoint } from "../../consts/breakpoints";
 
 export const GlobalHomepage = createGlobalStyle`
   body {
@@ -36,6 +37,9 @@ export const TechnologyContent = styled.div`
   column-gap: ${spaces.xl}px;
   width: 100%;
   align-items: start;
+  ${breakpoint.monitor} {
+    grid-template-columns: 500px 1fr 500px;
+  }
 `;
 
 export const TechnologyLoop = styled.div`

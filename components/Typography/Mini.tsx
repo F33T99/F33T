@@ -21,7 +21,7 @@ export const Mini = styled.p`
     text-align: center;
   }
   ${breakpoint.monitor} {
-    font-size: 21px;
+    font-size: 28px;
   }
   ${breakpoint.tabletLandscape} {
     font-size: 16px;

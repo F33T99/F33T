@@ -34,7 +34,7 @@ export const Medium = styled.p`
     line-height: 1.3em;
   }
   ${breakpoint.monitor} {
-    font-size: 35px;
+    font-size: 40px;
   }
   ${breakpoint.smallNotebook} {
     font-size: 24px;

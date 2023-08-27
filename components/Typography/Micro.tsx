@@ -19,7 +19,8 @@ export const Micro = styled.p`
     letter-spacing: 0.03em;
   }
   ${breakpoint.monitor} {
-    font-size: 18px;
+    font-size: 24px;
+    max-width: 600px;
   }
   ${breakpoint.tabletLandscape} {
     font-size: 11px;

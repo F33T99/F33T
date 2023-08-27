@@ -12,6 +12,10 @@ export const PageHeader = styled.h1`
   text-transform: uppercase;
   color: ${colors.white};
   max-width: 600px;
+  ${breakpoint.monitor} {
+    font-size: 60px;
+    max-width: 800px;
+  }
   ${breakpoint.smallNotebook} {
     font-size: 30px;
     margin-left: -0.4rem;

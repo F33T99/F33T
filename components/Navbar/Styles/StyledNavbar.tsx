@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { spaces } from "../../../consts/spaces";
 import { colors } from "../../../consts/colors";
+import { breakpoint } from "../../../consts/breakpoints";
 
 export const StyledNavbar = styled.nav`
   position: absolute;
@@ -27,5 +28,8 @@ export const CartBadge = styled.div`
   cursor: pointer;
   &:hover {
     background-color: ${colors.red300};
+  }
+  ${breakpoint.monitor} {
+    padding: ${spaces.m}px;
   }
 `;

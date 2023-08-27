@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { spaces } from "../../../consts/spaces";
+import { breakpoint } from "../../../consts/breakpoints";
 
 export const StyledMainHero = styled.div`
   position: relative;
@@ -21,4 +22,7 @@ export const HeroContent = styled.div`
   aspect-ratio: 16/9;
   row-gap: ${spaces.m}px;
   padding: 0 ${spaces.l}px;
+  ${breakpoint.monitor} {
+    row-gap: ${spaces.l}px;
+  }
 `;
