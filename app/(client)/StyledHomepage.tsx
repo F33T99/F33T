@@ -40,6 +40,9 @@ export const TechnologyContent = styled.div`
   column-gap: ${spaces.xl}px;
   width: 100%;
   align-items: start;
+  ${breakpoint.smallNotebook} {
+    grid-template-columns: 300px 1fr 300px;
+  }
   ${breakpoint.monitor} {
     grid-template-columns: 500px 1fr 500px;
   }

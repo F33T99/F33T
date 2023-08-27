@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { spaces } from "../../consts/spaces";
 import Image from "next/image";
 import { colors } from "../../consts/colors";
+import { breakpoint } from "../../consts/breakpoints";
 
 export const StyledAboutSection = styled.div`
   padding: ${spaces.xxxxl}px ${spaces.l}px;
@@ -30,6 +31,9 @@ export const AboutPhoto = styled(Image)`
 const StyledPlanet = styled.svg`
   margin-top: ${spaces.xl}px;
   margin-left: 10%;
+  ${breakpoint.smallNotebook} {
+    width: 200px;
+  }
 `;
 
 export const Planet = () => (
@@ -98,7 +102,11 @@ export const Planet = () => (
   </StyledPlanet>
 );
 
-const StyledSmiley = styled(motion.svg)``;
+const StyledSmiley = styled(motion.svg)`
+  ${breakpoint.smallNotebook} {
+    width: 200px;
+  }
+`;
 
 export const Smiley = () => (
   <StyledSmiley

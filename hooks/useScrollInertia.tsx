@@ -11,9 +11,10 @@ export function useScrollInertia(ref) {
       if (diamond.dataset.inertiaDisable) return;
       if (diamond?.style) {
         const intertia = Number(diamond.dataset.inertiaAmount) || 1;
-        diamond.style.transform = `translateY(${
-          speed.current * (1 / intertia)
-        }%)`;
+        diamond.style.transform = `translateY(${(
+          speed.current *
+          (1 / intertia)
+        ).toFixed(2)}%)`;
       }
     });
   });

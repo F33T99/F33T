@@ -67,4 +67,5 @@ export const BenefitsInner = styled.div`
 export const Benefit = styled.div`
   display: grid;
   row-gap: ${spaces.xs}px;
+  align-content: start;
 `;

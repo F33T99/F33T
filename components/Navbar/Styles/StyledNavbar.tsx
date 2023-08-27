@@ -27,6 +27,9 @@ export const NavLinks = styled.div`
   display: flex;
   gap: ${spaces.xl}px;
   align-items: center;
+  ${breakpoint.smallNotebook} {
+    gap: ${spaces.l}px;
+  }
 `;
 
 export const CartBadge = styled.div`

@@ -8,7 +8,7 @@ import { breakpoint } from "../../consts/breakpoints";
 export const Micro = styled.p`
   font-size: 15px;
   letter-spacing: 0.02em;
-  line-height: 1.6em;
+  line-height: 1.3em;
   color: ${colors.white};
   max-width: 400px;
   &.tac {
@@ -18,12 +18,12 @@ export const Micro = styled.p`
     text-transform: uppercase;
     letter-spacing: 0.03em;
   }
+  ${breakpoint.tabletLandscape} {
+    font-size: 11px;
+  }
   ${breakpoint.monitor} {
     font-size: 21px;
     max-width: 600px;
-  }
-  ${breakpoint.tabletLandscape} {
-    font-size: 11px;
   }
   ${addColorClasses()}
 `;
