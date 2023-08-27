@@ -16,6 +16,8 @@ import Link from "../Link/Link";
 import Logo from "../Logo/Logo";
 import { Micro } from "../Typography/Micro";
 import { CartBadge, NavLinks, StyledNavbar } from "./Styles/StyledNavbar";
+import { useScrollDirection } from "../../hooks/useScrollDirection";
+import { easing } from "../../consts/animationConfig";
 
 interface NavbarProps {}
 
@@ -25,8 +27,12 @@ const Navbar = ({}: NavbarProps) => {
   const { lines } = useCart();
   const params = useParams();
   const searchParams = useSearchParams();
+  const { directionDown, scrollPos } = useScrollDirection();
   const pathname = usePathname();
   const router = useRouter();
+
+  console.log(scrollPos);
+
   // const [expanded, setExpanded] = useState(false);
 
   const navConfig = [
@@ -49,6 +55,7 @@ const Navbar = ({}: NavbarProps) => {
   ];
 
   const requestedSection = searchParams.get("s");
+  const isThemeLight = theme.type === "light";
 
   useLayoutEffect(() => {
     // setExpanded(false);
@@ -61,24 +68,24 @@ const Navbar = ({}: NavbarProps) => {
   }, [requestedSection]);
 
   return (
-    <StyledNavbar>
+    <StyledNavbar
+      animate={{ y: directionDown ? "-100%" : "0%" }}
+      transition={{ ease: easing }}
+      className={scrollPos > 200 ? "with-bg" : ""}>
       <Link href={"/"}>
-        <Logo fill={theme.type === "light" ? "black" : "white"} />
+        <Logo fill={isThemeLight ? "black" : "white"} />
       </Link>
       <NavLinks>
         {navConfig.map(({ pageName, url }) => (
           <Micro
-            className={`uppercase ${
-              theme.type === "light" ? "black" : "white"
-            }`}
+            className={`uppercase ${isThemeLight ? "black" : "white"}`}
             key={url}>
             <Link href={url} className='no-underline'>
               {pageName}
             </Link>
           </Micro>
         ))}
-        <Micro
-          className={`uppercase ${theme.type === "light" ? "black" : "white"}`}>
+        <Micro className={`uppercase ${isThemeLight ? "black" : "white"}`}>
           <Link href={`${pathname}?s=contact`} className='no-underline'>
             {"Kontakt"}
           </Link>

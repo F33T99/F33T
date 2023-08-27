@@ -2,9 +2,10 @@ import styled from "styled-components";
 import { spaces } from "../../../consts/spaces";
 import { colors } from "../../../consts/colors";
 import { breakpoint } from "../../../consts/breakpoints";
+import { motion } from "framer-motion";
 
-export const StyledNavbar = styled.nav`
-  position: absolute;
+export const StyledNavbar = styled(motion.nav)`
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -13,6 +14,10 @@ export const StyledNavbar = styled.nav`
   display: flex;
   justify-content: space-between;
   column-gap: ${spaces.m}px;
+  &.with-bg {
+    background-color: ${({ theme }) =>
+      theme.type === "light" ? colors.gray300 : colors.black};
+  }
 `;
 
 export const NavLinks = styled.div`
