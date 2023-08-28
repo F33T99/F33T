@@ -1,6 +1,5 @@
 import { QueryRoot } from "@shopify/hydrogen-react/storefront-api-types";
 import getClient from "../../../apollo/client";
-import Scrollbar from "../../../components/Scrollbar/Scrollbar";
 import { Micro } from "../../../components/Typography/Micro";
 import { Mini } from "../../../components/Typography/Mini";
 import { Small } from "../../../components/Typography/Small";
@@ -11,14 +10,13 @@ import {
   Benefit,
   Benefits,
   BenefitsInner,
-  Gallery,
-  GalleryImage,
-  GalleryInner,
   GlobalProduct,
   ProductContent,
+  ProductCover,
   ProductInfo,
   StyledProduct,
 } from "./(client)/StyledProduct";
+import Gallery from "./(client)/Gallery";
 
 interface PageProps {
   params: { slug: string };
@@ -50,20 +48,13 @@ const page = async ({ params: { slug } }: PageProps) => {
       <GlobalProduct />
       <StyledProduct data-theme='light'>
         <ProductContent>
-          <Gallery>
-            <Scrollbar>
-              <GalleryInner>
-                {product.images.nodes.map(({ url, width, height, altText }) => (
-                  <GalleryImage
-                    src={url}
-                    width={width}
-                    height={height}
-                    alt={altText}
-                  />
-                ))}
-              </GalleryInner>
-            </Scrollbar>
-          </Gallery>
+          <ProductCover
+            src={product.images.nodes[0].url}
+            width={product.images.nodes[0].width}
+            height={product.images.nodes[0].height}
+            alt={product.images.nodes[0].altText}
+          />
+          <Gallery images={product.images.nodes} />
           <ProductInfo>
             <ProductName>{product.title}</ProductName>
             <Small className='black uppercase indent'>

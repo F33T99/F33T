@@ -1,5 +1,7 @@
 "use client";
 
+import { device } from "../../consts/breakpoints";
+import { useWindowSize } from "../../hooks/useWindowSize";
 import Button from "../Button/Button";
 import { PageHeader } from "../Typography/PageHeader";
 import Video from "../Video/Video";
@@ -11,6 +13,7 @@ import {
 interface MainHeroProps {}
 
 const MainHero = ({}: MainHeroProps) => {
+  const { w } = useWindowSize();
   return (
     <StyledMainHero>
       <HeroContent>
@@ -20,7 +23,13 @@ const MainHero = ({}: MainHeroProps) => {
         <Button>Zjistit více</Button>
       </HeroContent>
       <HeroVideo>
-        <Video src={"/videos/hero-loop-horizontal.mp4"} />
+        <Video
+          src={
+            w <= device.tabletPortrait
+              ? "/videos/hero-loop-vertical.mp4"
+              : "/videos/hero-loop-horizontal.mp4"
+          }
+        />
       </HeroVideo>
     </StyledMainHero>
   );

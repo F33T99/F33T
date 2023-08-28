@@ -39,7 +39,11 @@ const ProductName = ({ children }: ProductNameProps) => {
     };
   }, []);
 
-  return <StyledProductName ref={ref}>{children}</StyledProductName>;
+  return (
+    <div style={{ width: "100%" }}>
+      <StyledProductName ref={ref}>{children}</StyledProductName>
+    </div>
+  );
 };
 
 export default ProductName;

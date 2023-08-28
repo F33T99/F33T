@@ -11,8 +11,11 @@ import { Mini } from "../Typography/Mini";
 import { SectionHeader } from "../Typography/SectionHeader";
 import ProductCardCover from "./ProductCardCover";
 import {
+  ProductCardButton,
   ProductCardContent,
   ProductCardHeader,
+  ProductCardPrice,
+  ProductCardVariants,
   StyledProductCard,
 } from "./Styles/StyledProductCard";
 
@@ -43,18 +46,20 @@ const ProductCard = ({
         />
       </ProductCardHeader>
       <ProductCardContent>
-        <div>
+        <ProductCardPrice>
           <Large className='black tight-lineheight'>
             od {formatPrice(priceRange.minVariantPrice.amount)}
           </Large>
-        </div>
-        <div>
+        </ProductCardPrice>
+        <ProductCardVariants>
           <Mini className='black tac'>velikosti skladem</Mini>
           <InsoleSizeVariants variants={variants} disableSelection />
-        </div>
-        <Button as={"span"} className='big'>
-          zjistit více
-        </Button>
+        </ProductCardVariants>
+        <ProductCardButton>
+          <Button as={"span"} className='big'>
+            zjistit více
+          </Button>
+        </ProductCardButton>
       </ProductCardContent>
       <Line stroke='gray700' />
     </StyledProductCard>

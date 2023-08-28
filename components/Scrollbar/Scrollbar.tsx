@@ -3,23 +3,28 @@
 import React, { useEffect, useRef } from "react";
 import SimpleBar from "simplebar-react";
 import { StyledScrollbar } from "./Styles/StyledScrollbar";
+import { useWindowSize } from "../../hooks/useWindowSize";
 
 interface Props {
   children: React.ReactElement;
-  applyScrollbar?: boolean;
+  scrollViewportWidthInterval?: number[];
   autoHide?: boolean;
   neutral?: boolean;
 }
 const Scrollbar = ({
   children,
   autoHide = false,
-  applyScrollbar = true,
+  scrollViewportWidthInterval = [0, Infinity],
   neutral,
 }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
+  const { w } = useWindowSize();
+  const isInInterval =
+    w >= scrollViewportWidthInterval[0] && w <= scrollViewportWidthInterval[1];
 
   useEffect(() => {
     function handleResize() {
+      if (!isInInterval) return;
       const childEl = ref.current.childNodes[0] as HTMLElement;
 
       childEl.style.cssText = "display: none;";
@@ -37,8 +42,8 @@ const Scrollbar = ({
     };
   }, [ref.current]);
 
-  return applyScrollbar ? (
-    <StyledScrollbar ref={ref} neutral={neutral}>
+  return isInInterval ? (
+    <StyledScrollbar ref={ref} $neutral={neutral}>
       <SimpleBar autoHide={autoHide}>{children}</SimpleBar>
     </StyledScrollbar>
   ) : (

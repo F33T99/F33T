@@ -9,6 +9,9 @@ import { breakpoint } from "../../consts/breakpoints";
 
 export const StyledAboutSection = styled.div`
   padding: ${spaces.xxxxl}px ${spaces.l}px;
+  ${breakpoint.tabletPortrait} {
+    padding: ${spaces.xxxl}px ${spaces.l}px;
+  }
 `;
 
 export const AboutGallery = styled.div`
@@ -17,6 +20,10 @@ export const AboutGallery = styled.div`
   column-gap: ${spaces.s}px;
   align-items: start;
   position: relative;
+  ${breakpoint.tabletPortrait} {
+    grid-template-columns: unset;
+    margin-top: ${spaces.xxxl}px;
+  }
 `;
 
 export const AboutPhoto = styled(Image)`
@@ -25,6 +32,11 @@ export const AboutPhoto = styled(Image)`
   height: auto;
   &._1 {
     margin-top: ${spaces.xxxxl}px;
+  }
+  ${breakpoint.tabletPortrait} {
+    &._1 {
+      margin-top: ${0}px;
+    }
   }
 `;
 

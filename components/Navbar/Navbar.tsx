@@ -92,7 +92,7 @@ const Navbar = ({}: NavbarProps) => {
           animate={expanded ? "expanded" : "collapsed"}
           variants={navlinkVariants}>
           {navConfig.map(({ pageName, url }) => (
-            <NavLinkWrapper>
+            <NavLinkWrapper key={url}>
               <Micro
                 className={`uppercase ${
                   isThemeLight ? "black" : "white"

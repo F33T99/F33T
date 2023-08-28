@@ -11,6 +11,9 @@ export const Micro = styled.p`
   line-height: 1.3em;
   color: ${colors.white};
   max-width: 400px;
+  &.max-width {
+    max-width: unset;
+  }
   &.tac {
     text-align: center;
   }

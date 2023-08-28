@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { colors } from "../../../consts/colors";
 // import "simplebar/dist/simplebar.min.css";
 
-export const StyledScrollbar = styled.div<{ neutral: boolean }>`
+export const StyledScrollbar = styled.div<{ $neutral: boolean }>`
   [data-simplebar] {
     position: relative;
     flex-direction: column;
@@ -148,7 +148,8 @@ export const StyledScrollbar = styled.div<{ neutral: boolean }>`
   .simplebar-scrollbar:before {
     position: absolute;
     content: "";
-    background: ${({ neutral }) => (neutral ? colors.gray500 : colors.red400)};
+    background: ${({ $neutral }) =>
+      $neutral ? colors.gray500 : colors.red400};
     left: 2px;
     right: 2px;
     opacity: 1;
@@ -176,8 +177,8 @@ export const StyledScrollbar = styled.div<{ neutral: boolean }>`
       left: 0;
       right: 0;
       height: 30px;
-      background-color: ${({ neutral }) =>
-        neutral ? colors.gray500 : colors.red400};
+      background-color: ${({ $neutral }) =>
+        $neutral ? colors.gray500 : colors.red400};
     }
     &:after {
       content: "";

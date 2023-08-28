@@ -12,6 +12,10 @@ export const HeroVideo = styled.div`
   top: 0;
   left: 0;
   z-index: -1;
+  ${breakpoint.tabletPortrait} {
+    height: 100%;
+    width: 100%;
+  }
 `;
 
 export const HeroContent = styled.div`
@@ -27,5 +31,7 @@ export const HeroContent = styled.div`
   }
   ${breakpoint.tabletPortrait} {
     aspect-ratio: 9/16;
+    max-height: 100vh;
+    padding: ${spaces.l}px;
   }
 `;

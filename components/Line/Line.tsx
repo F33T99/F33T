@@ -30,7 +30,7 @@ const Line = ({
       parentElWidth.current = containerRef.current.offsetWidth;
       parentElHeight.current = containerRef.current.offsetHeight;
 
-      svgRef.current.setAttribute("width", String(parentElWidth));
+      svgRef.current.setAttribute("width", String(parentElWidth.current));
       if (vertical) {
         pathRef.current.setAttribute(
           "d",
