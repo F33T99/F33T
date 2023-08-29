@@ -48,6 +48,9 @@ export const StyledButton = styled.button`
       font-size: 40px;
     }
   }
+  ${breakpoint.phone} {
+    font-size: 24px;
+  }
 `;
 
 export const ButtonWithIcon = styled.div`

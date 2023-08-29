@@ -20,7 +20,7 @@ const Scrollbar = ({
   const ref = useRef<HTMLDivElement>(null);
   const { w } = useWindowSize();
   const isInInterval =
-    w >= scrollViewportWidthInterval[0] && w <= scrollViewportWidthInterval[1];
+    w >= scrollViewportWidthInterval[0] || w <= scrollViewportWidthInterval[1];
 
   useEffect(() => {
     function handleResize() {

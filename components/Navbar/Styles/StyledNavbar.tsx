@@ -1,9 +1,8 @@
-import styled from "styled-components";
-import { spaces } from "../../../consts/spaces";
-import { colors } from "../../../consts/colors";
-import { breakpoint } from "../../../consts/breakpoints";
 import { motion } from "framer-motion";
-import { easing } from "../../../consts/animationConfig";
+import styled from "styled-components";
+import { breakpoint } from "../../../consts/breakpoints";
+import { colors } from "../../../consts/colors";
+import { spaces } from "../../../consts/spaces";
 
 export const StyledNavbar = styled(motion.nav)`
   position: fixed;
@@ -67,6 +66,13 @@ export const BurgerWrapper = styled.div`
     z-index: 1;
     display: flex;
     align-items: center;
+    width: 100px;
+  }
+  ${breakpoint.phone} {
+    width: 70px;
+  }
+  ${breakpoint.smallPhone} {
+    width: 50px;
   }
 `;
 

@@ -29,6 +29,12 @@ export const ProductContent = styled.div`
     grid-template-rows: 1fr auto auto;
     row-gap: ${spaces.xl}px;
   }
+  ${breakpoint.phone} {
+    grid-template-columns: unset;
+    grid-template-areas: "type" "cta";
+    row-gap: ${spaces.m}px;
+    padding: ${spaces.m}px;
+  }
 `;
 
 export const InsoleType = styled.div`
@@ -49,6 +55,9 @@ export const InsoleDescription = styled.div`
   ${breakpoint.monitor} {
     row-gap: ${spaces.l}px;
   }
+  ${breakpoint.phone} {
+    display: none;
+  }
 `;
 
 export const InsoleBenefits = styled.div`
@@ -58,6 +67,9 @@ export const InsoleBenefits = styled.div`
   row-gap: ${spaces.m}px;
   ${breakpoint.monitor} {
     row-gap: ${spaces.l}px;
+  }
+  ${breakpoint.phone} {
+    display: none;
   }
 `;
 

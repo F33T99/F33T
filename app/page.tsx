@@ -160,7 +160,7 @@ const page = async () => {
               opravdu stylovka a nesmrdí mi nohy.
             </Medium>
           </Reference>
-          <Line stroke='gray700' vertical style={{ gridArea: "line" }} />
+          <Line stroke='gray700' vertical debug style={{ gridArea: "line" }} />
           <Reference className='short_2'>
             <ReferencePerson>
               <Micro className='gray700 uppercase'>Luboš Procházka</Micro>

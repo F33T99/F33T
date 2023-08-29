@@ -24,6 +24,8 @@ import {
   StyledNavbar,
   navlinkVariants,
 } from "./Styles/StyledNavbar";
+import { useWindowSize } from "../../hooks/useWindowSize";
+import { device } from "../../consts/breakpoints";
 
 interface NavbarProps {}
 
@@ -36,6 +38,7 @@ const Navbar = ({}: NavbarProps) => {
   const pathname = usePathname();
   const router = useRouter();
   const [expanded, setExpanded] = useState(false);
+  const { w } = useWindowSize();
 
   const navConfig = [
     {
@@ -58,6 +61,7 @@ const Navbar = ({}: NavbarProps) => {
 
   const requestedSection = searchParams.get("s");
   const isThemeLight = theme.type === "light";
+  const hasBurger = w <= device.tabletPortrait;
 
   useLayoutEffect(() => {
     // setExpanded(false);
@@ -89,7 +93,9 @@ const Navbar = ({}: NavbarProps) => {
 
         <NavLinks
           initial={false}
-          animate={expanded ? "expanded" : "collapsed"}
+          animate={
+            hasBurger ? (expanded ? "expanded" : "collapsed") : "expanded"
+          }
           variants={navlinkVariants}>
           {navConfig.map(({ pageName, url }) => (
             <NavLinkWrapper key={url}>

@@ -111,15 +111,6 @@ const Footer = ({}: FooterProps) => {
       </FooterMiddle>
 
       <FooterEnd>
-        <FooterAddress>
-          <Nano className={`uppercase ${fontColor}`}>F33T s.r.o.</Nano>
-          <Nano className={`uppercase ${fontColor}`}>
-            Random náměstí 24, Brno
-          </Nano>
-          <Nano className={`uppercase ${fontColor}`}>IČO 01234567</Nano>
-          <Nano className={`uppercase ${fontColor}`}>DIČ CZ01234567</Nano>
-        </FooterAddress>
-
         <FooterOtherLinks>
           <Nano className={`uppercase ${fontColor}`}>
             <Link className='no-underline' href={"/"}>
@@ -133,9 +124,18 @@ const Footer = ({}: FooterProps) => {
           </Nano>
         </FooterOtherLinks>
 
-        <Nano className={`uppercase ${fontColor}`}>
+        <FooterAddress>
+          <Nano className={`uppercase ${`gray500`}`}>F33T s.r.o.</Nano>
+          <Nano className={`uppercase ${`gray500`}`}>
+            Random náměstí 24, Brno
+          </Nano>
+          <Nano className={`uppercase ${`gray500`}`}>IČO 01234567</Nano>
+          <Nano className={`uppercase ${`gray500`}`}>DIČ CZ01234567</Nano>
+        </FooterAddress>
+
+        <Nano className={`uppercase ${`gray500`}`}>
           <Link
-            className={`no-underline ${fontColor}`}
+            className={`no-underline ${`gray500`}`}
             href={"https://steezy.studio/"}
             target='_blank'>
             steezy.studio

@@ -4,10 +4,18 @@ import React from "react";
 import styled from "styled-components";
 import { colors } from "../../consts/colors";
 import { motion } from "framer-motion";
+import { breakpoint } from "../../consts/breakpoints";
 
 interface PlayButtonProps {}
 
-const StyledPlayButton = styled(motion.div)``;
+const StyledPlayButton = styled(motion.div)`
+  ${breakpoint.phone} {
+    width: 150px;
+    svg {
+      width: 100%;
+    }
+  }
+`;
 
 const PlayButton = ({}: PlayButtonProps) => {
   return (

@@ -10,6 +10,7 @@ interface LineProps {
   flip?: boolean;
   vertical?: boolean;
   style?: CSSProperties;
+  debug?: boolean;
 }
 
 const Line = ({
@@ -18,6 +19,7 @@ const Line = ({
   flip,
   vertical,
   style,
+  debug,
 }: LineProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const pathRef = useRef<SVGPathElement>(null);
@@ -29,6 +31,7 @@ const Line = ({
     function handleResize() {
       parentElWidth.current = containerRef.current.offsetWidth;
       parentElHeight.current = containerRef.current.offsetHeight;
+      debug && console.log(containerRef.current.offsetWidth);
 
       svgRef.current.setAttribute("width", String(parentElWidth.current));
       if (vertical) {

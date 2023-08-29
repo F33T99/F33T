@@ -14,7 +14,7 @@ export const Nano = styled.p`
   &.uppercase {
     text-transform: uppercase;
     letter-spacing: 0.03em;
-    line-height: 1.5em;
+    line-height: 1.9em;
   }
   &.tar {
     text-align: right;

@@ -27,6 +27,10 @@ export const Technology = styled.section`
   ${breakpoint.tabletLandscape} {
     margin: ${spaces.xxxl}px 0;
   }
+  ${breakpoint.phone} {
+    margin: ${spaces.l}px 0;
+    padding: 0 ${spaces.m}px;
+  }
 `;
 
 export const TechnologyHeader = styled.h2`
@@ -40,6 +44,9 @@ export const TechnologyHeader = styled.h2`
   }
   ${breakpoint.tabletPortrait} {
     text-align: left;
+  }
+  ${breakpoint.phone} {
+    margin-bottom: ${spaces.xl}px;
   }
 `;
 
@@ -63,6 +70,11 @@ export const TechnologyContent = styled.div`
     row-gap: ${spaces.xl}px;
     column-gap: ${spaces.xl}px;
   }
+  ${breakpoint.phone} {
+    grid-template-columns: unset;
+    grid-template-areas: "loop" "_1" "_2";
+    row-gap: ${spaces.l}px;
+  }
   ${breakpoint.monitor} {
     grid-template-columns: 500px 1fr 500px;
   }
@@ -78,6 +90,9 @@ export const TechnologyPlayButton = styled.div`
 export const TechnologyBenefit = styled.div`
   display: grid;
   row-gap: ${spaces.m}px;
+  ${breakpoint.phone} {
+    width: 90%;
+  }
 `;
 
 export const TechnologyBenefits = styled.div`
@@ -122,6 +137,10 @@ export const References = styled.div`
     row-gap: ${spaces.xxl}px;
     margin-top: ${spaces.xxl}px;
     column-gap: ${spaces.l}px;
+  }
+  ${breakpoint.tabletPortrait} {
+    align-items: initial;
+    grid-template-columns: 1fr 26px 1fr;
   }
 `;
 
