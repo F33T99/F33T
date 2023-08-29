@@ -110,7 +110,7 @@ const ProductBanner = ({ data }: ProductBannerProps) => {
                 initial={{ y: "100%" }}
                 animate={{ y: "0%" }}
                 exit={{ y: "100%" }}>
-                <Large>
+                <Large className='price'>
                   od{" "}
                   {formatPrice(
                     data[insoleCurrIndex].price.minVariantPrice.amount

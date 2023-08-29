@@ -15,6 +15,13 @@ export const StyledFooter = styled.footer`
   ${breakpoint.tabletLandscape} {
     row-gap: ${spaces.xl}px;
   }
+  ${breakpoint.phone} {
+    padding: ${spaces.m}px;
+    padding-top: 0px;
+  }
+  ${breakpoint.smallPhone} {
+    padding: ${spaces.s}px;
+  }
 `;
 
 export const FooterTop = styled.div`
@@ -23,6 +30,9 @@ export const FooterTop = styled.div`
   ${breakpoint.phone} {
     display: grid;
     row-gap: ${spaces.l}px;
+  }
+  ${breakpoint.smallPhone} {
+    row-gap: ${spaces.m}px;
   }
 `;
 
@@ -33,6 +43,7 @@ export const FooterNavLinks = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    row-gap: ${spaces.xxs}px;
   }
 `;
 
@@ -41,7 +52,7 @@ export const FooterMiddle = styled.div`
   justify-content: space-between;
   ${breakpoint.phone} {
     display: grid;
-    row-gap: ${spaces.xs}px;
+    row-gap: ${spaces.xxs}px;
   }
 `;
 
@@ -50,7 +61,7 @@ export const FooterContacts = styled.div`
   gap: ${spaces.m}px;
   ${breakpoint.phone} {
     display: grid;
-    row-gap: ${spaces.xs}px;
+    row-gap: ${spaces.xxs}px;
   }
 `;
 
@@ -64,6 +75,7 @@ export const FooterEshopLinks = styled.div`
     flex-direction: column;
     align-items: flex-start;
     margin-top: ${spaces.xl}px;
+    row-gap: ${spaces.xxs}px;
   }
 `;
 
@@ -75,7 +87,7 @@ export const FooterEnd = styled.div`
   }
   ${breakpoint.phone} {
     display: grid;
-    row-gap: ${spaces.m}px;
+    row-gap: ${spaces.xxs}px;
   }
 `;
 
@@ -85,6 +97,7 @@ export const FooterAddress = styled.div`
   ${breakpoint.tabletLandscape} {
     flex-direction: column;
     row-gap: ${0}px;
+    margin-top: ${spaces.xl}px;
   }
 `;
 
@@ -96,6 +109,6 @@ export const FooterOtherLinks = styled.div`
     row-gap: ${0}px;
   }
   ${breakpoint.phone} {
-    row-gap: ${spaces.xs}px;
+    row-gap: ${spaces.xxs}px;
   }
 `;

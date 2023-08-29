@@ -14,29 +14,34 @@ export const StyledProductCard = styled(Link)`
 export const ProductCardHeader = styled.div`
   display: grid;
   width: 100%;
+  row-gap: ${spaces.l}px;
   grid-template-columns: auto 1fr;
   column-gap: ${spaces.xl}px;
   ${breakpoint.tabletPortrait} {
     grid-template-columns: unset;
-    row-gap: ${spaces.l}px;
   }
 `;
 
 export const ProductCardContent = styled.div`
   display: grid;
   grid-template-areas: "price variants button";
+  grid-template-columns: repeat(3, 1fr);
   align-items: end;
   width: 100%;
   ${breakpoint.tabletPortrait} {
     grid-template-areas: "price ." "variants button";
     row-gap: ${spaces.m}px;
   }
+  ${breakpoint.phone} {
+    grid-template-areas: "price" "variants" "button";
+  }
 `;
 
 export const ProductCardButton = styled.div`
   grid-area: button;
-  ${breakpoint.tabletPortrait} {
-    justify-self: end;
+  justify-self: end;
+  ${breakpoint.phone} {
+    justify-self: start;
   }
 `;
 

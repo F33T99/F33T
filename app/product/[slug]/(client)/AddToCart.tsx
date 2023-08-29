@@ -14,6 +14,7 @@ import { Mini } from "../../../../components/Typography/Mini";
 import { Small } from "../../../../components/Typography/Small";
 import { spaces } from "../../../../consts/spaces";
 import { formatPrice } from "../../../../helpers/formatPrice";
+import { breakpoint } from "../../../../consts/breakpoints";
 
 interface AddToCartProps {
   product: Product;
@@ -23,11 +24,27 @@ const StyledAddToCart = styled.div`
   display: grid;
   justify-self: end;
   row-gap: ${spaces.l}px;
+  ${breakpoint.phone} {
+    justify-self: start;
+    justify-items: start;
+    row-gap: ${spaces.xl}px;
+  }
 `;
 
 export const VariantsContainer = styled.div`
   display: grid;
   row-gap: ${spaces.l}px;
+  ${breakpoint.phone} {
+    row-gap: ${spaces.s}px;
+  }
+`;
+
+export const Cta = styled.div`
+  display: grid;
+  row-gap: ${spaces.l}px;
+  ${breakpoint.phone} {
+    row-gap: ${spaces.s}px;
+  }
 `;
 
 export const PriceContainer = styled.div`
@@ -52,21 +69,23 @@ const AddToCart = ({ product }: AddToCartProps) => {
           onChange={(i) => setI(i)}
         />
       </VariantsContainer>
-      <PriceContainer>
-        <Large className='black'>
-          {formatPrice(product.variants.nodes[i].price.amount)}{" "}
-          <Small className='black' as={"span"}>
-            s DPH
-          </Small>
-        </Large>
-      </PriceContainer>
-      <Button
-        onClick={() => {
-          linesAdd([merchandise]);
-        }}
-        className='x-big'>
-        {"přidat do košíku"}
-      </Button>
+      <Cta>
+        <PriceContainer>
+          <Large className='black price'>
+            {formatPrice(product.variants.nodes[i].price.amount)}{" "}
+            <Small className='black' as={"span"}>
+              s DPH
+            </Small>
+          </Large>
+        </PriceContainer>
+        <Button
+          onClick={() => {
+            linesAdd([merchandise]);
+          }}
+          className='x-big'>
+          {"přidat do košíku"}
+        </Button>
+      </Cta>
     </StyledAddToCart>
   );
 };

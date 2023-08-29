@@ -19,6 +19,9 @@ export const StyledGallery = styled.div`
       overflow: hidden;
     }
   }
+  ${breakpoint.phone} {
+    margin-bottom: ${spaces.xl}px;
+  }
 `;
 
 export const ShowMore = styled.div`

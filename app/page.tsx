@@ -10,7 +10,8 @@ import { SectionHeader } from "../components/Typography/SectionHeader";
 import AboutSectionContainer from "../containers/AboutSection/AboutSectionContainer";
 import VariantsHeaderContainer from "../containers/VariantsHeader/VariantsHeaderContainer";
 import { GET_PRODUCT } from "../gql/GetProduct";
-import { QueryRoot } from "../gql/types";
+import { Metafield, QueryRoot } from "../gql/types";
+import { convertReviewsToJson } from "../helpers/convertReviewsToJson";
 import {
   GlobalHomepage,
   Reference,
@@ -42,16 +43,27 @@ const page = async () => {
           maxHeight: 1080,
           preferredContentType: "WEBP",
         },
-        identifiers: {
-          namespace: "custom",
-          key: "benefits",
-        },
+        identifiers: [
+          {
+            namespace: "custom",
+            key: "benefits",
+          },
+          { namespace: "custom", key: "reviews" },
+        ],
       },
     });
   });
 
   const [activeRes, basicRes] = await Promise.all(requestsQueue);
   const products = [activeRes.data.product, basicRes.data.product];
+  const getReviewFromMeta = (m: Metafield[]) =>
+    m.find((x) => x?.key === "reviews");
+  const activeInsoleReviews = convertReviewsToJson(
+    getReviewFromMeta(products[0].metafields).value
+  );
+  const basicInsoleReviews = convertReviewsToJson(
+    getReviewFromMeta(products[1].metafields).value
+  );
 
   return (
     <StyledHomepage data-theme='dark'>
@@ -128,54 +140,57 @@ const page = async () => {
           </TechnologyBenefits>
         </TechnologyContent>
       </Technology>
-      <ReferencesSection id={"references"}>
-        <SectionHeader className='uppercase black max-width'>
-          Ideální pro každodenní nošení i sport
-        </SectionHeader>
-        <References>
-          <Reference className='wide'>
-            <ReferencePerson>
-              <Micro className='gray700 uppercase'>Luboš Procházka</Micro>
-              <Micro className='gray700 uppercase'>
-                Profesionální skateboardista
-              </Micro>
-            </ReferencePerson>
-            <Medium className='black uppercase no-max-width'>
-              Vložky F33T mě na skejtu už několikrát zachránily od hnusných
-              úrazů paty. Navíc když si po ježdění sundám boty, vložky jsou
-              opravdu stylovka a nesmrdí mi nohy.
-            </Medium>
-            <Line stroke='gray700' />
-          </Reference>
-          <Reference className='short'>
-            <ReferencePerson>
-              <Micro className='gray700 uppercase'>Luboš Procházka</Micro>
-              <Micro className='gray700 uppercase'>
-                Profesionální skateboardista
-              </Micro>
-            </ReferencePerson>
-            <Medium className='black uppercase no-max-width'>
-              Vložky F33T mě na skejtu už několikrát zachránily od hnusných
-              úrazů paty. Navíc když si po ježdění sundám boty, vložky jsou
-              opravdu stylovka a nesmrdí mi nohy.
-            </Medium>
-          </Reference>
-          <Line stroke='gray700' vertical debug style={{ gridArea: "line" }} />
-          <Reference className='short_2'>
-            <ReferencePerson>
-              <Micro className='gray700 uppercase'>Luboš Procházka</Micro>
-              <Micro className='gray700 uppercase'>
-                Profesionální skateboardista
-              </Micro>
-            </ReferencePerson>
-            <Medium className='black uppercase no-max-width'>
-              Vložky F33T mě na skejtu už několikrát zachránily od hnusných
-              úrazů paty. Navíc když si po ježdění sundám boty, vložky jsou
-              opravdu stylovka a nesmrdí mi nohy.
-            </Medium>
-          </Reference>
-        </References>
-      </ReferencesSection>
+      {(activeInsoleReviews || basicInsoleReviews) && (
+        <ReferencesSection id={"references"}>
+          <SectionHeader className='uppercase black max-width'>
+            Ideální pro každodenní nošení i sport
+          </SectionHeader>
+          <References>
+            <Reference className='wide'>
+              <ReferencePerson>
+                <Micro className='gray700 uppercase'>
+                  {activeInsoleReviews[0].name}
+                </Micro>
+                <Micro className='gray700 uppercase'>
+                  {activeInsoleReviews[0].profession}
+                </Micro>
+              </ReferencePerson>
+              <Medium className='black uppercase no-max-width'>
+                {activeInsoleReviews[0].quote}
+              </Medium>
+            </Reference>
+            <Line stroke='gray700' className='line _1' />
+            <Reference className='short _1'>
+              <ReferencePerson>
+                <Micro className='gray700 uppercase'>
+                  {basicInsoleReviews[0].name}
+                </Micro>
+                <Micro className='gray700 uppercase'>
+                  {basicInsoleReviews[0].profession}
+                </Micro>
+              </ReferencePerson>
+              <Medium className='black uppercase no-max-width'>
+                {basicInsoleReviews[0].quote}
+              </Medium>
+            </Reference>
+            <Line stroke='gray700' vertical className='vertical line _2' />
+            <Line stroke='gray700' className='horizontal line _2' />
+            <Reference className='short _2'>
+              <ReferencePerson>
+                <Micro className='gray700 uppercase'>
+                  {activeInsoleReviews[1].name}
+                </Micro>
+                <Micro className='gray700 uppercase'>
+                  {activeInsoleReviews[1].profession}
+                </Micro>
+              </ReferencePerson>
+              <Medium className='black uppercase no-max-width'>
+                {activeInsoleReviews[1].quote}
+              </Medium>
+            </Reference>
+          </References>
+        </ReferencesSection>
+      )}
       <AboutSectionContainer />
     </StyledHomepage>
   );

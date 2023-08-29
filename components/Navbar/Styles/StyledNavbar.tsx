@@ -21,6 +21,12 @@ export const StyledNavbar = styled(motion.nav)`
   ${breakpoint.monitor} {
     padding: ${spaces.xl}px;
   }
+  ${breakpoint.phone} {
+    padding: ${spaces.m}px;
+  }
+  ${breakpoint.smallPhone} {
+    padding: ${spaces.s}px;
+  }
 `;
 
 export const NavLinks = styled(motion.div)`
@@ -33,7 +39,7 @@ export const NavLinks = styled(motion.div)`
   ${breakpoint.tabletPortrait} {
     position: fixed;
     inset: 0;
-    height: 100vh;
+    height: 100dvh;
     background-color: ${colors.red400};
     flex-direction: column;
     justify-content: center;

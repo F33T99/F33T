@@ -50,6 +50,12 @@ export const StyledButton = styled.button`
   }
   ${breakpoint.phone} {
     font-size: 24px;
+    &.big {
+      font-size: 30px;
+    }
+    &.x-big {
+      font-size: 30px;
+    }
   }
 `;
 

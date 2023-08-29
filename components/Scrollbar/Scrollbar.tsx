@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useMemo, useRef } from "react";
 import SimpleBar from "simplebar-react";
 import { StyledScrollbar } from "./Styles/StyledScrollbar";
 import { useWindowSize } from "../../hooks/useWindowSize";
@@ -20,7 +20,7 @@ const Scrollbar = ({
   const ref = useRef<HTMLDivElement>(null);
   const { w } = useWindowSize();
   const isInInterval =
-    w >= scrollViewportWidthInterval[0] || w <= scrollViewportWidthInterval[1];
+    w >= scrollViewportWidthInterval[0] && w <= scrollViewportWidthInterval[1];
 
   useEffect(() => {
     function handleResize() {

@@ -40,6 +40,7 @@ export const GET_PRODUCT = gql`
       }
       metafields(identifiers: $identifiers) {
         value
+        key
         type
       }
       images(first: $first) {

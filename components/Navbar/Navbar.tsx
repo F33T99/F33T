@@ -2,7 +2,7 @@
 
 import { useCart } from "@shopify/hydrogen-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useContext, useLayoutEffect, useState } from "react";
+import { useContext, useEffect, useLayoutEffect, useState } from "react";
 import scrollToElement from "scroll-to-element";
 import { useTheme } from "styled-components";
 import { DisableScroll } from "../../app/(client)/DisableScroll";
@@ -63,8 +63,11 @@ const Navbar = ({}: NavbarProps) => {
   const isThemeLight = theme.type === "light";
   const hasBurger = w <= device.tabletPortrait;
 
+  useEffect(() => {
+    setExpanded(false);
+  }, [pathname]);
+
   useLayoutEffect(() => {
-    // setExpanded(false);
     if (requestedSection) {
       const sectionElement = document.querySelector(`#${requestedSection}`);
       scrollToElement(sectionElement, { offset: 0 });
@@ -100,9 +103,10 @@ const Navbar = ({}: NavbarProps) => {
           {navConfig.map(({ pageName, url }) => (
             <NavLinkWrapper key={url}>
               <Micro
-                className={`uppercase ${
-                  isThemeLight ? "black" : "white"
-                } navlink`}>
+                className={`uppercase 
+                ${isThemeLight ? "black" : "white"}
+                ${pathname === url ? "active" : ""}
+                navlink`}>
                 <Link href={url} className='no-underline'>
                   {pageName}
                 </Link>

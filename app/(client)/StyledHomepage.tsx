@@ -28,8 +28,11 @@ export const Technology = styled.section`
     margin: ${spaces.xxxl}px 0;
   }
   ${breakpoint.phone} {
-    margin: ${spaces.l}px 0;
+    margin: ${spaces.xl}px 0;
     padding: 0 ${spaces.m}px;
+  }
+  ${breakpoint.smallPhone} {
+    padding: 0 ${spaces.s}px;
   }
 `;
 
@@ -46,7 +49,7 @@ export const TechnologyHeader = styled.h2`
     text-align: left;
   }
   ${breakpoint.phone} {
-    margin-bottom: ${spaces.xl}px;
+    margin-bottom: ${spaces.xxl}px;
   }
 `;
 
@@ -73,7 +76,7 @@ export const TechnologyContent = styled.div`
   ${breakpoint.phone} {
     grid-template-columns: unset;
     grid-template-areas: "loop" "_1" "_2";
-    row-gap: ${spaces.l}px;
+    row-gap: ${spaces.xl}px;
   }
   ${breakpoint.monitor} {
     grid-template-columns: 500px 1fr 500px;
@@ -120,6 +123,9 @@ export const ReferencesSection = styled.section`
   ${breakpoint.tabletLandscape} {
     padding: ${spaces.xxxl}px ${spaces.l}px;
   }
+  ${breakpoint.phone} {
+    padding: ${spaces.xl}px ${spaces.m}px;
+  }
   ${breakpoint.monitor} {
     padding: ${spaces.xxxxl}px ${spaces.xl}px;
   }
@@ -129,10 +135,24 @@ export const References = styled.div`
   margin-top: ${spaces.xxxxl}px;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  grid-template-areas: "wide wide wide" "short line short2";
+  grid-template-areas: "wide wide wide" "line1 line1 line1" "short line2 short2";
   row-gap: ${spaces.l}px;
   column-gap: ${spaces.xxl}px;
   align-items: center;
+  .line {
+    &._1 {
+      grid-area: line1;
+    }
+    &._2 {
+      grid-area: line2;
+    }
+  }
+  .vertical.line._2 {
+    display: block;
+  }
+  .horizontal.line._2 {
+    display: none;
+  }
   ${breakpoint.tabletLandscape} {
     row-gap: ${spaces.xxl}px;
     margin-top: ${spaces.xxl}px;
@@ -142,6 +162,18 @@ export const References = styled.div`
     align-items: initial;
     grid-template-columns: 1fr 26px 1fr;
   }
+  ${breakpoint.phone} {
+    grid-template-columns: unset;
+    grid-template-areas: "wide" "line1" "short" "line2" "short2";
+    row-gap: ${spaces.l}px;
+    margin-top: ${spaces.xl}px;
+    .vertical.line._2 {
+      display: none;
+    }
+    .horizontal.line._2 {
+      display: block;
+    }
+  }
 `;
 
 export const Reference = styled.div`
@@ -150,23 +182,15 @@ export const Reference = styled.div`
   &.wide {
     grid-area: wide;
   }
-  &.short_1 {
+  &.short._1 {
     grid-area: short;
   }
-  &.short_2 {
+  &.short._2 {
     grid-area: short2;
+  }
+  ${breakpoint.phone} {
+    row-gap: ${spaces.xs}px;
   }
 `;
 
 export const ReferencePerson = styled.div``;
-
-export const ReferenceHorLine = styled.svg`
-  width: 100%;
-  height: auto;
-`;
-
-export const ReferenceVerLine = styled.svg`
-  height: 100%;
-  width: auto;
-  grid-area: line;
-`;

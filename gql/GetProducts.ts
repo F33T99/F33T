@@ -5,8 +5,9 @@ export const GET_PRODUCTS = gql`
     $first: Int
     $transformImage: ImageTransformInput
     $identifiers: [HasMetafieldsIdentifier!]!
+    $sortKey: ProductSortKeys
   ) {
-    products(first: $first) {
+    products(first: $first, sortKey: $sortKey) {
       edges {
         node {
           id
@@ -42,6 +43,15 @@ export const GET_PRODUCTS = gql`
           metafields(identifiers: $identifiers) {
             value
             type
+            key
+            reference {
+              ... on MediaImage {
+                __typename
+                image {
+                  url(transform: $transformImage)
+                }
+              }
+            }
           }
           images(first: $first) {
             nodes {

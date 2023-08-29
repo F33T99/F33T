@@ -44,8 +44,10 @@ export const Medium = styled.p`
     font-size: 21px;
     max-width: 450px;
   }
+  ${breakpoint.phone} {
+    font-size: 14px;
+  }
   ${breakpoint.smallPhone} {
-    font-size: 16px;
   }
   ${addColorClasses()}
 `;

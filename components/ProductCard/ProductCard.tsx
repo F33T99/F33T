@@ -1,6 +1,11 @@
 "use client";
 
-import { Product } from "@shopify/hydrogen-react/storefront-api-types";
+import {
+  MediaImage,
+  Metafield,
+  MetafieldReference,
+  Product,
+} from "@shopify/hydrogen-react/storefront-api-types";
 import { useState } from "react";
 import { formatPrice } from "../../helpers/formatPrice";
 import Button from "../Button/Button";
@@ -21,14 +26,28 @@ import {
 
 interface ProductCardProps extends Partial<Product> {}
 
+function getMetafieldReference<T>(metafields: Metafield[], key: string): T {
+  console.log(metafields);
+
+  const m = metafields.find((m) => m?.key === key);
+
+  return m?.reference as T;
+}
+
 const ProductCard = ({
   variants,
   title,
   priceRange,
   images,
   handle,
+  metafields,
 }: ProductCardProps) => {
   const [hover, setHover] = useState(false);
+  const coverPhotoRef = getMetafieldReference<MediaImage>(
+    metafields,
+    "products-cover"
+  );
+  console.log(coverPhotoRef);
 
   return (
     <StyledProductCard
@@ -40,14 +59,14 @@ const ProductCard = ({
           {title}
         </SectionHeader>
         <ProductCardCover
-          src={images.nodes[0].url}
-          alt={images.nodes[0].altText}
-          hover={hover}
+          src={coverPhotoRef?.image.url}
+          alt={coverPhotoRef?.image.altText}
+          // hover={hover}
         />
       </ProductCardHeader>
       <ProductCardContent>
         <ProductCardPrice>
-          <Large className='black tight-lineheight'>
+          <Large className='black tight-lineheight price'>
             od {formatPrice(priceRange.minVariantPrice.amount)}
           </Large>
         </ProductCardPrice>

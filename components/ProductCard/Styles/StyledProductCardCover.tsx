@@ -4,13 +4,12 @@ import styled from "styled-components";
 export const StyledProductCardCover = styled.div`
   position: relative;
   overflow: hidden;
-  aspect-ratio: 2;
   width: 100%;
 `;
 
 export const ProductCardCoverImage = styled(Image)`
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
 `;
 

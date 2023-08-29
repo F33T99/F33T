@@ -42,9 +42,9 @@ const Triangle = ({ className, hover, direction }: TriangleProps) => {
 const ProductCardCover = ({ src, alt, hover }: ProductCardCoverProps) => {
   return (
     <StyledProductCardCover>
-      <Triangle className={"top-left"} hover={hover} direction={1} />
+      {/* <Triangle className={"top-left"} hover={hover} direction={1} /> */}
       <ProductCardCoverImage src={src} alt={alt} width={2000} height={1000} />
-      <Triangle className={"bottom-right"} hover={hover} direction={-1} />
+      {/* <Triangle className={"bottom-right"} hover={hover} direction={-1} /> */}
     </StyledProductCardCover>
   );
 };

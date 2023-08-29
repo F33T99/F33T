@@ -27,10 +27,14 @@ const page = async ({}: pageProps) => {
         maxHeight: 1080,
         preferredContentType: "WEBP",
       },
-      identifiers: {
-        namespace: "custom",
-        key: "benefits",
-      },
+      sortKey: "TITLE",
+      identifiers: [
+        {
+          namespace: "custom",
+          key: "benefits",
+        },
+        { namespace: "custom", key: "products-cover" },
+      ],
     },
   });
 
@@ -48,7 +52,15 @@ const page = async ({}: pageProps) => {
       </ProductsPageHero>
       <ProductsGrid>
         {products.edges.map(({ node }) => {
-          const { id, title, variants, priceRange, images, handle } = node;
+          const {
+            id,
+            title,
+            variants,
+            priceRange,
+            images,
+            handle,
+            metafields,
+          } = node;
           return (
             <ProductCard
               key={id}
@@ -57,6 +69,7 @@ const page = async ({}: pageProps) => {
               priceRange={priceRange}
               images={images}
               handle={handle}
+              metafields={metafields}
             />
           );
         })}

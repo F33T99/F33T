@@ -12,6 +12,12 @@ export const StyledAboutSection = styled.div`
   ${breakpoint.tabletPortrait} {
     padding: ${spaces.xxxl}px ${spaces.l}px;
   }
+  ${breakpoint.phone} {
+    padding: ${spaces.xl}px ${spaces.m}px;
+  }
+  ${breakpoint.smallPhone} {
+    padding: ${spaces.xl}px ${spaces.s}px;
+  }
 `;
 
 export const AboutGallery = styled.div`
@@ -23,6 +29,9 @@ export const AboutGallery = styled.div`
   ${breakpoint.tabletPortrait} {
     grid-template-columns: unset;
     margin-top: ${spaces.xxxl}px;
+  }
+  ${breakpoint.phone} {
+    margin-top: ${spaces.xl}px;
   }
 `;
 

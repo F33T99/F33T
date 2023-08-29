@@ -4,6 +4,10 @@ import { createGlobalStyle } from "styled-components";
 import { colors } from "../../consts/colors";
 
 export const GlobalStyles = createGlobalStyle`
+  ::selection {
+    color: ${colors.black};
+    background: ${colors.red400};
+  }
   * {
     box-sizing: border-box;
     margin: 0;

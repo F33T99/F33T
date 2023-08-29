@@ -18,6 +18,9 @@ import {
   FooterTop,
   StyledFooter,
 } from "./Styles/StyledFooter";
+import { useWindowSize } from "../../hooks/useWindowSize";
+import { device } from "../../consts/breakpoints";
+import { FooterLogoPhone } from "./FooterLogoPhone";
 
 interface FooterProps {}
 
@@ -25,10 +28,15 @@ const Footer = ({}: FooterProps) => {
   const theme = useTheme();
   const isThemeLight = theme.type === "light";
   const fontColor = isThemeLight ? "black" : "white";
+  const { w } = useWindowSize();
 
   return (
     <StyledFooter id={"contact"}>
-      <FooterLogo fill={isThemeLight ? "black" : "red400"} />
+      {w <= device.phone ? (
+        <FooterLogoPhone fill={isThemeLight ? "black" : "red400"} />
+      ) : (
+        <FooterLogo fill={isThemeLight ? "black" : "red400"} />
+      )}
       <FooterTop>
         <Large className={`uppercase ${fontColor}`}>Every step counts</Large>
 

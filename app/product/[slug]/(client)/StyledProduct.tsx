@@ -14,6 +14,9 @@ export const GlobalProduct = createGlobalStyle`
 
 export const StyledProduct = styled.div`
   margin-top: ${spaces.xxxl}px;
+  ${breakpoint.phone} {
+    margin-top: ${spaces.xl}px;
+  }
   ${breakpoint.monitor} {
     margin-top: ${spaces.xxxxl}px;
   }
@@ -29,6 +32,12 @@ export const ProductCover = styled(Image)`
     grid-area: cover;
     padding: ${spaces.l}px;
   }
+  ${breakpoint.phone} {
+    padding: ${spaces.m}px;
+  }
+  ${breakpoint.smallPhone} {
+    padding: ${spaces.xs}px;
+  }
 `;
 
 export const ProductContent = styled.div`
@@ -40,6 +49,9 @@ export const ProductContent = styled.div`
     grid-template-columns: unset;
     grid-template-areas: "cover" "info" "gallery";
     row-gap: ${spaces.xl}px;
+  }
+  ${breakpoint.phone} {
+    row-gap: ${spaces.l}px;
   }
 `;
 
@@ -53,21 +65,37 @@ export const ProductInfo = styled.div`
   ${breakpoint.monitor} {
     row-gap: ${spaces.xxl}px;
   }
+  ${breakpoint.phone} {
+    padding: ${spaces.m}px;
+    row-gap: ${spaces.m}px;
+  }
+  ${breakpoint.smallPhone} {
+    padding: ${spaces.xs}px;
+  }
 `;
 
 export const Benefits = styled.div`
   display: grid;
   row-gap: ${spaces.l}px;
+  margin-top: ${spaces.l}px;
 `;
 
 export const BenefitsInner = styled.div`
   display: flex;
   column-gap: ${spaces.l}px;
   overflow: hidden;
+  ${breakpoint.phone} {
+    flex-direction: column;
+    row-gap: ${spaces.m}px;
+  }
 `;
 
 export const Benefit = styled.div`
   display: grid;
   row-gap: ${spaces.xs}px;
   align-content: start;
+  ${breakpoint.phone} {
+    justify-content: flex-start;
+    justify-items: start;
+  }
 `;

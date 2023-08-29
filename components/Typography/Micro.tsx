@@ -22,10 +22,19 @@ export const Micro = styled.p`
     letter-spacing: 0.03em;
   }
   &.navlink {
+    &.active {
+      color: ${colors.red400};
+    }
     ${breakpoint.tabletPortrait} {
       font-size: 50px;
       letter-spacing: -0.02em;
       max-width: unset;
+      &.active {
+        color: ${colors.white};
+      }
+    }
+    ${breakpoint.phone} {
+      font-size: 30px;
     }
   }
   ${breakpoint.tabletLandscape} {

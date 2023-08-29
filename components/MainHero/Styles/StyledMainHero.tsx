@@ -25,7 +25,7 @@ export const HeroContent = styled.div`
   max-height: 90vh;
   aspect-ratio: 16/9;
   row-gap: ${spaces.m}px;
-  padding: 0 ${spaces.l}px;
+  padding: ${spaces.l}px;
   ${breakpoint.monitor} {
     row-gap: ${spaces.l}px;
   }
@@ -33,5 +33,11 @@ export const HeroContent = styled.div`
     aspect-ratio: 9/16;
     max-height: 100vh;
     padding: ${spaces.l}px;
+  }
+  ${breakpoint.phone} {
+    padding: ${spaces.m}px;
+  }
+  ${breakpoint.smallPhone} {
+    padding: ${spaces.s}px;
   }
 `;

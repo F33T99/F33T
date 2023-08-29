@@ -8,11 +8,14 @@ import { breakpoint } from "../../consts/breakpoints";
 export const Large = styled.p`
   font-size: 50px;
   letter-spacing: -0.02em;
-  line-height: 1.3em;
+  line-height: 1.4em;
   color: ${colors.white};
   max-width: 800px;
   &.indent {
     text-indent: 4em;
+    ${breakpoint.phone} {
+      text-indent: 2em;
+    }
   }
   &.tight-lineheight {
     line-height: 1em;
@@ -34,8 +37,15 @@ export const Large = styled.p`
     font-size: 30px;
     max-width: 500px;
   }
+  ${breakpoint.phone} {
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    &.price {
+      font-size: 30px;
+    }
+  }
   ${breakpoint.smallPhone} {
-    font-size: 21px;
+    font-size: 14px;
   }
   ${addColorClasses()}
 `;
