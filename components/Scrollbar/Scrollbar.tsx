@@ -40,7 +40,7 @@ const Scrollbar = ({
     return () => {
       removeEventListener("resize", handleResize);
     };
-  }, [ref.current]);
+  }, [ref.current, w]);
 
   return isInInterval ? (
     <StyledScrollbar ref={ref} $neutral={neutral}>

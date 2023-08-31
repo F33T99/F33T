@@ -30,7 +30,8 @@ export const Micro = styled.p`
       letter-spacing: -0.02em;
       max-width: unset;
       &.active {
-        color: ${colors.white};
+        color: ${({ theme }) =>
+          theme.type === "light" ? colors.white : colors.black};
       }
     }
     ${breakpoint.phone} {

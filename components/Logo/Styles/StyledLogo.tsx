@@ -14,7 +14,7 @@ export const StyledLogo = styled.div`
     width: 200px;
   }
   ${breakpoint.smallPhone} {
-    width: 120px;
+    width: 150px;
   }
   ${breakpoint.tabletPortrait} {
     position: relative;

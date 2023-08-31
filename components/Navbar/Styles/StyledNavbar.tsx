@@ -13,6 +13,7 @@ export const StyledNavbar = styled(motion.nav)`
   padding: ${spaces.l}px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   column-gap: ${spaces.m}px;
   &.with-bg {
     background-color: ${({ theme }) =>
@@ -61,24 +62,22 @@ export const CartBadge = styled.div`
   }
   ${breakpoint.tabletPortrait} {
     background-color: ${colors.black};
-    padding: ${spaces.s}px;
+    padding: ${spaces.xs}px;
   }
 `;
 
-export const BurgerWrapper = styled.div`
+export const CartLines = styled.span`
+  font-size: 15px;
+`;
+
+export const PhoneNav = styled.div`
   display: none;
   ${breakpoint.tabletPortrait} {
-    position: relative;
-    z-index: 1;
     display: flex;
     align-items: center;
-    width: 100px;
-  }
-  ${breakpoint.phone} {
-    width: 70px;
-  }
-  ${breakpoint.smallPhone} {
-    width: 50px;
+    column-gap: ${spaces.xs}px;
+    position: relative;
+    z-index: 1;
   }
 `;
 

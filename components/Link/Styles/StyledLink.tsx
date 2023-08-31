@@ -61,15 +61,5 @@ export const StyledLink = styled.a`
         }
       }
     }
-    &.light {
-      &:hover {
-        color: ${colors.yellow400};
-        &[target] {
-          svg {
-            fill: ${colors.yellow400};
-          }
-        }
-      }
-    }
   }
 `;

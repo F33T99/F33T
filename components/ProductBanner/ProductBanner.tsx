@@ -23,6 +23,8 @@ import {
   ProductContent,
   StyledProductBanner,
 } from "./Styles/StyledProductBanner";
+import { device } from "../../consts/breakpoints";
+import { useWindowSize } from "../../hooks/useWindowSize";
 
 interface ProductBannerProps {
   data: {
@@ -37,6 +39,7 @@ interface ProductBannerProps {
 const ProductBanner = ({ data }: ProductBannerProps) => {
   const [activeInsoleType, setActiveInsoleType] = useState("active");
   const descriptionRef = useRef<HTMLDivElement>(null);
+  const { w } = useWindowSize();
   const insoleCurrIndex = activeInsoleType === "active" ? 0 : 1;
 
   useEffect(() => {
@@ -127,9 +130,13 @@ const ProductBanner = ({ data }: ProductBannerProps) => {
 
       <LottieWrapper>
         <ScrollLottie
-          src={"/lottie/insole-scroll-4.lottie"}
+          src={`/lottie/${
+            w <= device.tabletPortrait
+              ? "insole-vertical-scroll"
+              : "insole-horizontal-scroll"
+          }.lottie`}
           playInInterval={[0, 1]}
-          setFrameBounds={(totalFrames) => [3, totalFrames - 10]}
+          setFrameBounds={(totalFrames) => [0, totalFrames - 10]}
           onFrameChange={(frame) => {
             const isPastHalf = frame.frame / frame.totalFrames > 0.5;
             const nextState = isPastHalf ? "basic" : "active";

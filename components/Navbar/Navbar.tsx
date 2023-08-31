@@ -7,7 +7,9 @@ import scrollToElement from "scroll-to-element";
 import { useTheme } from "styled-components";
 import { DisableScroll } from "../../app/(client)/DisableScroll";
 import { easing } from "../../consts/animationConfig";
+import { device } from "../../consts/breakpoints";
 import { useScrollDirection } from "../../hooks/useScrollDirection";
+import { useWindowSize } from "../../hooks/useWindowSize";
 import { CartToggleContext } from "../Cart/Cart";
 import Burger from "../Icons/Burger";
 import CartIcon from "../Icons/CartIcon";
@@ -16,16 +18,15 @@ import Logo from "../Logo/Logo";
 import { Medium } from "../Typography/Medium";
 import { Micro } from "../Typography/Micro";
 import {
-  BurgerWrapper,
   CartBadge,
+  CartLines,
   NavContact,
   NavLinkWrapper,
   NavLinks,
+  PhoneNav,
   StyledNavbar,
   navlinkVariants,
 } from "./Styles/StyledNavbar";
-import { useWindowSize } from "../../hooks/useWindowSize";
-import { device } from "../../consts/breakpoints";
 
 interface NavbarProps {}
 
@@ -76,6 +77,20 @@ const Navbar = ({}: NavbarProps) => {
     }
   }, [requestedSection]);
 
+  const cartBadge = (
+    <CartBadge
+      onClick={() => {
+        setExpanded(false);
+        setShowCart(true);
+      }}>
+      {lines.length === 0 ? (
+        <CartIcon fill={"white"} />
+      ) : (
+        <CartLines>{lines.length}</CartLines>
+      )}
+    </CartBadge>
+  );
+
   return (
     <>
       {expanded && <DisableScroll />}
@@ -86,13 +101,14 @@ const Navbar = ({}: NavbarProps) => {
         <Link href={"/"}>
           <Logo fill={isThemeLight ? "black" : "white"} />
         </Link>
-        <BurgerWrapper>
+        <PhoneNav>
+          {cartBadge}
           <Burger
             stroke={isThemeLight ? "black" : "white"}
             isOpen={expanded}
             onClick={() => setExpanded((p) => !p)}
           />
-        </BurgerWrapper>
+        </PhoneNav>
 
         <NavLinks
           initial={false}
@@ -103,6 +119,7 @@ const Navbar = ({}: NavbarProps) => {
           {navConfig.map(({ pageName, url }) => (
             <NavLinkWrapper key={url}>
               <Micro
+                onClick={() => setExpanded(false)}
                 className={`uppercase 
                 ${isThemeLight ? "black" : "white"}
                 ${pathname === url ? "active" : ""}
@@ -123,19 +140,9 @@ const Navbar = ({}: NavbarProps) => {
               </Link>
             </Micro>
           </NavLinkWrapper>
-          <NavLinkWrapper>
-            <CartBadge
-              onClick={() => {
-                setExpanded(false);
-                setShowCart(true);
-              }}>
-              {lines.length === 0 ? (
-                <CartIcon fill={expanded ? "white" : "black"} />
-              ) : (
-                <Micro className='navlink'>{lines.length}</Micro>
-              )}
-            </CartBadge>
-          </NavLinkWrapper>
+          {w > device.tabletPortrait && (
+            <NavLinkWrapper>{cartBadge}</NavLinkWrapper>
+          )}
           <NavContact>
             <NavLinkWrapper>
               <Medium
@@ -157,7 +164,9 @@ const Navbar = ({}: NavbarProps) => {
               <Medium
                 className={`uppercase ${!isThemeLight ? "black" : "white"}`}>
                 <Link
-                  className='no-underline'
+                  className={`no-underline ${
+                    !isThemeLight ? "black" : "white"
+                  }`}
                   href={`https://www.instagram.com/f33t_official/`}
                   target='_blank'>
                   ig @f33t_official

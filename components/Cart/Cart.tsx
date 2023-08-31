@@ -31,6 +31,7 @@ import {
   CartItemWrapper,
   CartItems,
   Drawer,
+  EmptyCart,
   Overlay,
   StyledCart,
   TotalPrice,
@@ -86,13 +87,15 @@ const Cart = ({}: CartProps) => {
             />
           </CartHeader>
           <CartContent>
-            <Scrollbar neutral autoHide>
-              {lines.length === 0 ? (
-                <>
-                  <Big className='black'>Váš košík je prázdný</Big>
-                  <Button href={"/products"}>Přejít na produkty</Button>
-                </>
-              ) : (
+            {lines.length === 0 ? (
+              <EmptyCart>
+                <Big className='black'>Váš košík je prázdný</Big>
+                <Button href={"/products"} onClick={() => setShowCart(false)}>
+                  Přejít na produkty
+                </Button>
+              </EmptyCart>
+            ) : (
+              <Scrollbar neutral autoHide>
                 <CartItems>
                   {lines.map((line, i) => {
                     return (
@@ -107,22 +110,24 @@ const Cart = ({}: CartProps) => {
                     );
                   })}
                 </CartItems>
-              )}
-            </Scrollbar>
+              </Scrollbar>
+            )}
           </CartContent>
-          <CartFooter>
-            <TotalPrice>
-              <Big className='black'>Celkem</Big>
-              <Big className='black'>
-                {formatPrice(cost?.totalAmount?.amount)}
-              </Big>
-            </TotalPrice>
-            <Button as={"span"} className='big full-width'>
-              <CartCheckoutButton style={{ all: "unset" }}>
-                pokračovat
-              </CartCheckoutButton>
-            </Button>
-          </CartFooter>
+          {!(lines.length === 0) && (
+            <CartFooter>
+              <TotalPrice>
+                <Big className='black'>Celkem</Big>
+                <Big className='black'>
+                  {formatPrice(cost?.totalAmount?.amount)}
+                </Big>
+              </TotalPrice>
+              <Button as={"span"} className='big full-width'>
+                <CartCheckoutButton style={{ all: "unset" }}>
+                  pokračovat
+                </CartCheckoutButton>
+              </Button>
+            </CartFooter>
+          )}
         </Drawer>
         <AnimatePresence>
           {showCart && (

@@ -1,6 +1,6 @@
 import { useCartLine } from "@shopify/hydrogen-react";
 import { formatPrice } from "../../helpers/formatPrice";
-import { Large } from "../Typography/Large";
+import { Big } from "../Typography/Big";
 import { Micro } from "../Typography/Micro";
 import CartQuantityInput from "./CartQuantityInput";
 import {
@@ -8,8 +8,6 @@ import {
   QuantityContainer,
   StyledCartItem,
 } from "./Styles/StyledCartItem";
-import { Medium } from "../Typography/Medium";
-import { Big } from "../Typography/Big";
 
 interface CartItemProps {}
 

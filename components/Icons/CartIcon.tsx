@@ -6,7 +6,12 @@ interface CartIconProps {
   fill?: ColorKeys;
 }
 
-const StyledCartIcon = styled.div``;
+const StyledCartIcon = styled.div`
+  svg {
+    width: 20px;
+    height: auto;
+  }
+`;
 
 const CartIcon = ({ fill = "black" }: CartIconProps) => {
   return (

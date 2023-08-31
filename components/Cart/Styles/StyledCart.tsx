@@ -11,6 +11,7 @@ export const StyledCart = styled.div`
   inset: 0;
   z-index: 99999;
   pointer-events: none;
+  height: 100dvh;
 `;
 
 export const Drawer = styled(motion.div)`
@@ -29,6 +30,13 @@ export const Drawer = styled(motion.div)`
   row-gap: ${spaces.xxl}px;
   ${breakpoint.monitor} {
     width: 800px;
+  }
+  ${breakpoint.phone} {
+    width: 100vw;
+    height: 100dvh;
+    bottom: unset;
+    padding: ${spaces.m}px;
+    row-gap: ${spaces.l}px;
   }
 `;
 
@@ -60,6 +68,8 @@ export const CartContent = styled.div`
   width: 100%;
   flex-grow: 1;
 `;
+
+export const EmptyCart = styled.div``;
 
 export const CartFooter = styled.div`
   height: 100px;

@@ -67,7 +67,7 @@ export const ProductInfo = styled.div`
   }
   ${breakpoint.phone} {
     padding: ${spaces.m}px;
-    row-gap: ${spaces.m}px;
+    row-gap: ${spaces.xl}px;
   }
   ${breakpoint.smallPhone} {
     padding: ${spaces.xs}px;
@@ -78,6 +78,9 @@ export const Benefits = styled.div`
   display: grid;
   row-gap: ${spaces.l}px;
   margin-top: ${spaces.l}px;
+  ${breakpoint.phone} {
+    margin-top: ${0}px;
+  }
 `;
 
 export const BenefitsInner = styled.div`
@@ -85,7 +88,8 @@ export const BenefitsInner = styled.div`
   column-gap: ${spaces.l}px;
   overflow: hidden;
   ${breakpoint.phone} {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     row-gap: ${spaces.m}px;
   }
 `;

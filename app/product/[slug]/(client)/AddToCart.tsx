@@ -6,50 +6,22 @@ import {
   Product,
 } from "@shopify/hydrogen-react/storefront-api-types";
 import { useState } from "react";
-import styled from "styled-components";
 import Button from "../../../../components/Button/Button";
 import InsoleSizeVariants from "../../../../components/InsoleSizeVariants/InsoleSizeVariants";
 import { Large } from "../../../../components/Typography/Large";
 import { Mini } from "../../../../components/Typography/Mini";
 import { Small } from "../../../../components/Typography/Small";
-import { spaces } from "../../../../consts/spaces";
 import { formatPrice } from "../../../../helpers/formatPrice";
-import { breakpoint } from "../../../../consts/breakpoints";
+import {
+  StyledAddToCart,
+  VariantsContainer,
+  Cta,
+  PriceContainer,
+} from "./StyledAddToCart";
 
 interface AddToCartProps {
   product: Product;
 }
-
-const StyledAddToCart = styled.div`
-  display: grid;
-  justify-self: end;
-  row-gap: ${spaces.l}px;
-  ${breakpoint.phone} {
-    justify-self: start;
-    justify-items: start;
-    row-gap: ${spaces.xl}px;
-  }
-`;
-
-export const VariantsContainer = styled.div`
-  display: grid;
-  row-gap: ${spaces.l}px;
-  ${breakpoint.phone} {
-    row-gap: ${spaces.s}px;
-  }
-`;
-
-export const Cta = styled.div`
-  display: grid;
-  row-gap: ${spaces.l}px;
-  ${breakpoint.phone} {
-    row-gap: ${spaces.s}px;
-  }
-`;
-
-export const PriceContainer = styled.div`
-  display: flex;
-`;
 
 const AddToCart = ({ product }: AddToCartProps) => {
   const [i, setI] = useState(0);
