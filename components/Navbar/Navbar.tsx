@@ -79,6 +79,7 @@ const Navbar = ({}: NavbarProps) => {
 
   const cartBadge = (
     <CartBadge
+      className={isThemeLight ? "light" : "dark"}
       onClick={() => {
         setExpanded(false);
         setShowCart(true);

@@ -10,6 +10,7 @@ export const StyledProductBanner = styled.div`
 
 export const LottieWrapper = styled.div`
   width: 100%;
+  height: 100%;
   position: absolute;
   z-index: -1;
   top: 50%;

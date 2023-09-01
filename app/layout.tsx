@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Cart, { CartToggleProvider } from "../components/Cart/Cart";
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
@@ -5,18 +6,21 @@ import StyledComponentsRegistry from "../lib/registry";
 import CartProvider from "./(client)/CartProvider";
 import { GlobalStyles } from "./(client)/GlobalStyles";
 import ThemeProvider from "./(client)/ThemeProvider";
+import { colors } from "../consts/colors";
 
-export const metadata = {
+export const metadata: Metadata = {
   metadataBase: new URL("https://feet.cz"),
   title: {
     default: "F33T",
     template: "F33T\u2002|\u2002%s",
   },
-  themeColor: "black",
+  description:
+    "Ortopedické vložky do bot s nanotechnologií pro každodenní nošení na sport i do kanceláře.",
+  themeColor: colors.black,
   colorScheme: "dark",
   manifest: "/manifest.json",
   other: {
-    "msapplication-TileColor": "#da532c",
+    "msapplication-TileColor": colors.red400,
   },
   icons: {
     icon: "/apple-touch-icon.png",

@@ -50,17 +50,26 @@ export const NavLinks = styled(motion.div)`
 `;
 
 export const CartBadge = styled.div`
-  background-color: ${colors.red400};
   padding: ${spaces.xs}px;
   border-radius: 99999px;
   cursor: pointer;
-  &:hover {
-    background-color: ${colors.red300};
+  &.dark,
+  &.light {
+    background-color: ${colors.red400};
+    &:hover {
+      background-color: ${colors.red300};
+    }
   }
   ${breakpoint.monitor} {
     padding: ${spaces.s}px;
   }
   ${breakpoint.tabletPortrait} {
+    &.light {
+      background-color: ${colors.black};
+      &:hover {
+        background-color: ${colors.gray700};
+      }
+    }
     background-color: ${colors.black};
     padding: ${spaces.xs}px;
   }

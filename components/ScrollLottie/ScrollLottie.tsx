@@ -3,6 +3,7 @@ import { useContext, useEffect, useRef } from "react";
 import { trimProgress } from "../../helpers/trimProgress";
 import { useRaf } from "../../hooks/useRaf";
 import { ScrollAnimationContext } from "../ScrollAnimation/ScrollAnimation";
+import styled from "styled-components";
 
 interface ScrollLottieProps {
   src: string;
@@ -10,6 +11,14 @@ interface ScrollLottieProps {
   setFrameBounds?: (totalFrames: number) => number[];
   onFrameChange?: (frameData: { frame: number; totalFrames: number }) => void;
 }
+
+const StyledScrollLottie = styled.div`
+  height: 100%;
+  width: 100%;
+  div {
+    height: 100%;
+  }
+`;
 
 const ScrollLottie = ({
   src,
@@ -53,9 +62,9 @@ const ScrollLottie = ({
   });
 
   return (
-    <div ref={containerRef}>
+    <StyledScrollLottie ref={containerRef}>
       <DotLottiePlayer lottieRef={lottieRef} src={src} renderer='svg' />
-    </div>
+    </StyledScrollLottie>
   );
 };
 

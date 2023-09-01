@@ -1,4 +1,4 @@
-import getClient from "../apollo/client";
+import getClient, { revalidate } from "../apollo/client";
 import Elevator from "../components/Elevator/Elevator";
 import Line from "../components/Line/Line";
 import MainHero from "../components/MainHero/MainHero";
@@ -51,6 +51,7 @@ const page = async () => {
           { namespace: "custom", key: "reviews" },
         ],
       },
+      ...revalidate,
     });
   });
 

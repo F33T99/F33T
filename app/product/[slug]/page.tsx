@@ -1,5 +1,5 @@
 import { QueryRoot } from "@shopify/hydrogen-react/storefront-api-types";
-import getClient from "../../../apollo/client";
+import getClient, { revalidate } from "../../../apollo/client";
 import { Micro } from "../../../components/Typography/Micro";
 import { Mini } from "../../../components/Typography/Mini";
 import { Small } from "../../../components/Typography/Small";
@@ -41,6 +41,7 @@ const page = async ({ params: { slug } }: PageProps) => {
         key: "benefits",
       },
     },
+    ...revalidate,
   });
 
   return (

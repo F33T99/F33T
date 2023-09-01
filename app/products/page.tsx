@@ -1,5 +1,5 @@
 import { QueryRoot } from "@shopify/hydrogen-react/storefront-api-types";
-import getClient from "../../apollo/client";
+import getClient, { revalidate } from "../../apollo/client";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import { SectionHeader } from "../../components/Typography/SectionHeader";
 import { Small } from "../../components/Typography/Small";
@@ -36,6 +36,7 @@ const page = async ({}: pageProps) => {
         { namespace: "custom", key: "products-cover" },
       ],
     },
+    ...revalidate,
   });
 
   return (

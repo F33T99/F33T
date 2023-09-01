@@ -130,6 +130,7 @@ const ProductBanner = ({ data }: ProductBannerProps) => {
 
       <LottieWrapper>
         <ScrollLottie
+          key={`${w}`}
           src={`/lottie/${
             w <= device.tabletPortrait
               ? "insole-vertical-scroll"
