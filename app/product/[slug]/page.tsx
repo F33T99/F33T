@@ -17,12 +17,13 @@ import {
   StyledProduct,
 } from "./(client)/StyledProduct";
 import Gallery from "./(client)/Gallery";
+import { Metadata } from "next";
 
 interface PageProps {
   params: { slug: string };
 }
 
-const page = async ({ params: { slug } }: PageProps) => {
+const fetchData = async (slug: string) => {
   const client = getClient();
   const {
     data: { product },
@@ -43,7 +44,25 @@ const page = async ({ params: { slug } }: PageProps) => {
     },
     ...revalidate,
   });
+  return product;
+};
 
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const product = await fetchData(params.slug);
+
+  return {
+    title: `Vložka ${product.title}`,
+    description: product.description,
+    openGraph: {
+      images: product.images.nodes.map((i) => i.url),
+    },
+  };
+}
+
+const page = async ({ params: { slug } }: PageProps) => {
+  const product = await fetchData(slug);
   return (
     <>
       <GlobalProduct />

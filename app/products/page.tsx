@@ -10,8 +10,13 @@ import {
   ProductsPageHero,
   StyledProductPage,
 } from "./(client)/Styledpage";
+import { Metadata } from "next";
 
 interface pageProps {}
+
+export const metadata: Metadata = {
+  title: "Vložky do bot",
+};
 
 const page = async ({}: pageProps) => {
   const client = getClient();

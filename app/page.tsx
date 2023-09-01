@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import getClient, { revalidate } from "../apollo/client";
 import Elevator from "../components/Elevator/Elevator";
 import Line from "../components/Line/Line";
@@ -27,6 +28,8 @@ import {
   TechnologyLoopWrapper,
 } from "./(client)/StyledHomepage";
 import TechnologyLoopContainer from "./(client)/TechnologyLoopContainer";
+
+export const metadata: Metadata = {};
 
 const page = async () => {
   const client = getClient();
