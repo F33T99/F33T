@@ -11,7 +11,7 @@ import { colors } from "../consts/colors";
 export const metadata: Metadata = {
   metadataBase: new URL("https://feet.cz"),
   title: {
-    default: "F33T",
+    default: "F33T\u2002—\u2002Every step counts",
     template: "F33T\u2002|\u2002%s",
   },
   description:
