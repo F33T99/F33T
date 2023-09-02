@@ -129,22 +129,24 @@ const ProductBanner = ({ data }: ProductBannerProps) => {
       </ProductContent>
 
       <LottieWrapper>
-        <ScrollLottie
-          key={`${w}`}
-          src={`/lottie/${
-            w <= device.tabletPortrait
-              ? "insole-vertical-scroll"
-              : "insole-horizontal-scroll"
-          }.lottie`}
-          playInInterval={[0, 1]}
-          setFrameBounds={(totalFrames) => [0, totalFrames - 10]}
-          onFrameChange={(frame) => {
-            const isPastHalf = frame.frame / frame.totalFrames > 0.5;
-            const nextState = isPastHalf ? "basic" : "active";
-            if (nextState === activeInsoleType) return;
-            setActiveInsoleType(nextState);
-          }}
-        />
+        {!(w === 0) && (
+          <ScrollLottie
+            key={`${w}`}
+            src={`/lottie/${
+              w <= device.tabletPortrait
+                ? "insole-vertical-scroll"
+                : "insole-horizontal-scroll"
+            }.lottie`}
+            playInInterval={[0, 1]}
+            setFrameBounds={(totalFrames) => [0, totalFrames - 10]}
+            onFrameChange={(frame) => {
+              const isPastHalf = frame.frame / frame.totalFrames > 0.5;
+              const nextState = isPastHalf ? "basic" : "active";
+              if (nextState === activeInsoleType) return;
+              setActiveInsoleType(nextState);
+            }}
+          />
+        )}
       </LottieWrapper>
     </StyledProductBanner>
   );

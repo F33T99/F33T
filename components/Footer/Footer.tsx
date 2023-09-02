@@ -31,7 +31,7 @@ const Footer = ({}: FooterProps) => {
   const { w } = useWindowSize();
 
   return (
-    <StyledFooter id={"contact"}>
+    <StyledFooter id={"contact"} data-hideable-navbar>
       {w <= device.phone ? (
         <FooterLogoPhone fill={isThemeLight ? "black" : "red400"} />
       ) : (

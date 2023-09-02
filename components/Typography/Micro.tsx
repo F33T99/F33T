@@ -31,7 +31,7 @@ export const Micro = styled.p`
       max-width: unset;
       &.active {
         color: ${({ theme }) =>
-          theme.type === "light" ? colors.white : colors.black};
+          theme.type === "dark" ? colors.white : colors.black};
       }
     }
     ${breakpoint.phone} {

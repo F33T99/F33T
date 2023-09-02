@@ -27,10 +27,7 @@ import {
 interface ProductCardProps extends Partial<Product> {}
 
 function getMetafieldReference<T>(metafields: Metafield[], key: string): T {
-  console.log(metafields);
-
   const m = metafields.find((m) => m?.key === key);
-
   return m?.reference as T;
 }
 
@@ -47,7 +44,6 @@ const ProductCard = ({
     metafields,
     "products-cover"
   );
-  console.log(coverPhotoRef);
 
   return (
     <StyledProductCard
@@ -61,7 +57,6 @@ const ProductCard = ({
         <ProductCardCover
           src={coverPhotoRef?.image.url}
           alt={coverPhotoRef?.image.altText}
-          // hover={hover}
         />
       </ProductCardHeader>
       <ProductCardContent>

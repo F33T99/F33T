@@ -29,7 +29,7 @@ const ElevatorBody = ({ children }: ProductElevatorHoleProps) => {
   } = useContext(ScrollAnimationContext);
 
   return (
-    <StyledElevator>
+    <StyledElevator data-hideable-navbar>
       <ElevatorCabin ref={animationElRef}>{children}</ElevatorCabin>
     </StyledElevator>
   );

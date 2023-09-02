@@ -6,7 +6,7 @@ export const StyledLogo = styled.div`
     width: 100%;
     height: auto;
   }
-  width: 350px;
+  width: 300px;
   ${breakpoint.smallNotebook} {
     width: 250px;
   }
@@ -18,7 +18,7 @@ export const StyledLogo = styled.div`
   }
   ${breakpoint.tabletPortrait} {
     position: relative;
-    z-index: 1;
+    z-index: 9;
   }
   ${breakpoint.monitor} {
     width: 400px;
