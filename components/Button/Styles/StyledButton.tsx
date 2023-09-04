@@ -43,7 +43,7 @@ export const StyledButton = styled.button`
       font-size: 70px;
     }
   }
-  ${breakpoint.tabletLandscape} {
+  ${breakpoint.smallNotebook} {
     &.x-big {
       font-size: 40px;
     }

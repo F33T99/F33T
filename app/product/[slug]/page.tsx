@@ -13,11 +13,20 @@ import {
   GlobalProduct,
   ProductContent,
   ProductCover,
+  ProductDescription,
   ProductInfo,
+  Review,
+  Reviews,
   StyledProduct,
 } from "./(client)/StyledProduct";
 import Gallery from "./(client)/Gallery";
 import { Metadata } from "next";
+import {
+  convertReviewsToJson,
+  getReviewFromMeta,
+} from "../../../helpers/convertReviewsToJson";
+import Line from "../../../components/Line/Line";
+import RevealAnimation from "../../../components/TextAnimation/RevealAnimation";
 
 interface PageProps {
   params: { slug: string };
@@ -37,10 +46,13 @@ const fetchData = async (slug: string) => {
         maxHeight: 1080,
         preferredContentType: "WEBP",
       },
-      identifiers: {
-        namespace: "custom",
-        key: "benefits",
-      },
+      identifiers: [
+        {
+          namespace: "custom",
+          key: "benefits",
+        },
+        { namespace: "custom", key: "reviews" },
+      ],
     },
     ...revalidate,
   });
@@ -63,38 +75,73 @@ export async function generateMetadata({
 
 const page = async ({ params: { slug } }: PageProps) => {
   const product = await fetchData(slug);
+  const reviews = convertReviewsToJson(
+    getReviewFromMeta(product.metafields).value
+  );
+
   return (
     <>
       <GlobalProduct />
-      <StyledProduct data-theme='light'>
-        <ProductContent>
-          <ProductCover
-            src={product.images.nodes[0].url}
-            width={product.images.nodes[0].width}
-            height={product.images.nodes[0].height}
-            alt={product.images.nodes[0].altText}
-          />
-          <Gallery images={product.images.nodes} />
-          <ProductInfo>
-            <ProductName>{product.title}</ProductName>
-            <Small className='black uppercase indent'>
-              {product.description}
-            </Small>
-            <AddToCart product={product} />
-            <Benefits>
-              <Mini className='black uppercase'>Benefity</Mini>
-              <BenefitsInner>
-                {product.metafields[0]?.value.split("\n").map((benefit, i) => (
-                  <Benefit key={i}>
-                    <Micro className='black uppercase tac'>{i + 1}</Micro>
-                    <Micro className='black uppercase tac'>{benefit}</Micro>
-                  </Benefit>
-                ))}
-              </BenefitsInner>
-            </Benefits>
-          </ProductInfo>
-        </ProductContent>
-      </StyledProduct>
+      <RevealAnimation noCrop noSkew y={[70, 0]} duration={1} delay={0.6}>
+        <StyledProduct data-theme='light'>
+          <ProductContent>
+            <ProductCover
+              src={product.images.nodes[0].url}
+              width={product.images.nodes[0].width}
+              height={product.images.nodes[0].height}
+              alt={product.images.nodes[0].altText}
+            />
+            <Gallery images={product.images.nodes} />
+            <ProductInfo>
+              <ProductName>{product.title}</ProductName>
+              <ProductDescription>
+                <Small className='black uppercase indent'>
+                  {product.description}
+                </Small>
+              </ProductDescription>
+              <AddToCart product={product} />
+              <Benefits>
+                <Mini className='black uppercase'>Benefity</Mini>
+                <BenefitsInner>
+                  {product.metafields[0]?.value
+                    .split("\n")
+                    .map((benefit, i) => (
+                      <Benefit key={i}>
+                        <Micro className='black uppercase tac'>{i + 1}</Micro>
+                        <Micro className='black uppercase tac'>{benefit}</Micro>
+                      </Benefit>
+                    ))}
+                </BenefitsInner>
+              </Benefits>
+              {!(reviews.length === 0) && (
+                <Reviews>
+                  <Mini className='uppercase black unset-max-width'>
+                    {"Reference"}
+                  </Mini>
+                  {reviews.map((review, i) => (
+                    <>
+                      <Review key={i}>
+                        <div>
+                          <Micro className='uppercase black unset-max-width'>
+                            {review.name}
+                          </Micro>
+                          <Micro className='uppercase black unset-max-width'>
+                            {review.profession}
+                          </Micro>
+                        </div>
+                        <Mini className='uppercase black unset-max-width'>
+                          {review.quote}
+                        </Mini>
+                      </Review>
+                      {!(i === reviews.length - 1) && <Line stroke='gray700' />}
+                    </>
+                  ))}
+                </Reviews>
+              )}
+            </ProductInfo>
+          </ProductContent>
+        </StyledProduct>
+      </RevealAnimation>
     </>
   );
 };

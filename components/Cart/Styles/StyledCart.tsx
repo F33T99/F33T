@@ -31,6 +31,9 @@ export const Drawer = styled(motion.div)`
   ${breakpoint.monitor} {
     width: 800px;
   }
+  ${breakpoint.smallNotebook} {
+    width: 500px;
+  }
   ${breakpoint.phone} {
     width: 100vw;
     height: 100dvh;
@@ -52,6 +55,14 @@ export const CartHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+`;
+
+export const CartCloseWrapper = styled.div`
+  width: 70px;
+  div {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const CartItemWrapper = styled.div`

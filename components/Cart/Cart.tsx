@@ -15,16 +15,18 @@ import {
   useEffect,
   useState,
 } from "react";
+import { DisableScroll } from "../../app/(client)/DisableScroll";
 import { easing } from "../../consts/animationConfig";
 import { colors } from "../../consts/colors";
 import { formatPrice } from "../../helpers/formatPrice";
 import Button from "../Button/Button";
-import ModalClose from "../Icons/ModalClose";
+import Burger from "../Icons/Burger";
 import Line from "../Line/Line";
 import Scrollbar from "../Scrollbar/Scrollbar";
 import { Big } from "../Typography/Big";
 import CartItem from "./CartItem";
 import {
+  CartCloseWrapper,
   CartContent,
   CartFooter,
   CartHeader,
@@ -36,8 +38,6 @@ import {
   StyledCart,
   TotalPrice,
 } from "./Styles/StyledCart";
-import { DisableScroll } from "../../app/(client)/DisableScroll";
-import Burger from "../Icons/Burger";
 
 interface CartProps {}
 
@@ -79,12 +79,14 @@ const Cart = ({}: CartProps) => {
           transition={{ ease: easing, duration: 0.5 }}>
           <CartHeader>
             <Big className='uppercase black'>Košík</Big>
-            <Burger
-              onClick={() => setShowCart(false)}
-              isOpen
-              width={80}
-              height={14}
-            />
+            <CartCloseWrapper>
+              <Burger
+                onClick={() => setShowCart(false)}
+                isOpen
+                width={80}
+                height={14}
+              />
+            </CartCloseWrapper>
           </CartHeader>
           <CartContent>
             {lines.length === 0 ? (

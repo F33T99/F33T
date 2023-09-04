@@ -38,14 +38,14 @@ export const Large = styled.p`
     max-width: 500px;
   }
   ${breakpoint.phone} {
-    font-size: 18px;
+    font-size: 21px;
     letter-spacing: 0.02em;
     &.price {
       font-size: 30px;
     }
   }
   ${breakpoint.smallPhone} {
-    font-size: 14px;
+    font-size: 18px;
   }
   ${addColorClasses()}
 `;

@@ -11,8 +11,10 @@ import { SectionHeader } from "../components/Typography/SectionHeader";
 import AboutSectionContainer from "../containers/AboutSection/AboutSectionContainer";
 import VariantsHeaderContainer from "../containers/VariantsHeader/VariantsHeaderContainer";
 import { GET_PRODUCT } from "../gql/GetProduct";
-import { Metafield, QueryRoot } from "../gql/types";
-import { convertReviewsToJson } from "../helpers/convertReviewsToJson";
+import {
+  convertReviewsToJson,
+  getReviewFromMeta,
+} from "../helpers/convertReviewsToJson";
 import {
   GlobalHomepage,
   Reference,
@@ -28,6 +30,7 @@ import {
   TechnologyLoopWrapper,
 } from "./(client)/StyledHomepage";
 import TechnologyLoopContainer from "./(client)/TechnologyLoopContainer";
+import { QueryRoot } from "@shopify/hydrogen-react/storefront-api-types";
 
 export const metadata: Metadata = {};
 
@@ -60,8 +63,6 @@ const page = async () => {
 
   const [activeRes, basicRes] = await Promise.all(requestsQueue);
   const products = [activeRes.data.product, basicRes.data.product];
-  const getReviewFromMeta = (m: Metafield[]) =>
-    m.find((x) => x?.key === "reviews");
   const activeInsoleReviews = convertReviewsToJson(
     getReviewFromMeta(products[0].metafields).value
   );

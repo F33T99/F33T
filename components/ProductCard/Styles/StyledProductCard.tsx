@@ -33,6 +33,7 @@ export const ProductCardContent = styled.div`
     row-gap: ${spaces.m}px;
   }
   ${breakpoint.phone} {
+    grid-template-columns: unset;
     grid-template-areas: "price" "variants" "button";
   }
 `;

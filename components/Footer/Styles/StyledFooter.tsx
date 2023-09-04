@@ -87,7 +87,7 @@ export const FooterEnd = styled.div`
   }
   ${breakpoint.phone} {
     display: grid;
-    row-gap: ${spaces.xxs}px;
+    row-gap: ${spaces.xl}px;
   }
 `;
 
@@ -98,6 +98,9 @@ export const FooterAddress = styled.div`
     flex-direction: column;
     row-gap: ${0}px;
     margin-top: ${spaces.xl}px;
+  }
+  ${breakpoint.phone} {
+    margin-top: unset;
   }
 `;
 

@@ -37,6 +37,9 @@ export const Micro = styled.p`
     ${breakpoint.phone} {
       font-size: 30px;
     }
+    ${breakpoint.smallPhone} {
+      font-size: 24px;
+    }
   }
   ${breakpoint.tabletLandscape} {
     font-size: 12px;

@@ -120,6 +120,9 @@ export const TechnologyLoopWrapper = styled.div`
 export const ReferencesSection = styled.section`
   background-color: ${colors.gray300};
   padding: ${spaces.xxxxl}px ${spaces.l}px;
+  ${breakpoint.smallNotebook} {
+    padding: ${spaces.xxxl}px ${spaces.l}px ${spaces.xxl}px;
+  }
   ${breakpoint.tabletLandscape} {
     padding: ${spaces.xxxl}px ${spaces.l}px;
   }
@@ -136,9 +139,9 @@ export const References = styled.div`
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   grid-template-areas: "wide wide wide" "line1 line1 line1" "short line2 short2";
-  row-gap: ${spaces.l}px;
+  row-gap: ${spaces.xxxl}px;
   column-gap: ${spaces.xxl}px;
-  align-items: center;
+  align-items: start;
   .line {
     &._1 {
       grid-area: line1;
@@ -152,6 +155,11 @@ export const References = styled.div`
   }
   .horizontal.line._2 {
     display: none;
+  }
+  ${breakpoint.smallNotebook} {
+    margin-top: ${spaces.xxxl}px;
+    row-gap: ${spaces.xl}px;
+    column-gap: ${spaces.l}px;
   }
   ${breakpoint.tabletLandscape} {
     row-gap: ${spaces.xxl}px;

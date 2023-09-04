@@ -2,7 +2,6 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { ProductPriceRange } from "../../gql/types";
 import { formatPrice } from "../../helpers/formatPrice";
 import Button from "../Button/Button";
 import ScrollLottie from "../ScrollLottie/ScrollLottie";
@@ -25,6 +24,7 @@ import {
 } from "./Styles/StyledProductBanner";
 import { device } from "../../consts/breakpoints";
 import { useWindowSize } from "../../hooks/useWindowSize";
+import { ProductPriceRange } from "@shopify/hydrogen-react/storefront-api-types";
 
 interface ProductBannerProps {
   data: {
@@ -138,7 +138,7 @@ const ProductBanner = ({ data }: ProductBannerProps) => {
                 : "insole-horizontal-scroll"
             }.lottie`}
             playInInterval={[0, 1]}
-            setFrameBounds={(totalFrames) => [0, totalFrames - 10]}
+            setFrameBounds={(totalFrames) => [2, totalFrames - 10]}
             onFrameChange={(frame) => {
               const isPastHalf = frame.frame / frame.totalFrames > 0.5;
               const nextState = isPastHalf ? "basic" : "active";

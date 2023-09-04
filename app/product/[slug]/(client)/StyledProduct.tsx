@@ -30,13 +30,13 @@ export const ProductCover = styled(Image)`
     width: 100%;
     height: 100%;
     grid-area: cover;
-    padding: ${spaces.l}px;
   }
-  ${breakpoint.phone} {
-    padding: ${spaces.m}px;
-  }
-  ${breakpoint.smallPhone} {
-    padding: ${spaces.xs}px;
+`;
+
+export const ProductDescription = styled.div`
+  margin-top: ${spaces.xl}px;
+  ${breakpoint.tabletLandscape} {
+    margin-top: ${spaces.m}px;
   }
 `;
 
@@ -49,37 +49,53 @@ export const ProductContent = styled.div`
     grid-template-columns: unset;
     grid-template-areas: "cover" "info" "gallery";
     row-gap: ${spaces.xl}px;
+    padding: ${spaces.m}px;
   }
   ${breakpoint.phone} {
+    padding: ${spaces.s}px;
     row-gap: ${spaces.l}px;
   }
 `;
 
-export const ProductInfo = styled.div`
+export const Reviews = styled.div`
   display: grid;
   row-gap: ${spaces.xl}px;
-  align-content: start;
-  justify-items: start;
-  padding: 0 ${spaces.l}px;
-  grid-area: info;
+  margin-top: ${spaces.xxl}px;
+  max-width: 90%;
   ${breakpoint.monitor} {
-    row-gap: ${spaces.xxl}px;
+    margin-top: ${spaces.xxxl}px;
   }
   ${breakpoint.phone} {
-    padding: ${spaces.m}px;
-    row-gap: ${spaces.xl}px;
+    max-width: unset;
+    row-gap: ${spaces.l}px;
+    margin-top: ${spaces.xl}px;
+  }
+`;
+
+export const Review = styled.div`
+  display: grid;
+  row-gap: ${spaces.xs}px;
+`;
+
+export const ProductInfo = styled.div`
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  grid-area: info;
+  ${breakpoint.monitor} {
+  }
+  ${breakpoint.phone} {
   }
   ${breakpoint.smallPhone} {
-    padding: ${spaces.xs}px;
   }
 `;
 
 export const Benefits = styled.div`
   display: grid;
   row-gap: ${spaces.l}px;
-  margin-top: ${spaces.l}px;
-  ${breakpoint.phone} {
-    margin-top: ${0}px;
+  margin-top: ${spaces.xl}px;
+  ${breakpoint.monitor} {
+    margin-top: ${spaces.xxl}px;
   }
 `;
 
@@ -91,6 +107,7 @@ export const BenefitsInner = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     row-gap: ${spaces.m}px;
+    column-gap: ${0}px;
   }
 `;
 

@@ -21,6 +21,11 @@ export const StyledLink = styled.a`
         fill: ${colors.black};
       }
     }
+    &.gray500 {
+      svg {
+        fill: ${colors.gray500};
+      }
+    }
     &[target] {
       display: flex;
       align-items: center;

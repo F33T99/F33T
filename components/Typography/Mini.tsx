@@ -20,6 +20,9 @@ export const Mini = styled.p`
   &.tac {
     text-align: center;
   }
+  &.unset-max-width {
+    max-width: unset;
+  }
   ${breakpoint.monitor} {
     font-size: 28px;
     max-width: 550px;

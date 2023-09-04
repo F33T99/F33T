@@ -29,7 +29,7 @@ const ProductName = ({ children }: ProductNameProps) => {
 
       ref.current.style.cssText = `font-size: ${
         paretnElWidth * textAspectRatio
-      }px`;
+      }px;`;
     };
 
     handleResize();

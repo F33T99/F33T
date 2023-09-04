@@ -141,9 +141,9 @@ const Footer = ({}: FooterProps) => {
           <Nano className={`uppercase ${`gray500`}`}>DIČ CZ01234567</Nano>
         </FooterAddress>
 
-        <Nano className={`uppercase ${`gray500`}`}>
+        <Nano className={`uppercase gray500`}>
           <Link
-            className={`no-underline ${`gray500`}`}
+            className={`no-underline gray500`}
             href={"https://steezy.studio/"}
             target='_blank'>
             steezy.studio

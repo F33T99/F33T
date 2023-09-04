@@ -76,6 +76,7 @@ const PhoneNavbar = ({
           {navConfig.map(({ pageName, url }, i) => (
             <PhoneNavLinkWrapper key={i}>
               <Micro
+                onClick={() => setExpanded(false)}
                 as={"span"}
                 className={`uppercase white
                             ${pathname === url ? "active" : ""}
@@ -87,7 +88,10 @@ const PhoneNavbar = ({
             </PhoneNavLinkWrapper>
           ))}
           <PhoneNavLinkWrapper>
-            <Micro as={"span"} className={`uppercase ${"white"} navlink`}>
+            <Micro
+              as={"span"}
+              className={`uppercase ${"white"} navlink`}
+              onClick={() => setExpanded(false)}>
               <Link href={`${pathname}?s=contact`} className='no-underline'>
                 {"Kontakt"}
               </Link>

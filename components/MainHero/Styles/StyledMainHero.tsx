@@ -20,6 +20,7 @@ export const HeroVideo = styled.div`
 
 export const HeroContent = styled.div`
   display: grid;
+  align-self: start;
   align-content: end;
   justify-items: start;
   max-height: 90vh;

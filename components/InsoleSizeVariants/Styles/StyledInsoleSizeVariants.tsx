@@ -4,7 +4,9 @@ import { colors } from "../../../consts/colors";
 
 export const StyledInsoleSizeVariants = styled.div`
   display: flex;
-  column-gap: ${spaces.xxs}px;
+  flex-wrap: wrap;
+  gap: ${spaces.xxs}px;
+  width: 100%;
 `;
 
 export const VariantWrapper = styled.div`

@@ -1,8 +1,15 @@
+import { Metafield } from "@shopify/hydrogen-react/storefront-api-types";
+
 interface Output {
   quote: string;
   name: string;
   profession: string;
 }
+
+export const getReviewFromMeta = (m: Metafield[]) => {
+  return m.find((x) => x?.key === "reviews");
+};
+
 export function convertReviewsToJson(input: string): Output[] {
   if (!input) return null;
   const reviews = input.split("</review>\n<review>");

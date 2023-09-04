@@ -57,8 +57,9 @@ export const NavLinks = styled(motion.div)`
     align-items: flex-end;
     padding: ${spaces.l}px;
   }
-  ${breakpoint.phone} {
+  ${breakpoint.smallPhone} {
     padding: ${spaces.m}px;
+    row-gap: ${spaces.s}px;
   }
 `;
 
@@ -92,6 +93,12 @@ export const BurgerWrapper = styled.div`
 
 export const CartLines = styled.span`
   font-size: 15px;
+  ${breakpoint.tabletPortrait} {
+    font-size: 24px;
+  }
+  ${breakpoint.phone} {
+    font-size: 14px;
+  }
 `;
 
 export const CartBadge = styled.div`
@@ -116,6 +123,9 @@ export const CartBadge = styled.div`
       }
     }
     background-color: ${colors.black};
+    padding: ${spaces.s}px;
+  }
+  ${breakpoint.phone} {
     padding: ${spaces.xs}px;
   }
 `;
