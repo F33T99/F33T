@@ -10,7 +10,7 @@ interface ProductElevatorHoleProps {
   children: ReactNode;
 }
 
-const StyledElevator = styled.div`
+const StyledElevator = styled.section`
   height: 350vh;
   position: relative;
 `;

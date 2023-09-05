@@ -8,14 +8,7 @@ import { breakpoint } from "../../consts/breakpoints";
 
 interface PlayButtonProps {}
 
-const StyledPlayButton = styled(motion.div)`
-  ${breakpoint.phone} {
-    width: 150px;
-    svg {
-      width: 100%;
-    }
-  }
-`;
+const StyledPlayButton = styled(motion.div)``;
 
 const PlayButton = ({}: PlayButtonProps) => {
   return (

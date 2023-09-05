@@ -7,7 +7,7 @@ import Image from "next/image";
 import { colors } from "../../consts/colors";
 import { breakpoint } from "../../consts/breakpoints";
 
-export const StyledAboutSection = styled.div`
+export const StyledAboutSection = styled.section`
   padding: ${spaces.xxxxl}px ${spaces.l}px;
   ${breakpoint.tabletPortrait} {
     padding: ${spaces.xxxl}px ${spaces.l}px;

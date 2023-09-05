@@ -20,7 +20,7 @@ const AboutSectionContainer = ({}: AboutSectionProps) => {
   useScrollInertia(ref);
   return (
     <StyledAboutSection ref={ref} id={"philosophy"}>
-      <Large className='uppercase indent no-max-width'>
+      <Large className='uppercase indent no-max-width' as={"h2"}>
         Vložky do bot jsou nástroj, který má plnit svoji funkci. A to tak dobře
         že na něj po nasazení úplně zapomeneš. ať už budeš sedět ve škole, v
         officu nebo sportovat. je jen na tobě, jak ho využiješ.
@@ -34,7 +34,7 @@ const AboutSectionContainer = ({}: AboutSectionProps) => {
             className='_1'
             width={1023}
             height={691}
-            alt={"About photo"}
+            alt={"Vibin with F33T"}
           />
           <div data-inertia data-inertia-amount={6}>
             <Planet />
@@ -45,13 +45,13 @@ const AboutSectionContainer = ({}: AboutSectionProps) => {
             <Smiley />
           </div>
           <AboutPhoto
-            src={"/images/about-2.jpg"}
+            src={"/images/about-3.jpg"}
             className='_2'
             width={804}
+            height={1200}
             data-inertia
             data-inertia-amount={150}
-            height={1200}
-            alt={"About photo"}
+            alt={"Chillin with F33T"}
           />
         </div>
       </AboutGallery>

@@ -25,6 +25,11 @@ const MainHero = ({}: MainHeroProps) => {
       <HeroVideo>
         {!(w === 0) && (
           <Video
+            posterSrc={
+              w <= device.tabletPortrait
+                ? "/videos/hero-loop-vertical-poster.jpg"
+                : "/videos/hero-loop-horizontal-poster.jpg"
+            }
             src={
               w <= device.tabletPortrait
                 ? "/videos/hero-loop-vertical.mp4"

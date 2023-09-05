@@ -85,9 +85,16 @@ export const TechnologyContent = styled.div`
 
 export const TechnologyPlayButton = styled.div`
   position: absolute;
-  width: 200px;
-  top: 0;
-  left: 0;
+  width: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  ${breakpoint.smallNotebook} {
+    width: 200px;
+  }
+  ${breakpoint.smallPhone} {
+    width: 150px;
+  }
 `;
 
 export const TechnologyBenefit = styled.div`
@@ -167,7 +174,7 @@ export const References = styled.div`
     column-gap: ${spaces.l}px;
   }
   ${breakpoint.tabletPortrait} {
-    align-items: initial;
+    align-items: start;
     grid-template-columns: 1fr 26px 1fr;
   }
   ${breakpoint.phone} {

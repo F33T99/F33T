@@ -82,11 +82,9 @@ export const ProductInfo = styled.div`
   align-content: start;
   justify-items: start;
   grid-area: info;
-  ${breakpoint.monitor} {
-  }
-  ${breakpoint.phone} {
-  }
-  ${breakpoint.smallPhone} {
+  padding: 0 ${spaces.l}px;
+  ${breakpoint.tabletPortrait} {
+    padding: 0;
   }
 `;
 

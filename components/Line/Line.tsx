@@ -35,6 +35,8 @@ const Line = ({
   useEffect(() => {
     function handleResize() {
       const _diagonalSize = w <= device.phone ? diagonalSize / 2 : diagonalSize;
+      svgRef.current.setAttribute("width", "0");
+      svgRef.current.setAttribute("height", "0");
       parentElWidth.current = containerRef.current.offsetWidth;
       parentElHeight.current = containerRef.current.offsetHeight;
       debug && console.log(containerRef.current.offsetWidth);

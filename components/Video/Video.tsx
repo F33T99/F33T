@@ -6,10 +6,11 @@ import { useIntersectionObserver } from "../../hooks/useIntersectionObserver";
 
 interface VideoProps {
   src: string;
+  posterSrc: string;
   className?: string;
 }
 
-const Video = ({ src, className }: VideoProps) => {
+const Video = ({ src, className, posterSrc }: VideoProps) => {
   const ref = useRef<HTMLVideoElement>(null);
   useIntersectionObserver(ref, (entries) => {
     entries.forEach((entry) => {
@@ -21,6 +22,7 @@ const Video = ({ src, className }: VideoProps) => {
     <StyledVideo
       ref={ref}
       src={src}
+      poster={posterSrc}
       className={className}
       autoPlay
       muted

@@ -19,6 +19,12 @@ export const metadata: Metadata = {
   themeColor: colors.black,
   colorScheme: "dark",
   manifest: "/manifest.json",
+  openGraph: {
+    images: "/videos/hero-loop-vertical-poster.jpg",
+    title: "F33T\u2002—\u2002Every step counts",
+    description:
+      "Ortopedické vložky do bot s nanotechnologií pro každodenní nošení na sport i do kanceláře.",
+  },
   other: {
     "msapplication-TileColor": colors.red400,
   },

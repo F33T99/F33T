@@ -93,7 +93,9 @@ const page = async () => {
         <TechnologyContent>
           <TechnologyBenefits className='_1'>
             <TechnologyBenefit>
-              <Micro className='uppercase'>Aktivní stříbro</Micro>
+              <Micro className='uppercase' as={"h3"}>
+                Aktivní stříbro
+              </Micro>
               <Micro>
                 Fungování aktivního stříbra je založeno na jeho schopnosti
                 inhibovat růst a množení mikroorganismů, jako jsou bakterie a
@@ -104,7 +106,9 @@ const page = async () => {
               </Micro>
             </TechnologyBenefit>
             <TechnologyBenefit>
-              <Micro className='uppercase'>Povrchová textilie</Micro>
+              <Micro className='uppercase' as={"h3"}>
+                Povrchová textilie
+              </Micro>
               <Micro>
                 Je tvořena kvalitním úpletem, vyrobeným ze směsi bavlněných a
                 tvarovaných polyesterových vláken, které dohromady vytváří
@@ -121,7 +125,9 @@ const page = async () => {
           </TechnologyLoopWrapper>
           <TechnologyBenefits className='_2'>
             <TechnologyBenefit>
-              <Micro className='uppercase'>Aktivní stříbro</Micro>
+              <Micro className='uppercase' as={"h3"}>
+                Aktivní stříbro
+              </Micro>
               <Micro>
                 Fungování aktivního stříbra je založeno na jeho schopnosti
                 inhibovat růst a množení mikroorganismů, jako jsou bakterie a
@@ -132,7 +138,9 @@ const page = async () => {
               </Micro>
             </TechnologyBenefit>
             <TechnologyBenefit>
-              <Micro className='uppercase'>Aktivní stříbro</Micro>
+              <Micro className='uppercase' as={"h3"}>
+                Aktivní stříbro
+              </Micro>
               <Micro>
                 Fungování aktivního stříbra je založeno na jeho schopnosti
                 inhibovat růst a množení mikroorganismů, jako jsou bakterie a
@@ -153,10 +161,10 @@ const page = async () => {
           <References>
             <Reference className='wide'>
               <ReferencePerson>
-                <Micro className='gray700 uppercase'>
+                <Micro className='gray700 uppercase' as={"h3"}>
                   {activeInsoleReviews[0].name}
                 </Micro>
-                <Micro className='gray700 uppercase'>
+                <Micro className='gray700 uppercase' as={"h4"}>
                   {activeInsoleReviews[0].profession}
                 </Micro>
               </ReferencePerson>
@@ -167,10 +175,10 @@ const page = async () => {
             <Line stroke='gray700' className='line _1' />
             <Reference className='short _1'>
               <ReferencePerson>
-                <Micro className='gray700 uppercase'>
+                <Micro className='gray700 uppercase' as={"h3"}>
                   {basicInsoleReviews[0].name}
                 </Micro>
-                <Micro className='gray700 uppercase'>
+                <Micro className='gray700 uppercase' as={"h4"}>
                   {basicInsoleReviews[0].profession}
                 </Micro>
               </ReferencePerson>
@@ -182,10 +190,10 @@ const page = async () => {
             <Line stroke='gray700' className='horizontal line _2' />
             <Reference className='short _2'>
               <ReferencePerson>
-                <Micro className='gray700 uppercase'>
+                <Micro className='gray700 uppercase' as={"h3"}>
                   {activeInsoleReviews[1].name}
                 </Micro>
-                <Micro className='gray700 uppercase'>
+                <Micro className='gray700 uppercase' as={"h4"}>
                   {activeInsoleReviews[1].profession}
                 </Micro>
               </ReferencePerson>

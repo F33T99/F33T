@@ -38,7 +38,9 @@ const Footer = ({}: FooterProps) => {
         <FooterLogo fill={isThemeLight ? "black" : "red400"} />
       )}
       <FooterTop>
-        <Large className={`uppercase ${fontColor}`}>Every step counts</Large>
+        <Large className={`uppercase ${fontColor}`} as={"h2"}>
+          Every step counts
+        </Large>
 
         <FooterNavLinks>
           <Nano className={`uppercase tar ${fontColor}`}>
@@ -66,12 +68,12 @@ const Footer = ({}: FooterProps) => {
 
       <FooterMiddle>
         <FooterContacts>
-          <Small className={`uppercase ${fontColor}`}>
+          <Small className={`uppercase ${fontColor}`} as={"h3"}>
             <Link className='no-underline' href={`mailto: info@f33t.com`}>
               info@f33t.com
             </Link>
           </Small>
-          <Small className={`uppercase ${fontColor}`}>
+          <Small className={`uppercase ${fontColor}`} as={"h3"}>
             <Link className='no-underline' href={`tel: +420774987654`}>
               +420 774 987 654
             </Link>

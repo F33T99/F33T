@@ -29,6 +29,7 @@ export const ProductCardContent = styled.div`
   align-items: end;
   width: 100%;
   ${breakpoint.tabletPortrait} {
+    grid-template-columns: repeat(2, 1fr);
     grid-template-areas: "price ." "variants button";
     row-gap: ${spaces.m}px;
   }

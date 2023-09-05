@@ -51,10 +51,11 @@ const ProductCard = ({
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}>
       <ProductCardHeader>
-        <SectionHeader className='uppercase black tight-lineheight'>
+        <SectionHeader as={"h2"} className='uppercase black tight-lineheight'>
           {title}
         </SectionHeader>
         <ProductCardCover
+          hover={hover}
           src={coverPhotoRef?.image.url}
           alt={coverPhotoRef?.image.altText}
         />

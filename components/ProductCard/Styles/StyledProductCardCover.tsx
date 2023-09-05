@@ -1,7 +1,8 @@
+import { motion } from "framer-motion";
 import Image from "next/image";
 import styled from "styled-components";
 
-export const StyledProductCardCover = styled.div`
+export const StyledProductCardCover = styled(motion.div)`
   position: relative;
   overflow: hidden;
   width: 100%;

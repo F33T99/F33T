@@ -12,11 +12,16 @@ import {
 } from "./(client)/Styledpage";
 import { Metadata } from "next";
 import RevealAnimation from "../../components/TextAnimation/RevealAnimation";
+import { colors } from "../../consts/colors";
 
 interface pageProps {}
 
 export const metadata: Metadata = {
   title: "Vložky do bot",
+  description:
+    "Ortopedické vložky do bot s nanotechnologií pro každodenní nošení na sport i do kanceláře.",
+  themeColor: colors.gray300,
+  colorScheme: "light",
 };
 
 const page = async ({}: pageProps) => {
@@ -50,7 +55,9 @@ const page = async ({}: pageProps) => {
       <GlobalProducts />
       <ProductsPageHero>
         <RevealAnimation delay={1}>
-          <SectionHeader className='black'>Produkty</SectionHeader>
+          <SectionHeader className='black' as={"h1"}>
+            Produkty
+          </SectionHeader>
         </RevealAnimation>
         <RevealAnimation delay={1.3}>
           <Small className='black uppercase indent'>

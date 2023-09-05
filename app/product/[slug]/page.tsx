@@ -101,7 +101,9 @@ const page = async ({ params: { slug } }: PageProps) => {
               </ProductDescription>
               <AddToCart product={product} />
               <Benefits>
-                <Mini className='black uppercase'>Benefity</Mini>
+                <Mini className='black uppercase' as={"h2"}>
+                  Benefity
+                </Mini>
                 <BenefitsInner>
                   {product.metafields[0]?.value
                     .split("\n")
@@ -115,17 +117,17 @@ const page = async ({ params: { slug } }: PageProps) => {
               </Benefits>
               {!(reviews.length === 0) && (
                 <Reviews>
-                  <Mini className='uppercase black unset-max-width'>
+                  <Mini className='uppercase black unset-max-width' as={"h2"}>
                     {"Reference"}
                   </Mini>
                   {reviews.map((review, i) => (
                     <>
                       <Review key={i}>
                         <div>
-                          <Micro className='uppercase black unset-max-width'>
+                          <Micro className='uppercase gray600 unset-max-width'>
                             {review.name}
                           </Micro>
-                          <Micro className='uppercase black unset-max-width'>
+                          <Micro className='uppercase gray600 unset-max-width'>
                             {review.profession}
                           </Micro>
                         </div>

@@ -67,7 +67,9 @@ const ProductBanner = ({ data }: ProductBannerProps) => {
     <StyledProductBanner>
       <ProductContent>
         <InsoleType>
-          <Mini className='uppercase'>Typ vložky</Mini>
+          <Mini className='uppercase' as={"h3"}>
+            Typ vložky
+          </Mini>
           <div>
             <SectionHeader
               className={`${
@@ -84,7 +86,9 @@ const ProductBanner = ({ data }: ProductBannerProps) => {
           </div>
         </InsoleType>
         <InsoleDescription>
-          <Micro className='uppercase'>Vlastnosti vloŽky</Micro>
+          <Micro className='uppercase' as={"h3"}>
+            Vlastnosti vloŽky
+          </Micro>
           <Small className='uppercase indent' ref={descriptionRef}></Small>
         </InsoleDescription>
         <InsoleBenefits>
@@ -98,7 +102,9 @@ const ProductBanner = ({ data }: ProductBannerProps) => {
                   animate={{ y: "0%" }}
                   exit={{ y: "100%" }}
                   transition={{ delay: i * 0.1 }}>
-                  <Micro className='uppercase tac'>{i + 1}</Micro>
+                  <Micro as={"h3"} className='uppercase tac'>
+                    {i + 1}
+                  </Micro>
                   <Micro className='uppercase tac'>{benefit}</Micro>
                 </Benefit>
               ))}

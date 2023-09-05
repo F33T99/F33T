@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { spaces } from "../../../consts/spaces";
 import { breakpoint } from "../../../consts/breakpoints";
 
-export const StyledMainHero = styled.div`
+export const StyledMainHero = styled.section`
   position: relative;
 `;
 
