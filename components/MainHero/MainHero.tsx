@@ -32,7 +32,7 @@ const MainHero = ({}: MainHeroProps) => {
             }
             src={
               w <= device.tabletPortrait
-                ? "/videos/hero-loop-vertical.mp4"
+                ? "/videos/hero-loop-vertical-1.mp4"
                 : "/videos/hero-loop-horizontal-2.mp4"
             }
           />
