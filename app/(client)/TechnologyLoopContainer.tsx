@@ -36,7 +36,10 @@ const TechnologyLoopContainer = ({}: TechnologyLoopContainerProps) => {
           }
           trigger={
             <TriggerWrapper>
-              <Video src={"/videos/explainer-loop.mp4"} />
+              <Video
+                src={"/videos/explainer-loop.mp4"}
+                posterSrc='/videos/explainer-loop-poster.jpg'
+              />
               <TechnologyPlayButton>
                 <PlayButton />
               </TechnologyPlayButton>
