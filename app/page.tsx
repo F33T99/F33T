@@ -61,6 +61,27 @@ const page = async () => {
     });
   });
 
+  const dummyReferences = [
+    {
+      name: "Luboš Procházka",
+      profession: "Profesionální skateboardista",
+      quote:
+        "Vložky F33T Active mě na skejtu už několikrát zachránily od hnusných úrazů paty. Navíc když si po ježdění sundám boty, vložky jsou opravdu stylovka a nesmrdí mi nohy.",
+    },
+    {
+      name: "Lucie Šafářová",
+      profession: "Tenistka",
+      quote:
+        "Vložky Basic jsou pro mě ideální volbou na tenisový kurt. Díky nim se cítím pohodlně a bez bolesti nohou. Navíc je to super, že se dají snadno vyprat a jsou rychle suché.",
+    },
+    {
+      name: "Tomáš Kadlec",
+      profession: "Běžec na dlouhé tratě",
+      quote:
+        "S vložkami F33T Active běhám jako nikdy předtím. Jsou lehké, pohodlné a hlavně mi zabraňují vzniku puchýřů. Díky nim se cítím jako na obláčku.",
+    },
+  ];
+
   const [activeRes, basicRes] = await Promise.all(requestsQueue);
   const products = [activeRes.data.product, basicRes.data.product];
   const activeInsoleReviews = convertReviewsToJson(
@@ -153,7 +174,7 @@ const page = async () => {
           </TechnologyBenefits>
         </TechnologyContent>
       </Technology>
-      {(activeInsoleReviews || basicInsoleReviews) && (
+      {
         <ReferencesSection id={"references"}>
           <SectionHeader className='uppercase black max-width'>
             Ideální pro každodenní nošení i sport
@@ -162,28 +183,28 @@ const page = async () => {
             <Reference className='wide'>
               <ReferencePerson>
                 <Micro className='gray700 uppercase' as={"h3"}>
-                  {activeInsoleReviews[0].name}
+                  {dummyReferences[0].name}
                 </Micro>
                 <Micro className='gray700 uppercase' as={"h4"}>
-                  {activeInsoleReviews[0].profession}
+                  {dummyReferences[0].profession}
                 </Micro>
               </ReferencePerson>
               <Medium className='black uppercase no-max-width'>
-                {activeInsoleReviews[0].quote}
+                {dummyReferences[0].quote}
               </Medium>
             </Reference>
             <Line stroke='gray700' className='line _1' />
             <Reference className='short _1'>
               <ReferencePerson>
                 <Micro className='gray700 uppercase' as={"h3"}>
-                  {basicInsoleReviews[0].name}
+                  {dummyReferences[1].name}
                 </Micro>
                 <Micro className='gray700 uppercase' as={"h4"}>
-                  {basicInsoleReviews[0].profession}
+                  {dummyReferences[1].profession}
                 </Micro>
               </ReferencePerson>
               <Medium className='black uppercase no-max-width'>
-                {basicInsoleReviews[0].quote}
+                {dummyReferences[1].quote}
               </Medium>
             </Reference>
             <Line stroke='gray700' vertical className='vertical line _2' />
@@ -191,19 +212,19 @@ const page = async () => {
             <Reference className='short _2'>
               <ReferencePerson>
                 <Micro className='gray700 uppercase' as={"h3"}>
-                  {activeInsoleReviews[1].name}
+                  {dummyReferences[2].name}
                 </Micro>
                 <Micro className='gray700 uppercase' as={"h4"}>
-                  {activeInsoleReviews[1].profession}
+                  {dummyReferences[2].profession}
                 </Micro>
               </ReferencePerson>
               <Medium className='black uppercase no-max-width'>
-                {activeInsoleReviews[1].quote}
+                {dummyReferences[2].quote}
               </Medium>
             </Reference>
           </References>
         </ReferencesSection>
-      )}
+      }
       <AboutSectionContainer />
     </StyledHomepage>
   );

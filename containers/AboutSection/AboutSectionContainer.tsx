@@ -30,10 +30,10 @@ const AboutSectionContainer = ({}: AboutSectionProps) => {
         <FlexIcon2 />
         <div>
           <AboutPhoto
-            src={"/images/about-1.jpg"}
+            src={"/images/02.jpg"}
             className='_1'
-            width={1023}
-            height={691}
+            width={1500}
+            height={1875}
             alt={"Vibin with F33T"}
           />
           <div data-inertia data-inertia-amount={6}>
@@ -45,10 +45,10 @@ const AboutSectionContainer = ({}: AboutSectionProps) => {
             <Smiley />
           </div>
           <AboutPhoto
-            src={"/images/about-3.jpg"}
+            src={"/images/03.jpg"}
             className='_2'
-            width={804}
-            height={1200}
+            width={1500}
+            height={1875}
             data-inertia
             data-inertia-amount={150}
             alt={"Chillin with F33T"}
