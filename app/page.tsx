@@ -126,28 +126,28 @@ const page = async () => {
           <TechnologyBenefits className='_2'>
             <TechnologyBenefit>
               <Micro className='uppercase' as={"h3"}>
-                Aktivní stříbro
+                Latexová pěna
               </Micro>
               <Micro>
-                Fungování aktivního stříbra je založeno na jeho schopnosti
-                inhibovat růst a množení mikroorganismů, jako jsou bakterie a
-                plísně. Aktivní stříbro uvolňuje malé množství iontů stříbra,
-                které mají silnou antimikrobiální účinnost. Tyto ionty stříbra
-                působí na buněčné membrány mikroorganismů a narušují jejich
-                životní funkce, což vede k inhibici jejich růstu a množení.
+                Latexová pěna se vyznačuje výjimečnou měkkostí a poddajností,
+                čímž zajišťuje maximální pohodlí pro nohy i při celodenním
+                zatížení. Skvěle tlumí nárazy při chůzi a běhu, čímž snižuje
+                únavu a bolest nohou. Kromě komfortu má i antibakteriální
+                vlastnosti. Díky své tvarové paměti se latexová pěna perfektně
+                přizpůsobí chodidlu - tvaru boty. Je ideální volbou pro lidi,
+                kteří jsou celý den na nohou.
               </Micro>
             </TechnologyBenefit>
             <TechnologyBenefit>
               <Micro className='uppercase' as={"h3"}>
-                Aktivní stříbro
+                Energy Polyurene
               </Micro>
               <Micro>
-                Fungování aktivního stříbra je založeno na jeho schopnosti
-                inhibovat růst a množení mikroorganismů, jako jsou bakterie a
-                plísně. Aktivní stříbro uvolňuje malé množství iontů stříbra,
-                které mají silnou antimikrobiální účinnost. Tyto ionty stříbra
-                působí na buněčné membrány mikroorganismů a narušují jejich
-                životní funkce, což vede k inhibici jejich růstu a množení.
+                Energy Polyurene je inovativní materiál, který se vyznačuje
+                svojí odolností vůči opotřebení, nárazům a extrémním teplotám.
+                Je velmi lehký a pružný. Díky vynikajícímu tlumícímu efektu
+                dokáže absorbovat nárazy a vibrace, což snižuje riziko úrazu a
+                zvyšuje komfort chůze.
               </Micro>
             </TechnologyBenefit>
           </TechnologyBenefits>
