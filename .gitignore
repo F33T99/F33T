@@ -3,3 +3,4 @@ node_modules/
 .next/
 codegen.yml
 webflow/
+.DS_Store

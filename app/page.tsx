@@ -140,10 +140,10 @@ const page = async () => {
             </TechnologyBenefit>
             <TechnologyBenefit>
               <Micro className='uppercase' as={"h3"}>
-                Energy Polyurene
+                Energy polyuretan
               </Micro>
               <Micro>
-                Energy Polyurene je inovativní materiál, který se vyznačuje
+                Energy polyuretan je inovativní materiál, který se vyznačuje
                 svojí odolností vůči opotřebení, nárazům a extrémním teplotám.
                 Je velmi lehký a pružný. Díky vynikajícímu tlumícímu efektu
                 dokáže absorbovat nárazy a vibrace, což snižuje riziko úrazu a

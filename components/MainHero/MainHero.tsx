@@ -10,6 +10,7 @@ import {
   HeroVideo,
   StyledMainHero,
 } from "./Styles/StyledMainHero";
+import scrollIntoView from "scroll-to-element";
 interface MainHeroProps {}
 
 const MainHero = ({}: MainHeroProps) => {
@@ -20,7 +21,13 @@ const MainHero = ({}: MainHeroProps) => {
         <PageHeader className='uppercase'>
           {`Vložky do bot Vylepšené o\u00a0nanotechnologii`}
         </PageHeader>
-        <Button>Zjistit více</Button>
+        <Button
+          onClick={() => {
+            scrollIntoView(document.getElementById("technology"));
+          }}
+        >
+          Zjistit více
+        </Button>
       </HeroContent>
       <HeroVideo>
         {!(w === 0) && (

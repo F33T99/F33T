@@ -69,13 +69,13 @@ const Footer = ({}: FooterProps) => {
       <FooterMiddle>
         <FooterContacts>
           <Small className={`uppercase ${fontColor}`} as={"h3"}>
-            <Link className='no-underline' href={`mailto: info@f33t.com`}>
-              info@f33t.com
+            <Link className='no-underline' href={`mailto: info@f33t.cz`}>
+              info@f33t.cz
             </Link>
           </Small>
           <Small className={`uppercase ${fontColor}`} as={"h3"}>
-            <Link className='no-underline' href={`tel: +420774987654`}>
-              +420 774 987 654
+            <Link className='no-underline' href={`tel: +420735282783`}>
+              +420 735 282 783
             </Link>
           </Small>
         </FooterContacts>
@@ -85,7 +85,8 @@ const Footer = ({}: FooterProps) => {
             <Link
               className={`no-underline ${fontColor}`}
               href={"https://www.instagram.com/f33t_official/"}
-              target='_blank'>
+              target='_blank'
+            >
               ig @f33t_official
             </Link>
           </Small>
@@ -99,11 +100,6 @@ const Footer = ({}: FooterProps) => {
           </Nano>
           <Nano className={`uppercase tar ${fontColor}`}>
             <Link className='no-underline' href={"/"}>
-              Velkoobchod
-            </Link>
-          </Nano>
-          <Nano className={`uppercase tar ${fontColor}`}>
-            <Link className='no-underline' href={"/"}>
               Péče o vložky
             </Link>
           </Nano>
@@ -112,42 +108,48 @@ const Footer = ({}: FooterProps) => {
               Výměna / Vrácení / Reklamace
             </Link>
           </Nano>
-          <Nano className={`uppercase tar ${fontColor}`}>
-            <Link className='no-underline' href={"/"}>
-              Prodejci
-            </Link>
-          </Nano>
         </FooterEshopLinks>
       </FooterMiddle>
 
       <FooterEnd>
         <FooterOtherLinks>
           <Nano className={`uppercase ${fontColor}`}>
-            <Link className='no-underline' href={"/"}>
+            <Link
+              target='_blank'
+              className='no-underline'
+              href={"/files/f33t_obchodni_podminky.pdf"}
+            >
               OBCHODNÍ PODMÍNKY
             </Link>
           </Nano>
           <Nano className={`uppercase ${fontColor}`}>
-            <Link className={`no-underline`} href={"/"}>
+            <Link
+              target='_blank'
+              className={`no-underline`}
+              href={
+                "/files/f33t_pravidla_zpracovani_ a_ochrany_osobnich_udaju.pdf"
+              }
+            >
               ZÁSADY ZPRACOVÁNÍ OSOBNÍCH ÚDAJŮ
             </Link>
           </Nano>
         </FooterOtherLinks>
 
         <FooterAddress>
-          <Nano className={`uppercase ${`gray500`}`}>F33T s.r.o.</Nano>
+          <Nano className={`uppercase ${`gray500`}`}>FootCorp s.r.o</Nano>
           <Nano className={`uppercase ${`gray500`}`}>
-            Random náměstí 24, Brno
+            Pražákova 1008/69, Štýřice, Brno
           </Nano>
-          <Nano className={`uppercase ${`gray500`}`}>IČO 01234567</Nano>
-          <Nano className={`uppercase ${`gray500`}`}>DIČ CZ01234567</Nano>
+          <Nano className={`uppercase ${`gray500`}`}>IČO 10915087</Nano>
+          <Nano className={`uppercase ${`gray500`}`}>DIČ CZ10915087</Nano>
         </FooterAddress>
 
         <Nano className={`uppercase gray500`}>
           <Link
             className={`no-underline gray500`}
             href={"https://steezy.studio/"}
-            target='_blank'>
+            target='_blank'
+          >
             steezy.studio
           </Link>
         </Nano>
