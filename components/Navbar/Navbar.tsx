@@ -7,11 +7,13 @@ import scrollToElement from "scroll-to-element";
 import { useTheme } from "styled-components";
 import { easing } from "../../consts/animationConfig";
 import { device } from "../../consts/breakpoints";
+import useSectionInView from "../../hooks/useSectionInView";
 import { useWindowSize } from "../../hooks/useWindowSize";
+import { ThemeType } from "../../types/global";
 import { CartToggleContext } from "../Cart/Cart";
-import { StyledNavbar } from "./Styles/StyledNavbar";
 import { DesktopNavbar } from "./DesktopNavbar";
 import PhoneNavbar from "./PhoneNavbar";
+import { StyledNavbar } from "./Styles/StyledNavbar";
 
 interface Navbar2Props {}
 
@@ -39,37 +41,30 @@ const Navbar2 = ({}: Navbar2Props) => {
   const { setShowCart } = useContext(CartToggleContext);
   const { w } = useWindowSize();
   const searchParams = useSearchParams();
-  const theme = useTheme();
   const { lines } = useCart();
   const [hideableNavbar, setHideableNavbar] = useState(false);
+  const theme = useTheme();
+  const [navbarTheme, setNavbarTheme] = useState<ThemeType>("light");
   const router = useRouter();
 
   const requestedSection = searchParams.get("s");
-  const isThemeLight = theme.type === "light";
+  useSectionInView("[data-hideable-navbar]", (isInView, el) => {
+    setHideableNavbar(isInView);
+  });
 
-  useLayoutEffect(() => {
-    const hideNavbarElements = document.querySelectorAll(
-      "[data-hideable-navbar]"
-    );
-
-    if (hideNavbarElements.length === 0) return;
-
-    const observer = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((entry) => {
-          setHideableNavbar(entry.isIntersecting);
-        }),
-      { rootMargin: "-10% 0% -90% 0%" }
-    );
-
-    hideNavbarElements.forEach((el) => {
-      observer.observe(el);
-    });
-
-    return () => {
-      observer.disconnect();
-    };
-  }, [pathname]);
+  useSectionInView(
+    "[data-background-color]",
+    (isInView, el) => {
+      if (isInView && el.dataset.backgroundColor) {
+        setNavbarTheme(el.dataset.backgroundColor as ThemeType);
+        return;
+      }
+      const fallbackColor = theme.type === "light" ? "light" : "dark";
+      setNavbarTheme(fallbackColor);
+    },
+    "1% 0% -90%",
+    [pathname]
+  );
 
   useLayoutEffect(() => {
     if (requestedSection) {
@@ -84,17 +79,18 @@ const Navbar2 = ({}: Navbar2Props) => {
     <StyledNavbar
       key={pathname}
       animate={{ y: hideableNavbar ? "-100%" : "0%" }}
-      transition={{ ease: easing }}>
+      transition={{ ease: easing }}
+    >
       {w <= device.tabletPortrait ? (
         <PhoneNavbar
-          isThemeLight={isThemeLight}
+          theme={navbarTheme}
           pathname={pathname}
           setShowCart={setShowCart}
           lines={lines}
         />
       ) : (
         <DesktopNavbar
-          isThemeLight={isThemeLight}
+          theme={navbarTheme}
           pathname={pathname}
           setShowCart={setShowCart}
           lines={lines}

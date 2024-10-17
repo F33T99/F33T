@@ -1,8 +1,11 @@
 import { QueryRoot } from "@shopify/hydrogen-react/storefront-api-types";
+import { Metadata } from "next";
 import getClient, { revalidate } from "../../apollo/client";
+import Divider from "../../components/Divider/Divider";
 import ProductCard from "../../components/ProductCard/ProductCard";
-import { SectionHeader } from "../../components/Typography/SectionHeader";
+import RevealAnimation from "../../components/TextAnimation/RevealAnimation";
 import { Small } from "../../components/Typography/Small";
+import { colors } from "../../consts/colors";
 import { GET_PRODUCTS } from "../../gql/GetProducts";
 import {
   GlobalProducts,
@@ -10,9 +13,6 @@ import {
   ProductsPageHero,
   StyledProductPage,
 } from "./(client)/Styledpage";
-import { Metadata } from "next";
-import RevealAnimation from "../../components/TextAnimation/RevealAnimation";
-import { colors } from "../../consts/colors";
 
 interface pageProps {}
 
@@ -51,23 +51,24 @@ const page = async ({}: pageProps) => {
   });
 
   return (
-    <StyledProductPage data-theme='light'>
+    <StyledProductPage data-theme='light' data-background-color='dark'>
       <GlobalProducts />
       <ProductsPageHero>
         <RevealAnimation delay={1}>
-          <SectionHeader className='black' as={"h1"}>
-            Produkty
-          </SectionHeader>
+          <Small className='black uppercase' as={"h1"}>
+            Vložky do bot
+          </Small>
         </RevealAnimation>
         <RevealAnimation delay={1.3}>
-          <Small className='black uppercase indent'>
-            Vložka typu ACTIVE je určena pro denní nošení a sport. chrání před
-            rázy při chůzi, běhu a dopadech. Vložky korespondují s ergonomií
-            chodidla. Povrchová pletená textilie s přidaným stříbrem snižuje
-            množení bakterií, čímž přímo zabraňuje zápachu.
+          <Small className='black uppercase indent wide'>
+            Vložky jsou určeny pro denní nošení a sport. chrání před rázy při
+            chůzi, běhu a dopadech. Vložky korespondují s ergonomií chodidla.
+            Povrchová pletená textilie s přidaným stříbrem snižuje množení
+            bakterií, čímž přímo zabraňuje zápachu.
           </Small>
         </RevealAnimation>
       </ProductsPageHero>
+      <Divider fill='black' />
       <ProductsGrid>
         {products.edges.map(({ node }, i) => {
           const { title, variants, priceRange, images, handle, metafields } =
@@ -78,7 +79,8 @@ const page = async ({}: pageProps) => {
               noSkew
               noCrop
               delay={1.6 + 0.3 * i}
-              y={[70, 0]}>
+              y={[70, 0]}
+            >
               <ProductCard
                 title={title}
                 variants={variants}

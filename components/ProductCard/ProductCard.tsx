@@ -3,7 +3,6 @@
 import {
   MediaImage,
   Metafield,
-  MetafieldReference,
   Product,
 } from "@shopify/hydrogen-react/storefront-api-types";
 import { useState } from "react";
@@ -49,7 +48,8 @@ const ProductCard = ({
     <StyledProductCard
       href={`/product/${handle}`}
       onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}>
+      onMouseLeave={() => setHover(false)}
+    >
       <ProductCardHeader>
         <SectionHeader as={"h2"} className='uppercase black tight-lineheight'>
           {title}
@@ -63,7 +63,7 @@ const ProductCard = ({
       <ProductCardContent>
         <ProductCardPrice>
           <Large className='black tight-lineheight price'>
-            od {formatPrice(priceRange.minVariantPrice.amount)}
+            {formatPrice(priceRange.minVariantPrice.amount)}
           </Large>
         </ProductCardPrice>
         <ProductCardVariants>

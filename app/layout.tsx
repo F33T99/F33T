@@ -2,11 +2,11 @@ import { Metadata } from "next";
 import Cart, { CartToggleProvider } from "../components/Cart/Cart";
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
+import { colors } from "../consts/colors";
 import StyledComponentsRegistry from "../lib/registry";
 import CartProvider from "./(client)/CartProvider";
 import { GlobalStyles } from "./(client)/GlobalStyles";
 import ThemeProvider from "./(client)/ThemeProvider";
-import { colors } from "../consts/colors";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://feet.cz"),

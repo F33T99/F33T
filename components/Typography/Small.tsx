@@ -1,10 +1,10 @@
 "use client";
 
 import styled from "styled-components";
-import { colors } from "../../consts/colors";
-import { addColorClasses } from "../../helpers/addColorClasses";
 import { breakpoint } from "../../consts/breakpoints";
+import { colors } from "../../consts/colors";
 import { spaces } from "../../consts/spaces";
+import { addColorClasses } from "../../helpers/addColorClasses";
 
 export const Small = styled.p`
   font-size: 21px;
@@ -28,6 +28,9 @@ export const Small = styled.p`
       column-count: unset;
       column-gap: unset;
     }
+  }
+  &.wide {
+    max-width: unset;
   }
   &.uppercase {
     text-transform: uppercase;

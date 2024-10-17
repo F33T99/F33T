@@ -3,8 +3,8 @@
 import { ReactNode } from "react";
 import { easing } from "../../consts/animationConfig";
 import {
-  StyledRevealAnimation,
   RevealAnimationInner,
+  StyledRevealAnimation,
 } from "./Styles/StyledRevealAnimation";
 
 interface TextAnimationProps {
@@ -31,13 +31,14 @@ const RevealAnimation = ({
   ) : (
     <StyledRevealAnimation style={{ overflow: noCrop ? "unset" : "hidden" }}>
       <RevealAnimationInner
-        initial={{ y: y ? y[0] : "90%", skew: noSkew ? 0 : 40, opacity: 0 }}
+        initial={{ y: y ? y[0] : "90%", skew: noSkew ? 0 : 40, opacity: 0.01 }}
         whileInView={{ y: y ? y[1] : "0%", skew: 0, opacity: 1 }}
         transition={{ delay: 0.5 * delay, ease: easing, duration: duration }}
         viewport={{
           once: true,
           margin: "0% 0%",
-        }}>
+        }}
+      >
         {children}
       </RevealAnimationInner>
     </StyledRevealAnimation>

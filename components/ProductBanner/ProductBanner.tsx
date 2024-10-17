@@ -1,8 +1,11 @@
 "use client";
 
+import { ProductPriceRange } from "@shopify/hydrogen-react/storefront-api-types";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { device } from "../../consts/breakpoints";
 import { formatPrice } from "../../helpers/formatPrice";
+import { useWindowSize } from "../../hooks/useWindowSize";
 import Button from "../Button/Button";
 import ScrollLottie from "../ScrollLottie/ScrollLottie";
 import { Large } from "../Typography/Large";
@@ -22,9 +25,6 @@ import {
   ProductContent,
   StyledProductBanner,
 } from "./Styles/StyledProductBanner";
-import { device } from "../../consts/breakpoints";
-import { useWindowSize } from "../../hooks/useWindowSize";
-import { ProductPriceRange } from "@shopify/hydrogen-react/storefront-api-types";
 
 interface ProductBannerProps {
   data: {
@@ -74,13 +74,15 @@ const ProductBanner = ({ data }: ProductBannerProps) => {
             <SectionHeader
               className={`${
                 insoleCurrIndex === 0 ? `white` : `outline-gray700`
-              } uppercase`}>
+              } uppercase`}
+            >
               Active
             </SectionHeader>
             <SectionHeader
               className={`${
                 insoleCurrIndex === 1 ? `white` : `outline-gray700`
-              } uppercase`}>
+              } uppercase`}
+            >
               Basic
             </SectionHeader>
           </div>
@@ -101,7 +103,8 @@ const ProductBanner = ({ data }: ProductBannerProps) => {
                   initial={{ y: "100%" }}
                   animate={{ y: "0%" }}
                   exit={{ y: "100%" }}
-                  transition={{ delay: i * 0.1 }}>
+                  transition={{ delay: i * 0.1 }}
+                >
                   <Micro as={"h3"} className='uppercase tac'>
                     {i + 1}
                   </Micro>
@@ -118,9 +121,9 @@ const ProductBanner = ({ data }: ProductBannerProps) => {
                 key={data[insoleCurrIndex].price.minVariantPrice.amount}
                 initial={{ y: "100%" }}
                 animate={{ y: "0%" }}
-                exit={{ y: "100%" }}>
+                exit={{ y: "100%" }}
+              >
                 <Large className='price'>
-                  od{" "}
                   {formatPrice(
                     data[insoleCurrIndex].price.minVariantPrice.amount
                   )}

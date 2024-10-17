@@ -1,21 +1,28 @@
 "use client";
+import classNames from "classnames";
 import { Dispatch } from "react";
+import { ThemeType } from "../../types/global";
 import CartIcon from "../Icons/CartIcon";
 import Link from "../Link/Link";
 import Logo from "../Logo/Logo";
 import RevealAnimation from "../TextAnimation/RevealAnimation";
 import { Micro } from "../Typography/Micro";
 import { navConfig } from "./Navbar";
-import { NavLinks, CartBadge, CartLines } from "./Styles/StyledNavbar";
+import {
+  CartBadge,
+  CartLines,
+  NavLinks,
+  NavlinkWrapper,
+} from "./Styles/StyledNavbar";
 
 interface DesktopNavbarProps {
-  isThemeLight: boolean;
+  theme: ThemeType;
   pathname: string;
   setShowCart: Dispatch<boolean>;
   lines: any[];
 }
 export function DesktopNavbar({
-  isThemeLight,
+  theme,
   pathname,
   setShowCart,
   lines,
@@ -24,39 +31,56 @@ export function DesktopNavbar({
     <>
       <RevealAnimation>
         <Link href={"/"}>
-          <Logo fill={isThemeLight ? "black" : "white"} />
+          <Logo fill={theme === "light" ? "white" : "black"} />
         </Link>
       </RevealAnimation>
       <NavLinks>
         {navConfig.map(({ pageName, url }, i) => (
           <RevealAnimation delay={i * 0.3} key={i}>
-            <Micro
-              as={"span"}
-              className={`uppercase 
-                ${isThemeLight ? "black" : "white"}
-                ${pathname === url ? "active" : ""}
-                navlink`}>
-              <Link href={url} className='no-underline'>
-                {pageName}
-              </Link>
-            </Micro>
+            <NavlinkWrapper className={classNames(theme)}>
+              <Micro
+                as={"span"}
+                className={classNames(
+                  {
+                    uppercase: true,
+                    active: pathname === url,
+                    navlink: true,
+                  },
+                  theme === "light" ? "black" : "white"
+                )}
+              >
+                <Link href={url} className='no-underline'>
+                  {pageName}
+                </Link>
+              </Micro>
+            </NavlinkWrapper>
           </RevealAnimation>
         ))}
         <RevealAnimation delay={navConfig.length * 0.3}>
-          <Micro
-            as={"span"}
-            className={`uppercase ${isThemeLight ? "black" : "white"} navlink`}>
-            <Link href={`${pathname}?s=contact`} className='no-underline'>
-              {"Kontakt"}
-            </Link>
-          </Micro>
+          <NavlinkWrapper className={classNames(theme)}>
+            <Micro
+              as={"span"}
+              className={classNames(
+                {
+                  uppercase: true,
+                  navlink: true,
+                },
+                theme === "light" ? "black" : "white"
+              )}
+            >
+              <Link href={`${pathname}?s=contact`} className='no-underline'>
+                {"Kontakt"}
+              </Link>
+            </Micro>
+          </NavlinkWrapper>
         </RevealAnimation>
         <RevealAnimation delay={(navConfig.length + 1) * 0.3}>
           <CartBadge
-            className={isThemeLight ? "light" : "dark"}
+            className={classNames(theme)}
             onClick={() => {
               setShowCart(true);
-            }}>
+            }}
+          >
             {lines.length === 0 ? (
               <CartIcon fill={"white"} />
             ) : (

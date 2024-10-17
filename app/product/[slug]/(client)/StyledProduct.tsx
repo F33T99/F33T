@@ -1,10 +1,10 @@
 "use client";
 
-import styled, { createGlobalStyle } from "styled-components";
-import { colors } from "../../../../consts/colors";
 import Image from "next/image";
-import { spaces } from "../../../../consts/spaces";
+import styled, { createGlobalStyle } from "styled-components";
 import { breakpoint } from "../../../../consts/breakpoints";
+import { colors } from "../../../../consts/colors";
+import { spaces } from "../../../../consts/spaces";
 
 export const GlobalProduct = createGlobalStyle`
   body {
@@ -13,12 +13,12 @@ export const GlobalProduct = createGlobalStyle`
 `;
 
 export const StyledProduct = styled.div`
-  margin-top: ${spaces.xxxl}px;
+  padding-top: ${spaces.xxxl}px;
   ${breakpoint.phone} {
-    margin-top: ${spaces.xl}px;
+    padding-top: ${spaces.xl}px;
   }
   ${breakpoint.monitor} {
-    margin-top: ${spaces.xxxxl}px;
+    padding-top: ${spaces.xxxxl}px;
   }
 `;
 
