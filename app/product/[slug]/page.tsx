@@ -1,10 +1,18 @@
 import { QueryRoot } from "@shopify/hydrogen-react/storefront-api-types";
+import { Metadata } from "next";
 import getClient, { revalidate } from "../../../apollo/client";
+import Line from "../../../components/Line/Line";
+import RevealAnimation from "../../../components/TextAnimation/RevealAnimation";
 import { Micro } from "../../../components/Typography/Micro";
 import { Mini } from "../../../components/Typography/Mini";
 import { Small } from "../../../components/Typography/Small";
 import { GET_PRODUCT } from "../../../gql/GetProduct";
+import {
+  convertReviewsToJson,
+  getReviewFromMeta,
+} from "../../../helpers/convertReviewsToJson";
 import AddToCart from "./(client)/AddToCart";
+import Gallery from "./(client)/Gallery";
 import ProductName from "./(client)/ProductName";
 import {
   Benefit,
@@ -19,14 +27,6 @@ import {
   Reviews,
   StyledProduct,
 } from "./(client)/StyledProduct";
-import Gallery from "./(client)/Gallery";
-import { Metadata } from "next";
-import {
-  convertReviewsToJson,
-  getReviewFromMeta,
-} from "../../../helpers/convertReviewsToJson";
-import Line from "../../../components/Line/Line";
-import RevealAnimation from "../../../components/TextAnimation/RevealAnimation";
 
 interface PageProps {
   params: { slug: string };
@@ -83,7 +83,7 @@ const page = async ({ params: { slug } }: PageProps) => {
     <>
       <GlobalProduct />
       <RevealAnimation noCrop noSkew y={[70, 0]} duration={1} delay={0.6}>
-        <StyledProduct data-theme='light'>
+        <StyledProduct data-theme='light' data-background-color='dark'>
           <ProductContent>
             <ProductCover
               src={product.images.nodes[0].url}

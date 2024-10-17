@@ -1,5 +1,6 @@
 "use client";
 
+import scrollIntoView from "scroll-to-element";
 import { device } from "../../consts/breakpoints";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import Button from "../Button/Button";
@@ -10,7 +11,6 @@ import {
   HeroVideo,
   StyledMainHero,
 } from "./Styles/StyledMainHero";
-import scrollIntoView from "scroll-to-element";
 interface MainHeroProps {}
 
 const MainHero = ({}: MainHeroProps) => {

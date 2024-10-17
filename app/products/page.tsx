@@ -51,7 +51,7 @@ const page = async ({}: pageProps) => {
   });
 
   return (
-    <StyledProductPage data-theme='light'>
+    <StyledProductPage data-theme='light' data-background-color='dark'>
       <GlobalProducts />
       <ProductsPageHero>
         <RevealAnimation delay={1}>

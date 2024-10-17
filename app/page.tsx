@@ -1,3 +1,4 @@
+import { QueryRoot } from "@shopify/hydrogen-react/storefront-api-types";
 import { Metadata } from "next";
 import getClient, { revalidate } from "../apollo/client";
 import Elevator from "../components/Elevator/Elevator";
@@ -30,7 +31,6 @@ import {
   TechnologyLoopWrapper,
 } from "./(client)/StyledHomepage";
 import TechnologyLoopContainer from "./(client)/TechnologyLoopContainer";
-import { QueryRoot } from "@shopify/hydrogen-react/storefront-api-types";
 
 export const metadata: Metadata = {};
 
@@ -154,7 +154,7 @@ const page = async () => {
         </TechnologyContent>
       </Technology>
       {(activeInsoleReviews || basicInsoleReviews) && (
-        <ReferencesSection id={"references"}>
+        <ReferencesSection id={"references"} data-background-color='dark'>
           <SectionHeader className='uppercase black max-width'>
             Ideální pro každodenní nošení i sport
           </SectionHeader>

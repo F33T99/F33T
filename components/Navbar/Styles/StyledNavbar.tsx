@@ -2,9 +2,9 @@
 
 import { motion } from "framer-motion";
 import styled from "styled-components";
-import { spaces } from "../../../consts/spaces";
 import { breakpoint } from "../../../consts/breakpoints";
 import { colors } from "../../../consts/colors";
+import { spaces } from "../../../consts/spaces";
 
 export const StyledNavbar = styled(motion.nav)`
   position: fixed;
@@ -38,6 +38,16 @@ export const NavDrawer = styled(motion.div)`
     align-items: flex-end;
     padding: ${spaces.l}px;
   }
+`;
+
+export const NavlinkWrapper = styled.div`
+  &.dark {
+    background-color: ${colors.black};
+  }
+  &.light {
+    background-color: ${colors.white};
+  }
+  padding: 0 ${spaces.xxs}px;
 `;
 
 export const NavLinks = styled(motion.div)`
@@ -156,7 +166,8 @@ export const PhoneNavLinkWrapper = ({ children }) => (
         expanded: { y: `0%`, skewY: "0deg" },
         collapsed: { y: `105%`, skewY: "4deg" },
       }}
-      transition={{ duration: 0.2 }}>
+      transition={{ duration: 0.2 }}
+    >
       {children}
     </motion.div>
   </div>

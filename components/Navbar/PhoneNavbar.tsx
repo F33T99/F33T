@@ -1,11 +1,13 @@
 "use client";
 
 import { Dispatch, useState } from "react";
+import { DisableScroll } from "../../app/(client)/DisableScroll";
 import Burger from "../Icons/Burger";
 import CartIcon from "../Icons/CartIcon";
 import Link from "../Link/Link";
 import Logo from "../Logo/Logo";
 import RevealAnimation from "../TextAnimation/RevealAnimation";
+import { Medium } from "../Typography/Medium";
 import { Micro } from "../Typography/Micro";
 import { navConfig } from "./Navbar";
 import {
@@ -19,18 +21,16 @@ import {
   PhoneNavLinkWrapper,
   navlinkVariants,
 } from "./Styles/StyledNavbar";
-import { DisableScroll } from "../../app/(client)/DisableScroll";
-import { Medium } from "../Typography/Medium";
 
 interface PhoneNavbarProps {
-  isThemeLight: boolean;
+  theme: ThemeType;
   pathname: string;
   setShowCart: Dispatch<boolean>;
   lines: any[];
 }
 
 const PhoneNavbar = ({
-  isThemeLight,
+  theme,
   pathname,
   setShowCart,
   lines,
@@ -42,17 +42,18 @@ const PhoneNavbar = ({
       <PhoneLogoWrapper>
         <RevealAnimation>
           <Link href={"/"}>
-            <Logo fill={isThemeLight ? "black" : "white"} />
+            <Logo fill={theme ? "black" : "white"} />
           </Link>
         </RevealAnimation>
       </PhoneLogoWrapper>
       <BurgerWrapper>
         <RevealAnimation delay={0.3 * 2}>
           <CartBadge
-            className={expanded ? "light" : isThemeLight ? "light" : "dark"}
+            className={expanded ? "light" : theme ? "light" : "dark"}
             onClick={() => {
               setShowCart(true);
-            }}>
+            }}
+          >
             {lines.length === 0 ? (
               <CartIcon fill={"white"} />
             ) : (
@@ -62,7 +63,7 @@ const PhoneNavbar = ({
         </RevealAnimation>
         <RevealAnimation delay={0.3}>
           <Burger
-            stroke={isThemeLight ? "black" : "white"}
+            stroke={theme ? "black" : "white"}
             isOpen={expanded}
             onClick={() => setExpanded((p) => !p)}
           />
@@ -71,7 +72,8 @@ const PhoneNavbar = ({
       <NavDrawer
         initial={false}
         animate={expanded ? "expanded" : "collapsed"}
-        variants={navlinkVariants}>
+        variants={navlinkVariants}
+      >
         <NavLinks>
           {navConfig.map(({ pageName, url }, i) => (
             <PhoneNavLinkWrapper key={i}>
@@ -80,7 +82,8 @@ const PhoneNavbar = ({
                 as={"span"}
                 className={`uppercase white
                             ${pathname === url ? "active" : ""}
-                            navlink`}>
+                            navlink`}
+              >
                 <Link href={url} className='no-underline'>
                   {pageName}
                 </Link>
@@ -91,7 +94,8 @@ const PhoneNavbar = ({
             <Micro
               as={"span"}
               className={`uppercase ${"white"} navlink`}
-              onClick={() => setExpanded(false)}>
+              onClick={() => setExpanded(false)}
+            >
               <Link href={`${pathname}?s=contact`} className='no-underline'>
                 {"Kontakt"}
               </Link>
@@ -118,7 +122,8 @@ const PhoneNavbar = ({
               <Link
                 className={`no-underline black`}
                 href={`https://www.instagram.com/f33t_official/`}
-                target='_blank'>
+                target='_blank'
+              >
                 ig @f33t_official
               </Link>
             </Medium>
