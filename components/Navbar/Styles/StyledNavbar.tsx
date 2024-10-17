@@ -115,24 +115,20 @@ export const CartBadge = styled.div`
   padding: ${spaces.xs}px;
   border-radius: 99999px;
   cursor: pointer;
-  &.dark,
-  &.light {
-    background-color: ${colors.red400};
-    &:hover {
-      background-color: ${colors.red300};
-    }
+  background-color: ${colors.red400};
+  &:hover {
+    background-color: ${colors.red300};
   }
   ${breakpoint.monitor} {
     padding: ${spaces.s}px;
   }
   ${breakpoint.tabletPortrait} {
-    &.light {
+    background-color: ${colors.red400};
+    color: ${colors.black};
+    &.expanded {
       background-color: ${colors.black};
-      &:hover {
-        background-color: ${colors.gray700};
-      }
+      color: ${colors.white};
     }
-    background-color: ${colors.black};
     padding: ${spaces.s}px;
   }
   ${breakpoint.phone} {

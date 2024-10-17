@@ -1,7 +1,9 @@
 "use client";
 
+import classNames from "classnames";
 import { Dispatch, useState } from "react";
 import { DisableScroll } from "../../app/(client)/DisableScroll";
+import { ThemeType } from "../../types/global";
 import Burger from "../Icons/Burger";
 import CartIcon from "../Icons/CartIcon";
 import Link from "../Link/Link";
@@ -49,7 +51,7 @@ const PhoneNavbar = ({
       <BurgerWrapper>
         <RevealAnimation delay={0.3 * 2}>
           <CartBadge
-            className={expanded ? "light" : theme ? "light" : "dark"}
+            className={classNames({ expanded })}
             onClick={() => {
               setShowCart(true);
             }}
@@ -80,9 +82,12 @@ const PhoneNavbar = ({
               <Micro
                 onClick={() => setExpanded(false)}
                 as={"span"}
-                className={`uppercase white
-                            ${pathname === url ? "active" : ""}
-                            navlink`}
+                className={classNames({
+                  uppercase: true,
+                  white: true,
+                  active: pathname === url,
+                  navlink: true,
+                })}
               >
                 <Link href={url} className='no-underline'>
                   {pageName}
