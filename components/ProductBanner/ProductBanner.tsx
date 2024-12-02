@@ -67,9 +67,6 @@ const ProductBanner = ({ data }: ProductBannerProps) => {
     <StyledProductBanner>
       <ProductContent>
         <InsoleType>
-          <Mini className='uppercase' as={"h3"}>
-            Typ vložky
-          </Mini>
           <div>
             <SectionHeader
               className={`${
