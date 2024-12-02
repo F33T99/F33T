@@ -89,7 +89,7 @@ const ProductBanner = ({ data }: ProductBannerProps) => {
         </InsoleType>
         <InsoleDescription>
           <Micro className='uppercase' as={"h3"}>
-            Vlastnosti vloŽky
+            
           </Micro>
           <Small className='uppercase indent' ref={descriptionRef}></Small>
         </InsoleDescription>
