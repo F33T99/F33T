@@ -64,7 +64,7 @@ export const InsoleDescription = styled.div`
 export const InsoleBenefits = styled.div`
   grid-area: benefits;
   align-self: end;
-  display: ${({ isActive }) => (isActive ? "none" : "grid")};
+  display: grid;
   row-gap: ${spaces.m}px;
   ${breakpoint.monitor} {
     row-gap: ${spaces.l}px;
