@@ -74,6 +74,7 @@ export const InsoleBenefits = styled.div`
   }
 `;
 
+
 export const Benefits = styled(motion.div)`
   display: flex;
   column-gap: ${spaces.l}px;
