@@ -44,7 +44,7 @@ const PhoneNavbar = ({
       <PhoneLogoWrapper>
         <RevealAnimation>
           <Link href={"/"}>
-            <Logo fill={theme ? "black" : "white"} />
+            <Logo fill={theme === "light" ? "white" : "black"} />
           </Link>
         </RevealAnimation>
       </PhoneLogoWrapper>
@@ -65,7 +65,7 @@ const PhoneNavbar = ({
         </RevealAnimation>
         <RevealAnimation delay={0.3}>
           <Burger
-            stroke={theme ? "black" : "white"}
+            stroke={theme === "light" ? "white" : "black"}
             isOpen={expanded}
             onClick={() => setExpanded((p) => !p)}
           />
@@ -89,7 +89,7 @@ const PhoneNavbar = ({
                   navlink: true,
                 })}
               >
-                <Link href={url} className='no-underline'>
+                <Link href={url} className="no-underline">
                   {pageName}
                 </Link>
               </Micro>
@@ -101,7 +101,7 @@ const PhoneNavbar = ({
               className={`uppercase ${"white"} navlink`}
               onClick={() => setExpanded(false)}
             >
-              <Link href={`${pathname}?s=contact`} className='no-underline'>
+              <Link href={`${pathname}?s=contact`} className="no-underline">
                 {"Kontakt"}
               </Link>
             </Micro>
@@ -110,14 +110,14 @@ const PhoneNavbar = ({
         <NavContact>
           <PhoneNavLinkWrapper>
             <Medium className={`uppercase black`}>
-              <Link className='no-underline' href={`mailto: info@f33t.com`}>
+              <Link className="no-underline" href={`mailto: info@f33t.com`}>
                 info@f33t.com
               </Link>
             </Medium>
           </PhoneNavLinkWrapper>
           <PhoneNavLinkWrapper>
             <Medium className={`uppercase black`}>
-              <Link className='no-underline' href={`tel: +420774987654`}>
+              <Link className="no-underline" href={`tel: +420774987654`}>
                 +420 774 987 654
               </Link>
             </Medium>
@@ -127,7 +127,7 @@ const PhoneNavbar = ({
               <Link
                 className={`no-underline black`}
                 href={`https://www.instagram.com/f33t_official/`}
-                target='_blank'
+                target="_blank"
               >
                 ig @f33t_official
               </Link>

@@ -64,14 +64,14 @@ const page = async () => {
   const [activeRes, basicRes] = await Promise.all(requestsQueue);
   const products = [activeRes.data.product, basicRes.data.product];
   const activeInsoleReviews = convertReviewsToJson(
-    getReviewFromMeta(products[0].metafields).value
+    getReviewFromMeta(products[0].metafields).value,
   );
   const basicInsoleReviews = convertReviewsToJson(
-    getReviewFromMeta(products[1].metafields).value
+    getReviewFromMeta(products[1].metafields).value,
   );
 
   return (
-    <StyledHomepage data-theme='dark'>
+    <StyledHomepage data-theme="dark">
       <GlobalHomepage />
       <MainHero />
       <ScrollAnimation offset={[0.9, 0.1]}>
@@ -91,9 +91,9 @@ const page = async () => {
       <Technology id={"technology"}>
         <TechnologyHeader>Technologie</TechnologyHeader>
         <TechnologyContent>
-          <TechnologyBenefits className='_1'>
+          <TechnologyBenefits className="_1">
             <TechnologyBenefit>
-              <Micro className='uppercase' as={"h3"}>
+              <Micro className="uppercase" as={"h3"}>
                 Aktivní stříbro
               </Micro>
               <Micro>
@@ -106,7 +106,7 @@ const page = async () => {
               </Micro>
             </TechnologyBenefit>
             <TechnologyBenefit>
-              <Micro className='uppercase' as={"h3"}>
+              <Micro className="uppercase" as={"h3"}>
                 Povrchová textilie
               </Micro>
               <Micro>
@@ -123,9 +123,9 @@ const page = async () => {
           <TechnologyLoopWrapper>
             <TechnologyLoopContainer />
           </TechnologyLoopWrapper>
-          <TechnologyBenefits className='_2'>
+          <TechnologyBenefits className="_2">
             <TechnologyBenefit>
-              <Micro className='uppercase' as={"h3"}>
+              <Micro className="uppercase" as={"h3"}>
                 Latexová pěna
               </Micro>
               <Micro>
@@ -139,7 +139,7 @@ const page = async () => {
               </Micro>
             </TechnologyBenefit>
             <TechnologyBenefit>
-              <Micro className='uppercase' as={"h3"}>
+              <Micro className="uppercase" as={"h3"}>
                 Energy polyuretan
               </Micro>
               <Micro>
@@ -154,53 +154,55 @@ const page = async () => {
         </TechnologyContent>
       </Technology>
       {(activeInsoleReviews || basicInsoleReviews) && (
-        <ReferencesSection id={"references"} data-background-color='dark'>
-          <SectionHeader className='uppercase black max-width'>
+        <ReferencesSection id={"references"} data-background-color="dark">
+          <SectionHeader className="uppercase black max-width">
             Ideální pro každodenní nošení i sport
           </SectionHeader>
           <References>
-            <Reference className='wide'>
+            <Reference className="wide">
               <ReferencePerson>
-                <Micro className='gray700 uppercase' as={"h3"}>
-                  {activeInsoleReviews[0].name}
+                <Micro className="gray700 uppercase" as={"h3"}>
+                  {activeInsoleReviews?.[0].name}
                 </Micro>
-                <Micro className='gray700 uppercase' as={"h4"}>
-                  {activeInsoleReviews[0].profession}
+                <Micro className="gray700 uppercase" as={"h4"}>
+                  {activeInsoleReviews?.[0].profession}
                 </Micro>
               </ReferencePerson>
-              <Medium className='black uppercase no-max-width'>
-                {activeInsoleReviews[0].quote}
+              <Medium className="black uppercase no-max-width">
+                {activeInsoleReviews?.[0].quote}
               </Medium>
             </Reference>
-            <Line stroke='gray700' className='line _1' />
-            <Reference className='short _1'>
+            <Line stroke="gray700" className="line _1" />
+            <Reference className="short _1">
               <ReferencePerson>
-                <Micro className='gray700 uppercase' as={"h3"}>
-                  {basicInsoleReviews[0].name}
+                <Micro className="gray700 uppercase" as={"h3"}>
+                  {basicInsoleReviews?.[0].name}
                 </Micro>
-                <Micro className='gray700 uppercase' as={"h4"}>
-                  {basicInsoleReviews[0].profession}
+                <Micro className="gray700 uppercase" as={"h4"}>
+                  {basicInsoleReviews?.[0].profession}
                 </Micro>
               </ReferencePerson>
-              <Medium className='black uppercase no-max-width'>
-                {basicInsoleReviews[0].quote}
+              <Medium className="black uppercase no-max-width">
+                {basicInsoleReviews?.[0].quote}
               </Medium>
             </Reference>
-            <Line stroke='gray700' vertical className='vertical line _2' />
-            <Line stroke='gray700' className='horizontal line _2' />
-            <Reference className='short _2'>
-              <ReferencePerson>
-                <Micro className='gray700 uppercase' as={"h3"}>
-                  {activeInsoleReviews[1].name}
-                </Micro>
-                <Micro className='gray700 uppercase' as={"h4"}>
-                  {activeInsoleReviews[1].profession}
-                </Micro>
-              </ReferencePerson>
-              <Medium className='black uppercase no-max-width'>
-                {activeInsoleReviews[1].quote}
-              </Medium>
-            </Reference>
+            <Line stroke="gray700" vertical className="vertical line _2" />
+            <Line stroke="gray700" className="horizontal line _2" />
+            {activeInsoleReviews[1] && (
+              <Reference className="short _2">
+                <ReferencePerson>
+                  <Micro className="gray700 uppercase" as={"h3"}>
+                    {activeInsoleReviews?.[1].name}
+                  </Micro>
+                  <Micro className="gray700 uppercase" as={"h4"}>
+                    {activeInsoleReviews?.[1].profession}
+                  </Micro>
+                </ReferencePerson>
+                <Medium className="black uppercase no-max-width">
+                  {activeInsoleReviews?.[1].quote}
+                </Medium>
+              </Reference>
+            )}
           </References>
         </ReferencesSection>
       )}
