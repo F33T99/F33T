@@ -28,7 +28,7 @@ import {
 
 interface ProductBannerProps {
   data: {
-    benefits: string[];
+    benefits?: string[];
     type: string;
     perex: string;
     price: ProductPriceRange;
@@ -55,7 +55,7 @@ const ProductBanner = ({ data }: ProductBannerProps) => {
             if (ref.current) {
               ref.current.innerText = res;
             }
-          }
+          },
         );
       };
       write(descriptionRef, data[insoleCurrIndex].perex);
@@ -67,7 +67,7 @@ const ProductBanner = ({ data }: ProductBannerProps) => {
     <StyledProductBanner>
       <ProductContent>
         <InsoleType>
-            <Mini className='uppercase' as={"h3"}>
+          <Mini className="uppercase" as={"h3"}>
             Typ vložky
           </Mini>
           <div>
@@ -88,14 +88,12 @@ const ProductBanner = ({ data }: ProductBannerProps) => {
           </div>
         </InsoleType>
         <InsoleDescription>
-          <Micro className='uppercase' as={"h3"}>
-            
-          </Micro>
-          <Small className='uppercase indent' ref={descriptionRef}></Small>
+          <Micro className="uppercase" as={"h3"}></Micro>
+          <Small className="uppercase indent" ref={descriptionRef}></Small>
         </InsoleDescription>
         <InsoleBenefits>
-          <Micro className='uppercase'>Vlastnosti vloŽky</Micro>
-          <AnimatePresence mode='wait'>
+          <Micro className="uppercase">Vlastnosti vloŽky</Micro>
+          <AnimatePresence mode="wait">
             <Benefits key={insoleCurrIndex}>
               {data[insoleCurrIndex].benefits.map((benefit, i) => (
                 <Benefit
@@ -105,10 +103,10 @@ const ProductBanner = ({ data }: ProductBannerProps) => {
                   exit={{ y: "100%" }}
                   transition={{ delay: i * 0.1 }}
                 >
-                  <Micro as={"h3"} className='uppercase tac'>
+                  <Micro as={"h3"} className="uppercase tac">
                     {i + 1}
                   </Micro>
-                  <Micro className='uppercase tac'>{benefit}</Micro>
+                  <Micro className="uppercase tac">{benefit}</Micro>
                 </Benefit>
               ))}
             </Benefits>
@@ -123,9 +121,9 @@ const ProductBanner = ({ data }: ProductBannerProps) => {
                 animate={{ y: "0%" }}
                 exit={{ y: "100%" }}
               >
-                <Large className='price'>
+                <Large className="price">
                   {formatPrice(
-                    data[insoleCurrIndex].price.minVariantPrice.amount
+                    data[insoleCurrIndex].price.minVariantPrice.amount,
                   )}
                 </Large>
               </motion.div>

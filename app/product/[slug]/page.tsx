@@ -1,3 +1,4 @@
+import { Metafield } from "@shopify/hydrogen-react/storefront-api-types";
 import { Metadata } from "next";
 import getProduct from "../../../apollo/getProduct";
 import Line from "../../../components/Line/Line";
@@ -27,7 +28,7 @@ import {
 } from "./(client)/StyledProduct";
 
 interface PageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export const revalidate = 5;
@@ -35,22 +36,26 @@ export const revalidate = 5;
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const product = await getProduct(params.slug);
+  const { slug } = await params;
+  const product = await getProduct(slug);
 
   return {
-    title: `Vložka ${product.title}`,
-    description: product.description,
+    title: `Vložka ${product?.title}`,
+    description: product?.description,
     openGraph: {
-      images: product.images.nodes.map((i) => i.url),
+      images: product?.images.nodes.map((i) => i.url),
     },
   };
 }
 
-const page = async ({ params: { slug } }: PageProps) => {
+const page = async ({ params }: PageProps) => {
+  const { slug } = await params;
   const product = await getProduct(slug);
-  const reviews = convertReviewsToJson(
-    getReviewFromMeta(product.metafields).value,
-  );
+  if (!product) return null;
+
+  const review = getReviewFromMeta(product.metafields as Metafield[]) as string;
+
+  const reviews = convertReviewsToJson(review);
 
   return (
     <>
@@ -60,8 +65,8 @@ const page = async ({ params: { slug } }: PageProps) => {
           <ProductContent>
             <ProductCover
               src={product.images.nodes[0].url}
-              width={product.images.nodes[0].width}
-              height={product.images.nodes[0].height}
+              width={product?.images.nodes[0].width!}
+              height={product.images.nodes[0].height!}
               alt={product.images.nodes[0].altText || product.title}
             />
             <Gallery images={product.images.nodes} title={product.title} />

@@ -7,13 +7,14 @@ interface Output {
 }
 
 export const getReviewFromMeta = (m: Metafield[]) => {
-  return m.find((x) => x?.key === "reviews");
+  if (!m) return null;
+  return m.find((x) => x?.key === "reviews")?.value;
 };
 
 export function convertReviewsToJson(input: string): Output[] {
-  if (!input) return null;
+  if (!input) return [];
   const reviews = input.split("</review>\n<review>");
-  const jsonReviews = [];
+  const jsonReviews: Output[] = [];
 
   for (const review of reviews) {
     const quoteMatch = review.match(/<quote>(.*?)<\/quote>/);

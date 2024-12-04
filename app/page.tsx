@@ -1,4 +1,7 @@
-import { QueryRoot } from "@shopify/hydrogen-react/storefront-api-types";
+import {
+  Metafield,
+  QueryRoot,
+} from "@shopify/hydrogen-react/storefront-api-types";
 import { Metadata } from "next";
 import getClient from "../apollo/client";
 import Elevator from "../components/Elevator/Elevator";
@@ -63,11 +66,12 @@ const page = async () => {
 
   const [activeRes, basicRes] = await Promise.all(requestsQueue);
   const products = [activeRes.data.product, basicRes.data.product];
+  if (!products) return null;
   const activeInsoleReviews = convertReviewsToJson(
-    getReviewFromMeta(products[0].metafields).value,
+    getReviewFromMeta(products?.[0]?.metafields as Metafield[]) as string,
   );
   const basicInsoleReviews = convertReviewsToJson(
-    getReviewFromMeta(products[1].metafields).value,
+    getReviewFromMeta(products?.[1]?.metafields as Metafield[]) as string,
   );
 
   return (
@@ -80,11 +84,11 @@ const page = async () => {
       <Elevator>
         <ProductBanner
           data={products.map((node) => ({
-            perex: node.description,
-            benefits: node.metafields[0]?.value.split("\n"),
-            type: node.title,
-            price: node.priceRange,
-            handle: node.handle,
+            perex: node!.description,
+            benefits: node!.metafields[0]?.value.split("\n"),
+            type: node!.title,
+            price: node!.priceRange,
+            handle: node!.handle,
           }))}
         />
       </Elevator>

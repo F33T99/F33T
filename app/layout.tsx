@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { Suspense } from "react";
 import Cart, { CartToggleProvider } from "../components/Cart/Cart";
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
@@ -46,17 +47,19 @@ export default async function RootLayout({
     <html lang={"cs"}>
       <StyledComponentsRegistry>
         <body>
-          <ThemeProvider>
-            <CartToggleProvider>
-              <CartProvider>
-                <GlobalStyles />
-                <Navbar />
-                <Cart />
-                {children}
-                <Footer />
-              </CartProvider>
-            </CartToggleProvider>
-          </ThemeProvider>
+          <Suspense>
+            <ThemeProvider>
+              <CartToggleProvider>
+                <CartProvider>
+                  <GlobalStyles />
+                  <Navbar />
+                  <Cart />
+                  {children}
+                  <Footer />
+                </CartProvider>
+              </CartToggleProvider>
+            </ThemeProvider>
+          </Suspense>
         </body>
       </StyledComponentsRegistry>
     </html>
