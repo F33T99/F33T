@@ -1,6 +1,6 @@
 import { QueryRoot } from "@shopify/hydrogen-react/storefront-api-types";
 import { Metadata } from "next";
-import getClient, { revalidate } from "../apollo/client";
+import getClient from "../apollo/client";
 import Elevator from "../components/Elevator/Elevator";
 import Line from "../components/Line/Line";
 import MainHero from "../components/MainHero/MainHero";
@@ -33,6 +33,7 @@ import {
 import TechnologyLoopContainer from "./(client)/TechnologyLoopContainer";
 
 export const metadata: Metadata = {};
+export const revalidate = 5;
 
 const page = async () => {
   const client = getClient();
@@ -57,7 +58,6 @@ const page = async () => {
           { namespace: "custom", key: "reviews" },
         ],
       },
-      ...revalidate,
     });
   });
 

@@ -1,6 +1,6 @@
 import { QueryRoot } from "@shopify/hydrogen-react/storefront-api-types";
 import { Metadata } from "next";
-import getClient, { revalidate } from "../../apollo/client";
+import getClient from "../../apollo/client";
 import Divider from "../../components/Divider/Divider";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import RevealAnimation from "../../components/TextAnimation/RevealAnimation";
@@ -15,6 +15,8 @@ import {
 } from "./(client)/Styledpage";
 
 interface pageProps {}
+
+export const revalidate = 5;
 
 export const metadata: Metadata = {
   title: "Vložky do bot",
@@ -47,20 +49,19 @@ const page = async ({}: pageProps) => {
         { namespace: "custom", key: "products-cover" },
       ],
     },
-    ...revalidate,
   });
 
   return (
-    <StyledProductPage data-theme='light' data-background-color='dark'>
+    <StyledProductPage data-theme="light" data-background-color="dark">
       <GlobalProducts />
       <ProductsPageHero>
         <RevealAnimation delay={1}>
-          <Small className='black uppercase' as={"h1"}>
+          <Small className="black uppercase" as={"h1"}>
             Vložky do bot
           </Small>
         </RevealAnimation>
         <RevealAnimation delay={1.3}>
-          <Small className='black uppercase indent wide'>
+          <Small className="black uppercase indent wide">
             Vložky jsou určeny pro denní nošení a sport. chrání před rázy při
             chůzi, běhu a dopadech. Vložky korespondují s ergonomií chodidla.
             Povrchová pletená textilie s přidaným stříbrem snižuje množení
@@ -68,7 +69,7 @@ const page = async ({}: pageProps) => {
           </Small>
         </RevealAnimation>
       </ProductsPageHero>
-      <Divider fill='black' />
+      <Divider fill="black" />
       <ProductsGrid>
         {products.edges.map(({ node }, i) => {
           const { title, variants, priceRange, images, handle, metafields } =
