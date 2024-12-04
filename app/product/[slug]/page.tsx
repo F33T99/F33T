@@ -1,12 +1,10 @@
-import { QueryRoot } from "@shopify/hydrogen-react/storefront-api-types";
 import { Metadata } from "next";
-import getClient from "../../../apollo/client";
+import getProduct from "../../../apollo/getProduct";
 import Line from "../../../components/Line/Line";
 import RevealAnimation from "../../../components/TextAnimation/RevealAnimation";
 import { Micro } from "../../../components/Typography/Micro";
 import { Mini } from "../../../components/Typography/Mini";
 import { Small } from "../../../components/Typography/Small";
-import { GET_PRODUCT } from "../../../gql/GetProduct";
 import {
   convertReviewsToJson,
   getReviewFromMeta,
@@ -34,36 +32,10 @@ interface PageProps {
 
 export const revalidate = 5;
 
-const fetchData = async (slug: string) => {
-  const client = getClient();
-  const {
-    data: { product },
-  } = await client.query<QueryRoot>({
-    query: GET_PRODUCT,
-    variables: {
-      handle: slug,
-      first: 99,
-      transformImage: {
-        maxWidth: 1920,
-        maxHeight: 1080,
-        preferredContentType: "WEBP",
-      },
-      identifiers: [
-        {
-          namespace: "custom",
-          key: "benefits",
-        },
-        { namespace: "custom", key: "reviews" },
-      ],
-    },
-  });
-  return product;
-};
-
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const product = await fetchData(params.slug);
+  const product = await getProduct(params.slug);
 
   return {
     title: `Vložka ${product.title}`,
@@ -75,7 +47,7 @@ export async function generateMetadata({
 }
 
 const page = async ({ params: { slug } }: PageProps) => {
-  const product = await fetchData(slug);
+  const product = await getProduct(slug);
   const reviews = convertReviewsToJson(
     getReviewFromMeta(product.metafields).value,
   );
@@ -90,9 +62,9 @@ const page = async ({ params: { slug } }: PageProps) => {
               src={product.images.nodes[0].url}
               width={product.images.nodes[0].width}
               height={product.images.nodes[0].height}
-              alt={product.images.nodes[0].altText}
+              alt={product.images.nodes[0].altText || product.title}
             />
-            <Gallery images={product.images.nodes} />
+            <Gallery images={product.images.nodes} title={product.title} />
             <ProductInfo>
               <ProductName>{product.title}</ProductName>
               <ProductDescription>

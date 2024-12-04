@@ -15,9 +15,10 @@ import {
 
 interface GalleryProps {
   images: Image[];
+  title: string;
 }
 
-const Gallery = ({ images }: GalleryProps) => {
+const Gallery = ({ images, title }: GalleryProps) => {
   const [expanded, setExpanded] = useState(false);
 
   if (images.length === 0) return null;
@@ -25,7 +26,8 @@ const Gallery = ({ images }: GalleryProps) => {
   return (
     <StyledGallery className={expanded ? "expanded" : "collapsed"}>
       <Scrollbar
-        scrollViewportWidthInterval={[device.tabletPortrait, Infinity]}>
+        scrollViewportWidthInterval={[device.tabletPortrait, Infinity]}
+      >
         <GalleryInner>
           {images.map(({ url, width, height, altText }) => (
             <GalleryImage
@@ -33,14 +35,14 @@ const Gallery = ({ images }: GalleryProps) => {
               src={url}
               width={width}
               height={height}
-              alt={altText}
+              alt={altText || title}
             />
           ))}
         </GalleryInner>
       </Scrollbar>
       <ShowMore onClick={() => setExpanded((p) => !p)}>
         <ShowMoreButton>
-          <Medium className='black max-width uppercase'>
+          <Medium className="black max-width uppercase">
             {expanded ? `Sbalit galerii` : `Rozbalit galerii`}
           </Medium>
         </ShowMoreButton>

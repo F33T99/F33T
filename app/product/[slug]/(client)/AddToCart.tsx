@@ -13,10 +13,10 @@ import { Mini } from "../../../../components/Typography/Mini";
 import { Small } from "../../../../components/Typography/Small";
 import { formatPrice } from "../../../../helpers/formatPrice";
 import {
-  StyledAddToCart,
-  VariantsContainer,
   Cta,
   PriceContainer,
+  StyledAddToCart,
+  VariantsContainer,
 } from "./StyledAddToCart";
 
 interface AddToCartProps {
@@ -35,7 +35,7 @@ const AddToCart = ({ product }: AddToCartProps) => {
   return (
     <StyledAddToCart>
       <VariantsContainer>
-        <Mini className='black uppercase'>vyber velikost</Mini>
+        <Mini className="black uppercase">vyber velikost</Mini>
         <InsoleSizeVariants
           variants={product.variants}
           onChange={(i) => setI(i)}
@@ -43,9 +43,9 @@ const AddToCart = ({ product }: AddToCartProps) => {
       </VariantsContainer>
       <Cta>
         <PriceContainer>
-          <Large className='black price'>
+          <Large className="black price">
             {formatPrice(product.variants.nodes[i].price.amount)}{" "}
-            <Small className='black' as={"span"}>
+            <Small className="black" as={"span"}>
               s DPH
             </Small>
           </Large>
@@ -54,7 +54,8 @@ const AddToCart = ({ product }: AddToCartProps) => {
           onClick={() => {
             linesAdd([merchandise]);
           }}
-          className='x-big'>
+          className="x-big"
+        >
           {"přidat do košíku"}
         </Button>
       </Cta>
