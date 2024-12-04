@@ -41,7 +41,7 @@ const ProductCard = ({
   const [hover, setHover] = useState(false);
   const coverPhotoRef = getMetafieldReference<MediaImage>(
     metafields,
-    "products-cover"
+    "products-cover",
   );
 
   return (
@@ -51,32 +51,32 @@ const ProductCard = ({
       onMouseLeave={() => setHover(false)}
     >
       <ProductCardHeader>
-        <SectionHeader as={"h2"} className='uppercase black tight-lineheight'>
+        <SectionHeader as={"h2"} className="uppercase black tight-lineheight">
           {title}
         </SectionHeader>
         <ProductCardCover
           hover={hover}
           src={coverPhotoRef?.image.url}
-          alt={coverPhotoRef?.image.altText}
+          alt={coverPhotoRef?.image.altText || title}
         />
       </ProductCardHeader>
       <ProductCardContent>
         <ProductCardPrice>
-          <Large className='black tight-lineheight price'>
+          <Large className="black tight-lineheight price">
             {formatPrice(priceRange.minVariantPrice.amount)}
           </Large>
         </ProductCardPrice>
         <ProductCardVariants>
-          <Mini className='black tac'>velikosti skladem</Mini>
+          <Mini className="black tac">velikosti skladem</Mini>
           <InsoleSizeVariants variants={variants} disableSelection />
         </ProductCardVariants>
         <ProductCardButton>
-          <Button as={"span"} className='big'>
+          <Button as={"span"} className="big">
             zjistit více
           </Button>
         </ProductCardButton>
       </ProductCardContent>
-      <Line stroke='gray700' />
+      <Line stroke="gray700" />
     </StyledProductCard>
   );
 };
