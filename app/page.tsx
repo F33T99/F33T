@@ -3,12 +3,11 @@ import {
   QueryRoot,
 } from "@shopify/hydrogen-react/storefront-api-types";
 import { Metadata } from "next";
+import { Fragment } from "react";
 import getClient from "../apollo/client";
-import Elevator from "../components/Elevator/Elevator";
 import Line from "../components/Line/Line";
 import MainHero from "../components/MainHero/MainHero";
 import ProductBanner from "../components/ProductBanner/ProductBanner";
-import ScrollAnimation from "../components/ScrollAnimation/ScrollAnimation";
 import { Medium } from "../components/Typography/Medium";
 import { Micro } from "../components/Typography/Micro";
 import { SectionHeader } from "../components/Typography/SectionHeader";
@@ -43,6 +42,7 @@ const page = async () => {
   const handles = ["active", "basic"];
 
   const requestsQueue = handles.map((handle) => {
+    // @ts-ignore
     return client.query<QueryRoot>({
       query: GET_PRODUCT,
       variables: {
@@ -73,25 +73,22 @@ const page = async () => {
   const basicInsoleReviews = convertReviewsToJson(
     getReviewFromMeta(products?.[1]?.metafields as Metafield[]) as string,
   );
+  const reviews = [...activeInsoleReviews, ...basicInsoleReviews];
 
   return (
     <StyledHomepage data-theme="dark">
       <GlobalHomepage />
       <MainHero />
-      <ScrollAnimation offset={[0.9, 0.1]}>
-        <VariantsHeaderContainer />
-      </ScrollAnimation>
-      <Elevator>
-        <ProductBanner
-          data={products.map((node) => ({
-            perex: node!.description,
-            benefits: node!.metafields[0]?.value.split("\n"),
-            type: node!.title,
-            price: node!.priceRange,
-            handle: node!.handle,
-          }))}
-        />
-      </Elevator>
+      <VariantsHeaderContainer />
+      <ProductBanner
+        data={products.map((node) => ({
+          perex: node!.description,
+          benefits: node!.metafields[0]?.value.split("\n"),
+          type: node!.title,
+          price: node!.priceRange,
+          handle: node!.handle,
+        }))}
+      />
       <Technology id={"technology"}>
         <TechnologyHeader>Technologie</TechnologyHeader>
         <TechnologyContent>
@@ -157,56 +154,30 @@ const page = async () => {
           </TechnologyBenefits>
         </TechnologyContent>
       </Technology>
-      {(activeInsoleReviews || basicInsoleReviews) && (
+      {reviews.length !== 0 && (
         <ReferencesSection id={"references"} data-background-color="dark">
           <SectionHeader className="uppercase black max-width">
             Ideální pro každodenní nošení i sport
           </SectionHeader>
           <References>
-            <Reference className="wide">
-              <ReferencePerson>
-                <Micro className="gray700 uppercase" as={"h3"}>
-                  {activeInsoleReviews?.[0].name}
-                </Micro>
-                <Micro className="gray700 uppercase" as={"h4"}>
-                  {activeInsoleReviews?.[0].profession}
-                </Micro>
-              </ReferencePerson>
-              <Medium className="black uppercase no-max-width">
-                {activeInsoleReviews?.[0].quote}
-              </Medium>
-            </Reference>
-            <Line stroke="gray700" className="line _1" />
-            <Reference className="short _1">
-              <ReferencePerson>
-                <Micro className="gray700 uppercase" as={"h3"}>
-                  {basicInsoleReviews?.[0].name}
-                </Micro>
-                <Micro className="gray700 uppercase" as={"h4"}>
-                  {basicInsoleReviews?.[0].profession}
-                </Micro>
-              </ReferencePerson>
-              <Medium className="black uppercase no-max-width">
-                {basicInsoleReviews?.[0].quote}
-              </Medium>
-            </Reference>
-            <Line stroke="gray700" vertical className="vertical line _2" />
-            <Line stroke="gray700" className="horizontal line _2" />
-            {activeInsoleReviews[1] && (
-              <Reference className="short _2">
-                <ReferencePerson>
-                  <Micro className="gray700 uppercase" as={"h3"}>
-                    {activeInsoleReviews?.[1].name}
-                  </Micro>
-                  <Micro className="gray700 uppercase" as={"h4"}>
-                    {activeInsoleReviews?.[1].profession}
-                  </Micro>
-                </ReferencePerson>
-                <Medium className="black uppercase no-max-width">
-                  {activeInsoleReviews?.[1].quote}
-                </Medium>
-              </Reference>
-            )}
+            {reviews.map((review, key) => (
+              <Fragment key={key}>
+                <Reference>
+                  <ReferencePerson>
+                    <Micro className="gray700 uppercase" as={"h3"}>
+                      {review?.name}
+                    </Micro>
+                    <Micro className="gray700 uppercase" as={"h4"}>
+                      {review?.profession}
+                    </Micro>
+                  </ReferencePerson>
+                  <Medium className="black uppercase no-max-width">
+                    {review?.quote}
+                  </Medium>
+                </Reference>
+                {key + 1 !== reviews.length && <Line stroke="gray700" />}
+              </Fragment>
+            ))}
           </References>
         </ReferencesSection>
       )}

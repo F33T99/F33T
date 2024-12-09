@@ -18,7 +18,7 @@ const MainHero = ({}: MainHeroProps) => {
   return (
     <StyledMainHero>
       <HeroContent>
-        <PageHeader className='uppercase'>
+        <PageHeader className="uppercase">
           {`Vložky do bot Vylepšené o\u00a0nanotechnologii`}
         </PageHeader>
         <Button
@@ -39,7 +39,7 @@ const MainHero = ({}: MainHeroProps) => {
             }
             src={
               w <= device.tabletPortrait
-                ? "/videos/hero-loop-vertical-1.mp4"
+                ? "/videos/hero-loop-vertical_1.mp4"
                 : "/videos/hero-loop-horizontal-2.mp4"
             }
           />

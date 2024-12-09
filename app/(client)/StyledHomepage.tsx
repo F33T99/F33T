@@ -144,50 +144,19 @@ export const ReferencesSection = styled.section`
 export const References = styled.div`
   margin-top: ${spaces.xxxxl}px;
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  grid-template-areas: "wide wide wide" "line1 line1 line1" "short line2 short2";
   row-gap: ${spaces.xxxl}px;
   column-gap: ${spaces.xxl}px;
-  align-items: start;
-  .line {
-    &._1 {
-      grid-area: line1;
-    }
-    &._2 {
-      grid-area: line2;
-    }
-  }
-  .vertical.line._2 {
-    display: block;
-  }
-  .horizontal.line._2 {
-    display: none;
-  }
   ${breakpoint.smallNotebook} {
     margin-top: ${spaces.xxxl}px;
     row-gap: ${spaces.xl}px;
-    column-gap: ${spaces.l}px;
   }
   ${breakpoint.tabletLandscape} {
     row-gap: ${spaces.xxl}px;
     margin-top: ${spaces.xxl}px;
-    column-gap: ${spaces.l}px;
-  }
-  ${breakpoint.tabletPortrait} {
-    align-items: start;
-    grid-template-columns: 1fr 26px 1fr;
   }
   ${breakpoint.phone} {
-    grid-template-columns: unset;
-    grid-template-areas: "wide" "line1" "short" "line2" "short2";
     row-gap: ${spaces.l}px;
     margin-top: ${spaces.xl}px;
-    .vertical.line._2 {
-      display: none;
-    }
-    .horizontal.line._2 {
-      display: block;
-    }
   }
 `;
 

@@ -1,3 +1,4 @@
+import { GoogleTagManager } from "@next/third-parties/google";
 import { Metadata } from "next";
 import { Suspense } from "react";
 import Cart, { CartToggleProvider } from "../components/Cart/Cart";
@@ -45,6 +46,7 @@ export default async function RootLayout({
 }) {
   return (
     <html lang={"cs"}>
+      <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTAG} />
       <StyledComponentsRegistry>
         <body>
           <Suspense>
