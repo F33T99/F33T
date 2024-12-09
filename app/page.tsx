@@ -180,9 +180,7 @@ const page = async () => {
                     {review?.quote}
                   </Medium>
                 </Reference>
-                {key + 1 !== reviews.length && (
-                  <Line stroke="gray700" className="line _1" />
-                )}
+                {key + 1 !== reviews.length && <Line stroke="gray700" />}
               </Fragment>
             ))}
           </References>
