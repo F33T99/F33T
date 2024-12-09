@@ -5,11 +5,9 @@ import {
 import { Metadata } from "next";
 import { Fragment } from "react";
 import getClient from "../apollo/client";
-import Elevator from "../components/Elevator/Elevator";
 import Line from "../components/Line/Line";
 import MainHero from "../components/MainHero/MainHero";
 import ProductBanner from "../components/ProductBanner/ProductBanner";
-import ScrollAnimation from "../components/ScrollAnimation/ScrollAnimation";
 import { Medium } from "../components/Typography/Medium";
 import { Micro } from "../components/Typography/Micro";
 import { SectionHeader } from "../components/Typography/SectionHeader";
@@ -44,6 +42,7 @@ const page = async () => {
   const handles = ["active", "basic"];
 
   const requestsQueue = handles.map((handle) => {
+    // @ts-ignore
     return client.query<QueryRoot>({
       query: GET_PRODUCT,
       variables: {
@@ -80,20 +79,16 @@ const page = async () => {
     <StyledHomepage data-theme="dark">
       <GlobalHomepage />
       <MainHero />
-      <ScrollAnimation offset={[0.9, 0.1]}>
-        <VariantsHeaderContainer />
-      </ScrollAnimation>
-      <Elevator>
-        <ProductBanner
-          data={products.map((node) => ({
-            perex: node!.description,
-            benefits: node!.metafields[0]?.value.split("\n"),
-            type: node!.title,
-            price: node!.priceRange,
-            handle: node!.handle,
-          }))}
-        />
-      </Elevator>
+      <VariantsHeaderContainer />
+      <ProductBanner
+        data={products.map((node) => ({
+          perex: node!.description,
+          benefits: node!.metafields[0]?.value.split("\n"),
+          type: node!.title,
+          price: node!.priceRange,
+          handle: node!.handle,
+        }))}
+      />
       <Technology id={"technology"}>
         <TechnologyHeader>Technologie</TechnologyHeader>
         <TechnologyContent>

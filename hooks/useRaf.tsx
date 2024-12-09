@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useIntersectionObserver } from "./useIntersectionObserver";
 
-export function useRaf(containerRef, _raf) {
+export function useRaf(containerRef: HTMLElement, _raf: () => void) {
   const isIntersecting = useRef<boolean>(false);
   const rafId = useRef<number>(null);
 
@@ -12,16 +12,14 @@ export function useRaf(containerRef, _raf) {
         isIntersecting.current = entry.isIntersecting;
       });
     },
-    { threshold: [0, 1] }
+    { threshold: [0, 1] },
   );
 
   useEffect(() => {
     function raf() {
-      if (!isIntersecting.current) {
-        rafId.current = requestAnimationFrame(raf);
-        return;
+      if (isIntersecting.current) {
+        _raf();
       }
-      _raf();
       rafId.current = requestAnimationFrame(raf);
     }
 

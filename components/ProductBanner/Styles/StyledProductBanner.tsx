@@ -1,11 +1,16 @@
-import styled from "styled-components";
-import { spaces } from "../../../consts/spaces";
 import { motion } from "framer-motion";
+import styled from "styled-components";
 import { breakpoint } from "../../../consts/breakpoints";
+import { spaces } from "../../../consts/spaces";
+
+export const ProductBanenerContainer = styled.div`
+  height: 300vh;
+`;
 
 export const StyledProductBanner = styled.div`
   height: 100vh;
-  position: relative;
+  position: sticky;
+  top: 0;
 `;
 
 export const LottieWrapper = styled.div`
@@ -73,7 +78,6 @@ export const InsoleBenefits = styled.div`
     display: none;
   }
 `;
-
 
 export const Benefits = styled(motion.div)`
   display: flex;

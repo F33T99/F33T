@@ -14,6 +14,9 @@ importers:
       '@dotlottie/react-player':
         specifier: ^1.1.0
         version: 1.6.19(react@18.3.1)
+      '@lottiefiles/dotlottie-web':
+        specifier: ^0.38.1
+        version: 0.38.1
       '@lottiefiles/lottie-interactivity':
         specifier: ^1.6.2
         version: 1.6.2
@@ -38,6 +41,9 @@ importers:
       framer-motion:
         specifier: ^10.12.22
         version: 10.18.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      lottie-web:
+        specifier: ^5.12.2
+        version: 5.12.2
       next:
         specifier: ^15.0.4
         version: 15.0.4(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -716,6 +722,9 @@ packages:
 
   '@lit/reactive-element@1.6.3':
     resolution: {integrity: sha512-QuTgnG52Poic7uM1AN5yJ09QMe0O28e10XzSvWDz02TJiiKee4stsiownEIadWm8nYzyDAyT+gKzUoZmiWQtsQ==}
+
+  '@lottiefiles/dotlottie-web@0.38.1':
+    resolution: {integrity: sha512-k7l2nLxGvFCD4ckJFxYI7KSvLvT5HtvGkejk6VuGTuUfcQpS+e29fOF+oNRVW5Wjgdh/1QvyxLpqDg57CcJqgw==}
 
   '@lottiefiles/lottie-interactivity@1.6.2':
     resolution: {integrity: sha512-psmG/frpi4IIJjBa+Mj0ivKtfNRkasUnvU6sBrVfm7nSwBpEoyMop16uIEYg5PYdpboFbQQhibmwC006KGZhsA==}
@@ -3558,6 +3567,8 @@ snapshots:
   '@lit/reactive-element@1.6.3':
     dependencies:
       '@lit-labs/ssr-dom-shim': 1.2.1
+
+  '@lottiefiles/dotlottie-web@0.38.1': {}
 
   '@lottiefiles/lottie-interactivity@1.6.2':
     dependencies:

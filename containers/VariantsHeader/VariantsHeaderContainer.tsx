@@ -1,7 +1,6 @@
 "use client";
-import { cubicBezier } from "framer-motion";
-import { useContext } from "react";
-import { ScrollAnimationContext } from "../../components/ScrollAnimation/ScrollAnimation";
+import { useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import {
   StyledVariantsHeaderContainer,
   VariantsHeader,
@@ -9,27 +8,21 @@ import {
 } from "./Styles/StyledVariantsHeaderContainer";
 
 const VariantsHeaderContainer = () => {
-  const { animationElRef, scrollYProgress } = useContext(
-    ScrollAnimationContext
-  );
-  const easing = cubicBezier(0.5, 0, 0, 0.5);
-  const easedProgress = easing(scrollYProgress.progress);
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["0.1 end", "0.9 end"],
+  });
+  const left = useTransform(scrollYProgress, [0, 1], ["-100%", "0%"]);
+  const right = useTransform(scrollYProgress, [0, 1], ["100", "0%"]);
 
   return (
-    <StyledVariantsHeaderContainer ref={animationElRef}>
+    <StyledVariantsHeaderContainer ref={ref}>
       <VariantsInner>
-        <VariantsHeader
-          className='left'
-          style={{
-            transform: `translateX(${100 + easedProgress * -100}%)`,
-          }}>
+        <VariantsHeader className="left" style={{ x: left }}>
           Varianty
         </VariantsHeader>
-        <VariantsHeader
-          className='right'
-          style={{
-            transform: `translateX(${-100 + easedProgress * 100}%)`,
-          }}>
+        <VariantsHeader className="right" style={{ x: right }}>
           Vložek
         </VariantsHeader>
       </VariantsInner>

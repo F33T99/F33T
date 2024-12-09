@@ -7,7 +7,7 @@
     "dev": "next dev --port 3001",
     "build": "next build",
     "start": "next start",
-    "check-types": "tsc --noEmit",
+    "types-check": "tsc --noEmit",
     "codegen": "graphql-codegen --require dotenv/config --config ./codegen.ts dotenv_config_path=./.env"
   },
   "keywords": [],
@@ -16,6 +16,7 @@
   "dependencies": {
     "@apollo/client": "^3.7.17",
     "@dotlottie/react-player": "^1.1.0",
+    "@lottiefiles/dotlottie-web": "^0.38.1",
     "@lottiefiles/lottie-interactivity": "^1.6.2",
     "@next/third-parties": "^15.0.4",
     "@radix-ui/react-dialog": "^1.0.4",
@@ -24,6 +25,7 @@
     "auto-writer": "^1.1.2",
     "classnames": "^2.5.1",
     "framer-motion": "^10.12.22",
+    "lottie-web": "^5.12.2",
     "next": "^15.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
