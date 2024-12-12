@@ -5,6 +5,7 @@ import Cart, { CartToggleProvider } from "../components/Cart/Cart";
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
 import Pixel from "../components/Pixel/Pixel";
+import Tiktok from "../components/Tiktok/Tiktok";
 import { colors } from "../consts/colors";
 import StyledComponentsRegistry from "../lib/registry";
 import CartProvider from "./(client)/CartProvider";
@@ -49,6 +50,7 @@ export default async function RootLayout({
     <html lang={"cs"}>
       <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTAG} />
       <Pixel />
+      <Tiktok />
       <StyledComponentsRegistry>
         <body>
           <Suspense>
