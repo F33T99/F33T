@@ -1,6 +1,10 @@
 "use client";
 
-import { CartLineProvider, useCart } from "@shopify/hydrogen-react";
+import {
+  CartCheckoutButton,
+  CartLineProvider,
+  useCart,
+} from "@shopify/hydrogen-react";
 import { AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 import {
@@ -144,9 +148,9 @@ const Cart = ({ }: CartProps) => {
                 className="big full-width"
                 onClick={handleCheckout}
               >
-                {/* <CartCheckoutButton style={{ all: "unset" }}> */}
-                pokračovat
-                {/* </CartCheckoutButton> */}
+                <CartCheckoutButton style={{ all: "unset" }}>
+                  pokračovat
+                </CartCheckoutButton>
               </Button>
             </CartFooter>
           )}
