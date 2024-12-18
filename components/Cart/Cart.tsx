@@ -1,10 +1,6 @@
 "use client";
 
-import {
-  CartCheckoutButton,
-  CartLineProvider,
-  useCart,
-} from "@shopify/hydrogen-react";
+import { CartLineProvider, useCart } from "@shopify/hydrogen-react";
 import { AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 import {
@@ -19,6 +15,8 @@ import { DisableScroll } from "../../app/(client)/DisableScroll";
 import { easing } from "../../consts/animationConfig";
 import { colors } from "../../consts/colors";
 import { formatPrice } from "../../helpers/formatPrice";
+import { pixel } from "../../lib/pixel";
+import { tiktok } from "../../lib/tiktok";
 import Button from "../Button/Button";
 import Burger from "../Icons/Burger";
 import Line from "../Line/Line";
@@ -39,7 +37,7 @@ import {
   TotalPrice,
 } from "./Styles/StyledCart";
 
-interface CartProps {}
+interface CartProps { }
 
 export const CartToggleContext = createContext<{
   showCart: boolean;
@@ -55,7 +53,7 @@ export const CartToggleProvider = ({ children }) => {
   );
 };
 
-const Cart = ({}: CartProps) => {
+const Cart = ({ }: CartProps) => {
   const { lines, cost } = useCart();
   const pathname = usePathname();
   const { setShowCart, showCart } = useContext(CartToggleContext);
@@ -63,6 +61,23 @@ const Cart = ({}: CartProps) => {
   useEffect(() => {
     setShowCart(false);
   }, [pathname]);
+
+  const handleCheckout = () => {
+    tiktok.initiateCheckout({
+      contents: lines.map((l) => ({
+        content_id: l.merchandise.id,
+        content_name: l.merchandise.product.title,
+        price: l.cost.totalAmount.amount,
+      })),
+      totalPrice: cost.totalAmount.amount,
+      currency: cost.totalAmount.currencyCode,
+    });
+    pixel.initiateCheckout({
+      price: cost.totalAmount.amount,
+      currency: cost.totalAmount.currencyCode,
+      productIds: lines.map((l) => l.merchandise.id),
+    });
+  };
 
   return (
     <>
@@ -76,9 +91,10 @@ const Cart = ({}: CartProps) => {
               ? `10px 0 70px ${colors.red400}`
               : `0px 0 0px ${colors.red400}`,
           }}
-          transition={{ ease: easing, duration: 0.5 }}>
+          transition={{ ease: easing, duration: 0.5 }}
+        >
           <CartHeader>
-            <Big className='uppercase black'>Košík</Big>
+            <Big className="uppercase black">Košík</Big>
             <CartCloseWrapper>
               <Burger
                 onClick={() => setShowCart(false)}
@@ -91,7 +107,7 @@ const Cart = ({}: CartProps) => {
           <CartContent>
             {lines.length === 0 ? (
               <EmptyCart>
-                <Big className='black'>Váš košík je prázdný</Big>
+                <Big className="black">Váš košík je prázdný</Big>
                 <Button href={"/products"} onClick={() => setShowCart(false)}>
                   Přejít na produkty
                 </Button>
@@ -105,7 +121,7 @@ const Cart = ({}: CartProps) => {
                         <CartItemWrapper>
                           <CartItem />
                           {!(lines.length === i + 1) && (
-                            <Line stroke='gray500' diagonalSize={20} />
+                            <Line stroke="gray500" diagonalSize={20} />
                           )}
                         </CartItemWrapper>
                       </CartLineProvider>
@@ -118,15 +134,19 @@ const Cart = ({}: CartProps) => {
           {!(lines.length === 0) && (
             <CartFooter>
               <TotalPrice>
-                <Big className='black'>Celkem</Big>
-                <Big className='black'>
+                <Big className="black">Celkem</Big>
+                <Big className="black">
                   {formatPrice(cost?.totalAmount?.amount)}
                 </Big>
               </TotalPrice>
-              <Button as={"span"} className='big full-width'>
-                <CartCheckoutButton style={{ all: "unset" }}>
-                  pokračovat
-                </CartCheckoutButton>
+              <Button
+                as={"span"}
+                className="big full-width"
+                onClick={handleCheckout}
+              >
+                {/* <CartCheckoutButton style={{ all: "unset" }}> */}
+                pokračovat
+                {/* </CartCheckoutButton> */}
               </Button>
             </CartFooter>
           )}
