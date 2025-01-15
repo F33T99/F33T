@@ -21,9 +21,9 @@ import {
   StyledFooter,
 } from "./Styles/StyledFooter";
 
-interface FooterProps { }
+interface FooterProps {}
 
-const Footer = ({ }: FooterProps) => {
+const Footer = ({}: FooterProps) => {
   const theme = useTheme();
   const isThemeLight = theme.type === "light";
   const fontColor = isThemeLight ? "black" : "white";
@@ -58,7 +58,7 @@ const Footer = ({ }: FooterProps) => {
             </Link>
           </Nano>
           <Nano className={`uppercase tar ${fontColor}`}>
-            <Link className="no-underline" href={"/?s=philoshopy"}>
+            <Link className="no-underline" href={"/?s=philosophy"}>
               Filozofie
             </Link>
           </Nano>
