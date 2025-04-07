@@ -62,10 +62,9 @@ const page = async ({}: pageProps) => {
         </RevealAnimation>
         <RevealAnimation delay={1.3}>
           <Small className="black uppercase indent wide">
-            Vložky jsou určeny pro denní nošení a sport. chrání před rázy při
-            chůzi, běhu a dopadech. Vložky korespondují s ergonomií chodidla.
-            Povrchová pletená textilie s přidaným stříbrem snižuje množení
-            bakterií, čímž přímo zabraňuje zápachu.
+            F33T vložky = pohodlí bez kompromisů. 
+            ACTIVE tě drží v tempu při každém pohybu, BASIC je pro ty, co chtějí nohy v pohodlí non-stop. 
+            Tlumí, stabilizují, a nezastaví tě. S námi jdeš vždy na plný plyn.
           </Small>
         </RevealAnimation>
       </ProductsPageHero>
